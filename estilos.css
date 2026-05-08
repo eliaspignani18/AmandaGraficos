@@ -575,9 +575,21 @@ section {
 .contact-box h2 { margin: 14px 0 16px; }
 .contact-list { list-style: none; padding: 0; margin: 0 0 var(--space-3); }
 .contact-list li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
   padding: 10px 0;
   border-bottom: 1px solid rgba(28, 28, 32, 0.18);
   font-weight: 600;
+}
+.contact-icon {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  color: #25D366;
+}
+.contact-icon--ig {
+  color: #E1306C;
 }
 .contact-list li:last-child { border-bottom: none; }
 .contact-list a { color: inherit; text-decoration: none; }
@@ -1589,16 +1601,27 @@ footer {
 .strip-sep { display: none; }
 
 /* ═══════════════════════════════════════════════════════════
-   GRILLA DE FOTOS (trabajos recientes)
+   CARRUSEL DE FOTOS (trabajos recientes)
    ═══════════════════════════════════════════════════════════ */
-.photo-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
+.carousel-track {
+  display: flex;
   gap: 8px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: 8px;
   margin-top: var(--space-3);
+  scrollbar-width: thin;
+  scrollbar-color: var(--ink-200) transparent;
 }
+.carousel-track::-webkit-scrollbar { height: 4px; }
+.carousel-track::-webkit-scrollbar-track { background: transparent; }
+.carousel-track::-webkit-scrollbar-thumb { background: var(--ink-200); border-radius: 99px; }
+
 .photo-grid-item {
-  aspect-ratio: 1;
+  flex: 0 0 220px;
+  height: 220px;
+  scroll-snap-align: start;
   overflow: hidden;
   border-radius: var(--radius-sm);
   border: 1.5px solid var(--ink-900);
@@ -1618,10 +1641,88 @@ footer {
   margin-top: var(--space-3);
 }
 
-@media (max-width: 720px) {
-  .photo-grid { grid-template-columns: repeat(3, 1fr); gap: 6px; }
+/* ── Packs ──────────────────────────────────────────────────────────────── */
+.section-sub { color: var(--ink-500); max-width: 560px; margin: 8px auto 0; }
+.packs-grid {
+  display: flex;
+  gap: var(--space-3);
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: 8px;
+  margin-top: var(--space-4);
+  scrollbar-width: thin;
+  scrollbar-color: var(--ink-200) transparent;
 }
-@media (max-width: 480px) {
-  .photo-grid { grid-template-columns: repeat(2, 1fr); }
-  .photo-grid-item:nth-child(n+9) { display: none; }
+.packs-grid::-webkit-scrollbar { height: 4px; }
+.packs-grid::-webkit-scrollbar-track { background: transparent; }
+.packs-grid::-webkit-scrollbar-thumb { background: var(--ink-200); border-radius: 99px; }
+.pack-card {
+  flex: 0 0 min(760px, calc(100vw - 60px));
+  scroll-snap-align: start;
+  padding: var(--space-4);
+  background: var(--paper);
+  border: 2px solid var(--ink-900);
+  border-radius: var(--radius-lg);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+.pack-card-header {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+}
+.pack-icon {
+  font-size: 2rem;
+  line-height: 1;
+  flex-shrink: 0;
+}
+.pack-card-header h3 { margin: 0 0 4px; font-size: 1.25rem; }
+.pack-card-header p  { margin: 0; color: var(--ink-500); font-size: 0.9rem; }
+.pack-tiers {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  flex: 1;
+}
+.pack-tier {
+  background: var(--cream-200);
+  border: 1.5px solid var(--ink-100);
+  border-radius: var(--radius-sm);
+  padding: 12px;
+}
+.pack-tier--highlight {
+  background: var(--p-blazing-yellow);
+  border-color: var(--ink-900);
+}
+.tier-name {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+.pack-tier ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 0.82rem;
+  color: var(--ink-700);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.pack-tier ul li::before { content: "· "; }
+.packs-note {
+  text-align: center;
+  margin-top: var(--space-3);
+  font-size: 0.88rem;
+  color: var(--ink-500);
+}
+@media (max-width: 600px) {
+  .pack-card { flex: 0 0 calc(100vw - 40px); }
+  .pack-tiers { grid-template-columns: 1fr; }
+  .photo-grid-item { flex: 0 0 160px; height: 160px; }
 }
