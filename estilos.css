@@ -1485,14 +1485,14 @@ footer {
     var(--cream-100);
 }
 
-/* Sombra de títulos en dark mode: azul marino sobre texto claro */
+/* Sombra de títulos en dark mode: coral sobre texto claro */
 [data-theme="dark"] h1,
 [data-theme="dark"] h2,
 [data-theme="dark"] h3,
 [data-theme="dark"] h4 {
   text-shadow:
-    -2px 2px 0 #1f3a7a,
-    -4px 4px 0 rgba(31,58,122,0.35);
+    -2px 2px 0 #ff6f61,
+    -4px 4px 0 rgba(255,111,97,0.35);
 }
 
 /* Badges y eyebrows: pasan a amarillo en dark */
