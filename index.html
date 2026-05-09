@@ -104,19 +104,23 @@
       <div class="section-head">
         <h2>Trabajos recientes</h2>
       </div>
-      <div class="carousel-track">
-        <a href="trabajos.html" class="photo-grid-item"><img src="images/trabajos/cuadro-r2d2.webp" alt="Cuadro R2D2"></a>
-        <a href="trabajos.html" class="photo-grid-item"><img src="images/trabajos/etiquetas-especias.webp" alt="Etiquetas para especias"></a>
-        <a href="trabajos.html" class="photo-grid-item"><img src="images/trabajos/termo-simpsons.webp" alt="Stickers Simpsons en termo"></a>
-        <a href="trabajos.html" class="photo-grid-item"><img src="images/trabajos/sticker-girl-power.webp" alt="Sticker Girl Power"></a>
-        <a href="trabajos.html" class="photo-grid-item"><img src="images/trabajos/vinilo-ventana.webp" alt="Vinilo en ventana"></a>
-        <a href="trabajos.html" class="photo-grid-item"><img src="images/trabajos/stickers-brokers.webp" alt="Stickers para Brokers"></a>
-        <a href="trabajos.html" class="photo-grid-item"><img src="images/trabajos/tarjetas-vintage.webp" alt="Tarjetas vintage"></a>
-        <a href="trabajos.html" class="photo-grid-item"><img src="images/trabajos/decoracion-milo.webp" alt="Decoración cumpleaños Milo"></a>
-        <a href="trabajos.html" class="photo-grid-item"><img src="images/trabajos/sticker-van-gogh.webp" alt="Sticker Van Gogh"></a>
-        <a href="trabajos.html" class="photo-grid-item"><img src="images/trabajos/stickers-polaroid-arte.webp" alt="Stickers polaroid"></a>
-        <a href="trabajos.html" class="photo-grid-item"><img src="images/trabajos/cuadro-mascota.webp" alt="Cuadro mascota personalizado"></a>
-        <a href="trabajos.html" class="photo-grid-item"><img src="images/trabajos/tarjetas-barber-point.webp" alt="Tarjetas Barber Point"></a>
+      <div class="carousel-wrap">
+        <button class="carousel-btn carousel-btn--prev" aria-label="Anterior">&#8249;</button>
+        <div class="carousel-track">
+          <a href="trabajos.html" class="photo-grid-item"><img src="images/trabajos/cuadro-r2d2.webp" alt="Cuadro R2D2"></a>
+          <a href="trabajos.html" class="photo-grid-item"><img src="images/trabajos/etiquetas-especias.webp" alt="Etiquetas para especias"></a>
+          <a href="trabajos.html" class="photo-grid-item"><img src="images/trabajos/termo-simpsons.webp" alt="Stickers Simpsons en termo"></a>
+          <a href="trabajos.html" class="photo-grid-item"><img src="images/trabajos/sticker-girl-power.webp" alt="Sticker Girl Power"></a>
+          <a href="trabajos.html" class="photo-grid-item"><img src="images/trabajos/vinilo-ventana.webp" alt="Vinilo en ventana"></a>
+          <a href="trabajos.html" class="photo-grid-item"><img src="images/trabajos/stickers-brokers.webp" alt="Stickers para Brokers"></a>
+          <a href="trabajos.html" class="photo-grid-item"><img src="images/trabajos/tarjetas-vintage.webp" alt="Tarjetas vintage"></a>
+          <a href="trabajos.html" class="photo-grid-item"><img src="images/trabajos/decoracion-milo.webp" alt="Decoración cumpleaños Milo"></a>
+          <a href="trabajos.html" class="photo-grid-item"><img src="images/trabajos/sticker-van-gogh.webp" alt="Sticker Van Gogh"></a>
+          <a href="trabajos.html" class="photo-grid-item"><img src="images/trabajos/stickers-polaroid-arte.webp" alt="Stickers polaroid"></a>
+          <a href="trabajos.html" class="photo-grid-item"><img src="images/trabajos/cuadro-mascota.webp" alt="Cuadro mascota personalizado"></a>
+          <a href="trabajos.html" class="photo-grid-item"><img src="images/trabajos/tarjetas-barber-point.webp" alt="Tarjetas Barber Point"></a>
+        </div>
+        <button class="carousel-btn carousel-btn--next" aria-label="Siguiente">&#8250;</button>
       </div>
       <div class="photo-grid-cta">
         <a href="trabajos.html" class="cta secondary">Ver todos los trabajos →</a>
@@ -131,6 +135,8 @@
         <h2>Todo lo que necesitás, junto</h2>
         <p class="section-sub">Packs armados para emprendedores y eventos. Diseño 100% personalizado, producción e impresión en Rosario.</p>
       </div>
+      <div class="carousel-wrap">
+      <button class="carousel-btn carousel-btn--prev" aria-label="Anterior">&#8249;</button>
       <div class="packs-grid">
 
         <article class="pack-card">
@@ -328,6 +334,8 @@
         </article>
 
       </div>
+      <button class="carousel-btn carousel-btn--next" aria-label="Siguiente">&#8250;</button>
+      </div>
       <p class="packs-note">⏱ Tiempo de producción: 7 días hábiles aprox. · 📍 Entrega en Rosario · Consultá disponibilidad antes de tu evento.</p>
     </div>
   </section>
@@ -463,6 +471,19 @@
     <div class="footer-meta">© 2026 Amanda Gráficos · Rosario, Argentina</div>
   </div>
 </footer>
+
+<script>
+(function() {
+  document.querySelectorAll('.carousel-wrap').forEach(function(wrap) {
+    var track = wrap.querySelector('.carousel-track, .packs-grid');
+    var prev  = wrap.querySelector('.carousel-btn--prev');
+    var next  = wrap.querySelector('.carousel-btn--next');
+    var amount = track.offsetWidth * 0.75;
+    prev.addEventListener('click', function() { track.scrollBy({ left: -amount, behavior: 'smooth' }); });
+    next.addEventListener('click', function() { track.scrollBy({ left:  amount, behavior: 'smooth' }); });
+  });
+}());
+</script>
 
 <script>
 (function() {
