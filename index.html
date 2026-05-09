@@ -53,7 +53,7 @@
 
   <section class="hero">
     <div class="hero-collage">
-      <div class="hero-collage-item"><img src="images/trabajos/produccion-amanda-stand.webp" alt="Producción de stickers"></div>
+      <div class="hero-collage-item active"><img src="images/trabajos/produccion-amanda-stand.webp" alt="Producción de stickers"></div>
       <div class="hero-collage-item"><img src="images/trabajos/candy-bar-unicornio.webp" alt="Candy bar de cumpleaños"></div>
       <div class="hero-collage-item"><img src="images/trabajos/termo-purmamarca.webp" alt="Stickers en termo viajero"></div>
       <div class="hero-collage-item"><img src="images/trabajos/vinilo-margot-joyas.webp" alt="Vinilo esmerilado en local"></div>
@@ -65,6 +65,8 @@
       <div class="hero-collage-item"><img src="images/trabajos/planchas-stickers-amanda.webp" alt="Planchas de stickers"></div>
       <div class="hero-collage-item"><img src="images/trabajos/candy-bar-martina.webp" alt="Candy bar temático"></div>
       <div class="hero-collage-item"><img src="images/trabajos/banner-club-fuerza.webp" alt="Banner para club"></div>
+      <button class="hero-slide-btn hero-slide-prev" aria-label="Anterior">&#8249;</button>
+      <button class="hero-slide-btn hero-slide-next" aria-label="Siguiente">&#8250;</button>
     </div>
     <div class="hero-overlay">
       <div class="hero-copy">
@@ -461,6 +463,30 @@
     <div class="footer-meta">© 2026 Amanda Gráficos · Rosario, Argentina</div>
   </div>
 </footer>
+
+<script>
+(function() {
+  var items = document.querySelectorAll('.hero-collage-item');
+  var current = 0;
+  var timer;
+
+  function goTo(n) {
+    items[current].classList.remove('active');
+    current = (n + items.length) % items.length;
+    items[current].classList.add('active');
+  }
+
+  function resetTimer() {
+    clearInterval(timer);
+    timer = setInterval(function() { goTo(current + 1); }, 4000);
+  }
+
+  document.querySelector('.hero-slide-prev').addEventListener('click', function() { goTo(current - 1); resetTimer(); });
+  document.querySelector('.hero-slide-next').addEventListener('click', function() { goTo(current + 1); resetTimer(); });
+
+  resetTimer();
+}());
+</script>
 
 <script>
 (function(){
