@@ -1162,5 +1162,500 @@
     "meta": "Viaje",
     "desc": "Señal de la mítica Ruta 40 argentina, para los viajeros y amantes del país.",
     "tags": ["Ruta 40", "Argentina", "Viaje"]
+  },
+  {
+    "file": "image-removebg-preview (37).png",
+    "title": "Michael Jackson",
+    "category": "musica",
+    "badge": "Música",
+    "meta": "Ícono",
+    "desc": "La silueta inconfundible del Rey del Pop en su pose de baile más famosa.",
+    "tags": ["Michael Jackson", "Pop", "Ícono"]
+  },
+  {
+    "file": "25.png",
+    "title": "Rolling Stones",
+    "category": "musica",
+    "badge": "Música",
+    "meta": "Rock",
+    "desc": "La lengua icónica de los Rolling Stones, símbolo del rock clásico.",
+    "tags": ["Rolling Stones", "Rock", "Ícono"]
+  },
+  {
+    "file": "rolling-stones-skateboard-512x512-removebg-preview.png",
+    "title": "Rolling Stones skate",
+    "category": "musica",
+    "badge": "Música",
+    "meta": "Rock",
+    "desc": "La lengua de los Stones sobre una tabla de skate, rock y calle en uno.",
+    "tags": ["Rolling Stones", "Skate", "Rock"]
+  },
+  {
+    "file": "26.png",
+    "title": "Vinilo derretido",
+    "category": "musica",
+    "badge": "Música",
+    "meta": "Retro",
+    "desc": "Disco de vinilo derritiéndose con efecto glitch, para los amantes del sonido analógico.",
+    "tags": ["Vinilo", "Música", "Retro"]
+  },
+  {
+    "file": "27.png",
+    "title": "MTV",
+    "category": "musica",
+    "badge": "Música",
+    "meta": "Canal",
+    "desc": "Logo retro de MTV Music Television, un ícono de la cultura pop de los 80/90.",
+    "tags": ["MTV", "Música", "Retro"]
+  },
+  {
+    "file": "28.png",
+    "title": "Gorillaz",
+    "category": "musica",
+    "badge": "Música",
+    "meta": "Banda",
+    "desc": "2D de Gorillaz, el personaje animado de la banda virtual más coolde todos los tiempos.",
+    "tags": ["Gorillaz", "Banda", "Alternativo"]
+  },
+  {
+    "file": "29.png",
+    "title": "Cassette love",
+    "category": "musica",
+    "badge": "Música",
+    "meta": "Retro",
+    "desc": "Cassette rosa con la cinta formando la palabra love, retro y romántico.",
+    "tags": ["Cassette", "Música", "Amor"]
+  },
+  {
+    "file": "31.png",
+    "title": "KISS",
+    "category": "musica",
+    "badge": "Música",
+    "meta": "Rock",
+    "desc": "Logo de KISS en rojo y amarillo, para los fans del glam rock más extremo.",
+    "tags": ["KISS", "Rock", "Banda"]
+  },
+  {
+    "file": "32.png",
+    "title": "The Beatles",
+    "category": "musica",
+    "badge": "Música",
+    "meta": "Banda",
+    "desc": "Tipografía icónica de The Beatles, la banda más influyente de la historia.",
+    "tags": ["Beatles", "Rock", "Clásico"]
+  },
+  {
+    "file": "41.png",
+    "title": "Tony Tony Chopper",
+    "category": "anime",
+    "badge": "Anime",
+    "meta": "One Piece",
+    "desc": "Chopper saltando feliz, el médico más adorable de la tripulación del Sombrero de Paja.",
+    "tags": ["Chopper", "One Piece", "Anime"]
+  },
+  {
+    "file": "42.png",
+    "title": "Roronoa Zoro",
+    "category": "anime",
+    "badge": "Anime",
+    "meta": "One Piece",
+    "desc": "Zoro con sus tres espadas, el espadachín más poderoso del anime.",
+    "tags": ["Zoro", "One Piece", "Anime"]
+  },
+  {
+    "file": "43.png",
+    "title": "Luffy de chico",
+    "category": "anime",
+    "badge": "Anime",
+    "meta": "One Piece",
+    "desc": "Luffy de niño con su gorro de paja, el futuro rey de los piratas.",
+    "tags": ["Luffy", "One Piece", "Anime"]
+  },
+  {
+    "file": "44.png",
+    "title": "Luffy en acción",
+    "category": "anime",
+    "badge": "Anime",
+    "meta": "One Piece",
+    "desc": "Monkey D. Luffy en plena pelea, el capitán más carismático del anime.",
+    "tags": ["Luffy", "One Piece", "Pirata"]
+  },
+  {
+    "file": "45.png",
+    "title": "Fruta del Diablo",
+    "category": "anime",
+    "badge": "Anime",
+    "meta": "One Piece",
+    "desc": "La Gomu Gomu no Mi, la fruta del diablo que le dio poderes a Luffy.",
+    "tags": ["Fruta del Diablo", "One Piece", "Anime"]
+  },
+  {
+    "file": "46.png",
+    "title": "Brook",
+    "category": "anime",
+    "badge": "Anime",
+    "meta": "One Piece",
+    "desc": "Brook el músico esqueleto de One Piece, ¿puedo ver tus calzones? Yohohoho.",
+    "tags": ["Brook", "One Piece", "Anime"]
+  },
+  {
+    "file": "47.png",
+    "title": "Zoro perfil",
+    "category": "anime",
+    "badge": "Anime",
+    "meta": "One Piece",
+    "desc": "Zoro de perfil mirando al horizonte, el guerrero que nunca se pierde (bueno, a veces).",
+    "tags": ["Zoro", "One Piece", "Anime"]
+  },
+  {
+    "file": "48.png",
+    "title": "Shanks",
+    "category": "anime",
+    "badge": "Anime",
+    "meta": "One Piece",
+    "desc": "Shanks joven con su sombrero de paja, el Yonko más querido de One Piece.",
+    "tags": ["Shanks", "One Piece", "Pirata"]
+  },
+  {
+    "file": "49.png",
+    "title": "Jolly Roger",
+    "category": "anime",
+    "badge": "Anime",
+    "meta": "One Piece",
+    "desc": "La calavera con sombrero de paja, emblema de la tripulación de Monkey D. Luffy.",
+    "tags": ["Jolly Roger", "One Piece", "Pirata"]
+  },
+  {
+    "file": "50.png",
+    "title": "Luffy sonrisa",
+    "category": "anime",
+    "badge": "Anime",
+    "meta": "One Piece",
+    "desc": "La cara sonriente de Luffy, el personaje más optimista del mundo del anime.",
+    "tags": ["Luffy", "One Piece", "Sonrisa"]
+  },
+  {
+    "file": "61.png",
+    "title": "Portgas D. Ace",
+    "category": "anime",
+    "badge": "Anime",
+    "meta": "One Piece",
+    "desc": "Ace con sus poderes de fuego, el hermano mayor de Luffy y leyenda del anime.",
+    "tags": ["Ace", "One Piece", "Fuego"]
+  },
+  {
+    "file": "56.png",
+    "title": "Gotenks",
+    "category": "anime",
+    "badge": "Anime",
+    "meta": "Dragon Ball",
+    "desc": "Guerrero Saiyan en versión chibi con actitud para fans del anime clásico.",
+    "tags": ["Dragon Ball", "Saiyan", "Anime"]
+  },
+  {
+    "file": "57.png",
+    "title": "Goku niño",
+    "category": "anime",
+    "badge": "Anime",
+    "meta": "Dragon Ball",
+    "desc": "Goku de niño sosteniendo una esfera del dragón, los comienzos del héroe más fuerte.",
+    "tags": ["Goku", "Dragon Ball", "Anime"]
+  },
+  {
+    "file": "59.png",
+    "title": "Sailor Moon pixel",
+    "category": "anime",
+    "badge": "Anime",
+    "meta": "Sailor Moon",
+    "desc": "Sailor Moon en versión pixel art retro, perfecta para los fans del anime de los 90.",
+    "tags": ["Sailor Moon", "Pixel Art", "Anime"]
+  },
+  {
+    "file": "60.png",
+    "title": "Sailor Moon y Luna",
+    "category": "anime",
+    "badge": "Anime",
+    "meta": "Sailor Moon",
+    "desc": "Usagi Tsukino con su gato Luna, la pareja más icónica del anime shojo.",
+    "tags": ["Sailor Moon", "Luna", "Anime"]
+  },
+  {
+    "file": "pkm-meowth-smiling-512x512-removebg-preview.png",
+    "title": "Meowth",
+    "category": "anime",
+    "badge": "Pokémon",
+    "meta": "Anime",
+    "desc": "Meowth sonriente del equipo Rocket, el Pokémon más ambicioso y parlanchín.",
+    "tags": ["Meowth", "Pokémon", "Anime"]
+  },
+  {
+    "file": "33.png",
+    "title": "Stormtrooper pop art",
+    "category": "cine-series",
+    "badge": "Star Wars",
+    "meta": "Stormtrooper",
+    "desc": "Stormtrooper en versión pop art rosa y amarillo, para fans de Star Wars con estilo.",
+    "tags": ["Stormtrooper", "Star Wars", "Pop Art"]
+  },
+  {
+    "file": "34.png",
+    "title": "Darth Vader",
+    "category": "cine-series",
+    "badge": "Star Wars",
+    "meta": "Villano",
+    "desc": "Darth Vader en retrato circular, el villano más icónico de la galaxia.",
+    "tags": ["Darth Vader", "Star Wars", "Villano"]
+  },
+  {
+    "file": "35.png",
+    "title": "BB-8",
+    "category": "cine-series",
+    "badge": "Star Wars",
+    "meta": "Droide",
+    "desc": "BB-8 en versión kawaii, el droide más adorable de la nueva trilogía.",
+    "tags": ["BB-8", "Star Wars", "Droide"]
+  },
+  {
+    "file": "36.png",
+    "title": "Stormtrooper neón",
+    "category": "cine-series",
+    "badge": "Star Wars",
+    "meta": "Stormtrooper",
+    "desc": "Stormtrooper en tonos neón oscuros, diseño moderno para fans del lado oscuro.",
+    "tags": ["Stormtrooper", "Star Wars", "Neón"]
+  },
+  {
+    "file": "37.png",
+    "title": "Chewbacca",
+    "category": "cine-series",
+    "badge": "Star Wars",
+    "meta": "Wookiee",
+    "desc": "Chewie en versión chibi con su sonrisa, el copiloto más peludo de la galaxia.",
+    "tags": ["Chewbacca", "Star Wars", "Kawaii"]
+  },
+  {
+    "file": "38.png",
+    "title": "Baby Yoda asomándose",
+    "category": "cine-series",
+    "badge": "Star Wars",
+    "meta": "Grogu",
+    "desc": "Grogu asomándose con sus ojitos enormes, el bebé más tierno de la galaxia.",
+    "tags": ["Baby Yoda", "Star Wars", "Grogu"]
+  },
+  {
+    "file": "39.png",
+    "title": "Boba Fett",
+    "category": "cine-series",
+    "badge": "Star Wars",
+    "meta": "Cazarrecompensas",
+    "desc": "Casco de Boba Fett en violeta, el cazarrecompensas más cool de Star Wars.",
+    "tags": ["Boba Fett", "Star Wars", "Casco"]
+  },
+  {
+    "file": "40.png",
+    "title": "Stormtrooper rasgando",
+    "category": "cine-series",
+    "badge": "Star Wars",
+    "meta": "Stormtrooper",
+    "desc": "Stormtrooper abriéndose paso entre las sombras, perfecto para fans del Imperio.",
+    "tags": ["Stormtrooper", "Star Wars", "Imperio"]
+  },
+  {
+    "file": "62.png",
+    "title": "Sin Cara con té",
+    "category": "cine-series",
+    "badge": "Ghibli",
+    "meta": "El viaje de Chihiro",
+    "desc": "Sin Cara tomando una taza de té, el personaje más enigmático de Studio Ghibli.",
+    "tags": ["Sin Cara", "Ghibli", "Chihiro"]
+  },
+  {
+    "file": "63.png",
+    "title": "Sin Cara x3",
+    "category": "cine-series",
+    "badge": "Ghibli",
+    "meta": "El viaje de Chihiro",
+    "desc": "Tres Sin Cara en la pose de no ver, no escuchar, no hablar. Ghibli clásico.",
+    "tags": ["Sin Cara", "Ghibli", "Chihiro"]
+  },
+  {
+    "file": "585.png",
+    "title": "Totoro",
+    "category": "cine-series",
+    "badge": "Ghibli",
+    "meta": "Mi vecino Totoro",
+    "desc": "Totoro sentado con cara seria, el espíritu del bosque más querido de Studio Ghibli.",
+    "tags": ["Totoro", "Ghibli", "Bosque"]
+  },
+  {
+    "file": "175-512x512-removebg-preview.png",
+    "title": "Walter White",
+    "category": "cine-series",
+    "badge": "Series",
+    "meta": "Breaking Bad",
+    "desc": "Heisenberg en skate con su traje amarillo, una escena que nunca existió pero debería.",
+    "tags": ["Breaking Bad", "Walter White", "Serie"]
+  },
+  {
+    "file": "20.png",
+    "title": "Sol en skate",
+    "category": "decorativo",
+    "badge": "Skate",
+    "meta": "Verano",
+    "desc": "Sol sonriente sobre una tabla de skate azul, buena onda y buen rollo.",
+    "tags": ["Sol", "Skate", "Verano"]
+  },
+  {
+    "file": "21.png",
+    "title": "Skate pizza",
+    "category": "decorativo",
+    "badge": "Skate",
+    "meta": "Humor",
+    "desc": "Tabla de skate derretida estilo pizza, el diseño más delicioso del catálogo.",
+    "tags": ["Pizza", "Skate", "Humor"]
+  },
+  {
+    "file": "22.png",
+    "title": "Perro salchicha skater",
+    "category": "decorativo",
+    "badge": "Skate",
+    "meta": "Humor",
+    "desc": "Perro salchicha azul con anteojos sobre una tabla, demasiado cool para caminar.",
+    "tags": ["Perro", "Skate", "Humor"]
+  },
+  {
+    "file": "23.png",
+    "title": "Dino skater",
+    "category": "decorativo",
+    "badge": "Skate",
+    "meta": "Humor",
+    "desc": "T-Rex con anteojos en skate con estela arcoíris, el dinosaurio más urbano del mundo.",
+    "tags": ["Dinosaurio", "Skate", "Arcoíris"]
+  },
+  {
+    "file": "sushi-skateboard-512x512-removebg-preview.png",
+    "title": "Sushi skate",
+    "category": "decorativo",
+    "badge": "Skate",
+    "meta": "Fusión",
+    "desc": "Una pieza de sushi nigiri con ruedas de skate, fusión perfecta de culturas.",
+    "tags": ["Sushi", "Skate", "Japonés"]
+  },
+  {
+    "file": "sticker_3191-512x512-removebg-preview.png",
+    "title": "Skater con laptop",
+    "category": "decorativo",
+    "badge": "Skate",
+    "meta": "Humor",
+    "desc": "Hipster en skate trabajando en su laptop con un café, el freelancer más veloz.",
+    "tags": ["Skate", "Humor", "Laptop"]
+  },
+  {
+    "file": "ripndip-smile-face-nermal-512x512-removebg-preview.png",
+    "title": "RIPNDIP Nermal",
+    "category": "decorativo",
+    "badge": "Skate",
+    "meta": "Street",
+    "desc": "El gato Nermal de RIPNDIP dentro de un smiley amarillo, estética skate callejera.",
+    "tags": ["RIPNDIP", "Gato", "Skate"]
+  },
+  {
+    "file": "51.png",
+    "title": "Among Us en llamas",
+    "category": "humor",
+    "badge": "Humor",
+    "meta": "Juego",
+    "desc": "El impostor negro envuelto en llamas, para los que siempre votan al inocente.",
+    "tags": ["Among Us", "Juego", "Humor"]
+  },
+  {
+    "file": "525.png",
+    "title": "Among Us bebé",
+    "category": "humor",
+    "badge": "Humor",
+    "meta": "Juego",
+    "desc": "Among Us amarillo saliendo del cascarón, ¡nació un nuevo impostor!",
+    "tags": ["Among Us", "Bebé", "Juego"]
+  },
+  {
+    "file": "53.png",
+    "title": "Patita de gato",
+    "category": "decorativo",
+    "badge": "Decorativo",
+    "meta": "Kawaii",
+    "desc": "Patita de gato en círculo rosa, tierna y perfecta para amantes de los felinos.",
+    "tags": ["Gato", "Patita", "Kawaii"]
+  },
+  {
+    "file": "54.png",
+    "title": "Huevos kawaii",
+    "category": "decorativo",
+    "badge": "Decorativo",
+    "meta": "Kawaii",
+    "desc": "Cartón de huevos con caras kawaii, adorable y divertido para cualquier superficie.",
+    "tags": ["Huevos", "Kawaii", "Decorativo"]
+  },
+  {
+    "file": "55.png",
+    "title": "Planta kawaii",
+    "category": "decorativo",
+    "badge": "Decorativo",
+    "meta": "Kawaii",
+    "desc": "Suculenta en maceta con cara feliz, para los amantes de las plantas y lo tierno.",
+    "tags": ["Planta", "Kawaii", "Naturaleza"]
+  },
+  {
+    "file": "64.png",
+    "title": "Koala pizzero",
+    "category": "humor",
+    "badge": "Humor",
+    "meta": "Tierno",
+    "desc": "Koala abrazando una porción de pizza, la combinación más tierna e inesperada.",
+    "tags": ["Koala", "Pizza", "Tierno"]
+  },
+  {
+    "file": "24.png",
+    "title": "Banana oh na na",
+    "category": "frases",
+    "badge": "Frases",
+    "meta": "Humor",
+    "desc": "Banana oh na na, el juego de palabras más musical y gracioso del catálogo.",
+    "tags": ["Banana", "Frase", "Humor"]
+  },
+  {
+    "file": "30.png",
+    "title": "Drew House",
+    "category": "decorativo",
+    "badge": "Decorativo",
+    "meta": "Streetwear",
+    "desc": "Hongo sonriente estilo Drew House, la marca de Justin Bieber en versión sticker.",
+    "tags": ["Drew", "Streetwear", "Hongo"]
+  },
+  {
+    "file": "65.png",
+    "title": "Newell's Carajo",
+    "category": "futbol",
+    "badge": "Fútbol",
+    "meta": "Newell's",
+    "desc": "¡Newell's Carajo! El sticker de los leprosos más apasionados de Rosario.",
+    "tags": ["Newell's", "Rosario", "Hinchada"]
+  },
+  {
+    "file": "66.png",
+    "title": "Newell's escudo",
+    "category": "futbol",
+    "badge": "Fútbol",
+    "meta": "NOB",
+    "desc": "Escudo oficial de Newell's Old Boys, el orgullo de la mitad de Rosario.",
+    "tags": ["Newell's", "Escudo", "Rosario"]
+  },
+  {
+    "file": "67.png",
+    "title": "NOB orgullo",
+    "category": "futbol",
+    "badge": "Fútbol",
+    "meta": "Newell's",
+    "desc": "NOB Orgullo de la Ciudad, diseño tipográfico para los hinchas leprosos.",
+    "tags": ["Newell's", "Rosario", "Orgullo"]
   }
 ]
