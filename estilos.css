@@ -901,11 +901,19 @@ section {
 .modal-visual {
   aspect-ratio: 1 / 1;
   border-right: 2px solid var(--ink-900);
-  display: grid;
-  place-items: center;
+  position: relative;
   overflow: hidden;
 }
-.modal-img { width: 80%; height: 80%; object-fit: contain; }
+.modal-img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 80%;
+  max-height: 80%;
+  width: auto;
+  height: auto;
+}
 .modal-body { padding: var(--space-3); }
 .modal-badge {
   display: inline-block;
