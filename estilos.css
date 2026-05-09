@@ -233,6 +233,13 @@ a { color: inherit; }
   color: var(--ink-900);
 }
 
+.brand-logo {
+  height: 44px;
+  width: auto;
+  object-fit: contain;
+  display: block;
+}
+
 .brand-text {
   display: flex;
   flex-direction: column;
