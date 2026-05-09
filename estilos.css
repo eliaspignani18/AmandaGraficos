@@ -1665,8 +1665,9 @@ footer {
   place-items: center;
   box-shadow: 3px 3px 0 var(--ink-900);
   transition: background 0.2s;
+  color: var(--ink-900);
 }
-.carousel-btn:hover { background: var(--p-blazing-yellow); }
+.carousel-btn:hover { background: var(--p-blazing-yellow); color: var(--p-black-beauty); }
 .carousel-btn--prev { left: -22px; }
 .carousel-btn--next { right: -22px; }
 
