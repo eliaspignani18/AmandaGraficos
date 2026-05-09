@@ -1227,6 +1227,7 @@ section {
   letter-spacing: -0.01em;
   line-height: 1.2;
   margin: 0 0 6px;
+  text-shadow: none;
 }
 .work-desc {
   font-size: 0.9rem;
