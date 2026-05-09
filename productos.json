@@ -505,5 +505,662 @@
       "Cine",
       "Serie"
     ]
+  },
+  {
+    "file": "1.png",
+    "title": "Spider-Man",
+    "category": "cine-series",
+    "badge": "Marvel",
+    "meta": "Superhéroe",
+    "desc": "Sticker del Hombre Araña colgando, ideal para fans de Marvel y el UCM.",
+    "tags": ["Spider-Man", "Marvel", "Superhéroe"]
+  },
+  {
+    "file": "3.png",
+    "title": "Helga Pataki",
+    "category": "cine-series",
+    "badge": "Cartoons",
+    "meta": "Hey Arnold",
+    "desc": "Personaje icónico de Hey Arnold para fans nostálgicos de los cartoons 90s.",
+    "tags": ["Helga", "Hey Arnold", "90s"]
+  },
+  {
+    "file": "4.png",
+    "title": "Teléfono retro",
+    "category": "decorativo",
+    "badge": "Decorativo",
+    "meta": "Vintage",
+    "desc": "Teléfono estilo cartoon vintage para decorar cuadernos o cualquier superficie.",
+    "tags": ["Teléfono", "Retro", "Vintage"]
+  },
+  {
+    "file": "5.png",
+    "title": "Felix Felicis",
+    "category": "cine-series",
+    "badge": "Harry Potter",
+    "meta": "Poción",
+    "desc": "La poción de la suerte de Harry Potter, perfecta para fans del mundo mágico.",
+    "tags": ["Harry Potter", "Poción", "Magia"]
+  },
+  {
+    "file": "6.png",
+    "title": "Slytherin",
+    "category": "cine-series",
+    "badge": "Harry Potter",
+    "meta": "Hogwarts",
+    "desc": "Emblema de Slytherin con la serpiente característica para fans de Hogwarts.",
+    "tags": ["Slytherin", "Harry Potter", "Hogwarts"]
+  },
+  {
+    "file": "7.png",
+    "title": "Stitch asomándose",
+    "category": "cine-series",
+    "badge": "Disney",
+    "meta": "Lilo & Stitch",
+    "desc": "Stitch asomándose curioso, un clásico de Disney para cualquier colección.",
+    "tags": ["Stitch", "Disney", "Kawaii"]
+  },
+  {
+    "file": "8.png",
+    "title": "Stitch travieso",
+    "category": "cine-series",
+    "badge": "Disney",
+    "meta": "Lilo & Stitch",
+    "desc": "Stitch sacando la lengua con toda su energía para fans del personaje.",
+    "tags": ["Stitch", "Disney", "Humor"]
+  },
+  {
+    "file": "11.png",
+    "title": "Alicia y la pizza",
+    "category": "cine-series",
+    "badge": "Disney",
+    "meta": "Curiosa",
+    "desc": "Alicia en el País de las Maravillas comiendo pizza en versión divertida.",
+    "tags": ["Alicia", "Disney", "Humor"]
+  },
+  {
+    "file": "12.png",
+    "title": "I'll be there for you",
+    "category": "cine-series",
+    "badge": "Friends",
+    "meta": "Serie",
+    "desc": "Marco decorativo con la frase icónica de Friends para fans de la serie.",
+    "tags": ["Friends", "Serie", "Frase"]
+  },
+  {
+    "file": "13.png",
+    "title": "Central Perk",
+    "category": "cine-series",
+    "badge": "Friends",
+    "meta": "Café",
+    "desc": "Logo del café Central Perk de Friends, infaltable para fans de la serie.",
+    "tags": ["Friends", "Central Perk", "Serie"]
+  },
+  {
+    "file": "14.png",
+    "title": "Dúo musical",
+    "category": "decorativo",
+    "badge": "Música",
+    "meta": "Artistas",
+    "desc": "Ilustración de dos artistas estilo collage para fans de la música urbana.",
+    "tags": ["Música", "Artistas", "Urbano"]
+  },
+  {
+    "file": "15.png",
+    "title": "Bailarina folclórica",
+    "category": "argentina",
+    "badge": "Argentina",
+    "meta": "Cultura",
+    "desc": "Ilustración de bailarina folclórica, un guiño a la cultura y tradición argentina.",
+    "tags": ["Folklore", "Argentina", "Cultura"]
+  },
+  {
+    "file": "16.png",
+    "title": "CD holográfico",
+    "category": "decorativo",
+    "badge": "Música",
+    "meta": "Retro",
+    "desc": "CD roto con efecto holográfico, perfecto para estética retro y musical.",
+    "tags": ["CD", "Música", "Holográfico"]
+  },
+  {
+    "file": "17.png",
+    "title": "You're so golden",
+    "category": "frases",
+    "badge": "Frases",
+    "meta": "Texto",
+    "desc": "Frase motivacional en inglés ideal para termos, cuadernos o regalos.",
+    "tags": ["Frase", "Inglés", "Motivacional"]
+  },
+  {
+    "file": "image-removebg-preview.png",
+    "title": "Quetzalcóatl",
+    "category": "decorativo",
+    "badge": "Decorativo",
+    "meta": "Mitología",
+    "desc": "Serpiente emplumada azteca con colores vibrantes, diseño único y llamativo.",
+    "tags": ["Serpiente", "Azteca", "Mitología"]
+  },
+  {
+    "file": "image-removebg-preview (1).png",
+    "title": "Rosario Central",
+    "category": "futbol",
+    "badge": "Fútbol",
+    "meta": "CARC",
+    "desc": "Escudo del Canalla para hinchas de Central que quieren su sticker de club.",
+    "tags": ["Central", "Rosario", "Escudo"]
+  },
+  {
+    "file": "image-removebg-preview (2).png",
+    "title": "Independiente",
+    "category": "futbol",
+    "badge": "Fútbol",
+    "meta": "CAI",
+    "desc": "Escudo del Rojo, sticker para hinchas de Independiente de Avellaneda.",
+    "tags": ["Independiente", "Rojo", "Escudo"]
+  },
+  {
+    "file": "image-removebg-preview (3).png",
+    "title": "River Plate escudo",
+    "category": "futbol",
+    "badge": "Fútbol",
+    "meta": "CARP",
+    "desc": "Escudo oficial de River Plate para colecciones futboleras millonarias.",
+    "tags": ["River", "CARP", "Escudo"]
+  },
+  {
+    "file": "image-removebg-preview (4).png",
+    "title": "Pelota de fútbol",
+    "category": "futbol",
+    "badge": "Fútbol",
+    "meta": "Deporte",
+    "desc": "Sticker clásico de pelota de fútbol ilustrada para cualquier fan del deporte.",
+    "tags": ["Pelota", "Fútbol", "Deporte"]
+  },
+  {
+    "file": "image-removebg-preview (5).png",
+    "title": "Artista con flores",
+    "category": "decorativo",
+    "badge": "Música",
+    "meta": "Artista",
+    "desc": "Ilustración de artista con flores, estética collage para fans de la música.",
+    "tags": ["Música", "Artista", "Flores"]
+  },
+  {
+    "file": "image-removebg-preview (6).png",
+    "title": "Diego santo",
+    "category": "futbol",
+    "badge": "Fútbol",
+    "meta": "Ícono",
+    "desc": "Diego Maradona con aureola de santo, el estilo religioso del más grande.",
+    "tags": ["Diego", "Santo", "Ícono"]
+  },
+  {
+    "file": "image-removebg-preview (7).png",
+    "title": "Talleres Córdoba",
+    "category": "futbol",
+    "badge": "Fútbol",
+    "meta": "CAT",
+    "desc": "Escudo de Talleres de Córdoba para hinchas de la T que quieren su sticker.",
+    "tags": ["Talleres", "Córdoba", "Escudo"]
+  },
+  {
+    "file": "image-removebg-preview (8).png",
+    "title": "Venus de Botticelli",
+    "category": "decorativo",
+    "badge": "Arte",
+    "meta": "Clásico",
+    "desc": "La Venus de Botticelli en formato sticker, arte clásico para cualquier superficie.",
+    "tags": ["Venus", "Arte", "Clásico"]
+  },
+  {
+    "file": "image-removebg-preview (9).png",
+    "title": "Corazón abrazo",
+    "category": "decorativo",
+    "badge": "Decorativo",
+    "meta": "Amor",
+    "desc": "Corazón con brazos que se abraza, ideal para regalar o decorar con amor.",
+    "tags": ["Corazón", "Amor", "Decorativo"]
+  },
+  {
+    "file": "image-removebg-preview (10).png",
+    "title": "David arcoíris",
+    "category": "decorativo",
+    "badge": "Arte",
+    "meta": "Moderno",
+    "desc": "El David de Miguel Ángel con antifaz arcoíris, arte clásico con toque moderno.",
+    "tags": ["David", "Arte", "Moderno"]
+  },
+  {
+    "file": "image-removebg-preview (11).png",
+    "title": "David de Miguel Ángel",
+    "category": "decorativo",
+    "badge": "Arte",
+    "meta": "Escultura",
+    "desc": "El busto del David, símbolo del arte clásico en formato sticker.",
+    "tags": ["David", "Escultura", "Arte"]
+  },
+  {
+    "file": "image-removebg-preview (12).png",
+    "title": "Chica de la perla",
+    "category": "decorativo",
+    "badge": "Arte",
+    "meta": "Vermeer",
+    "desc": "La joven de la perla de Vermeer, un ícono del arte en tu termo o cuaderno.",
+    "tags": ["Vermeer", "Arte", "Pintura"]
+  },
+  {
+    "file": "image-removebg-preview (13).png",
+    "title": "Noche estrellada",
+    "category": "decorativo",
+    "badge": "Arte",
+    "meta": "Van Gogh",
+    "desc": "La noche estrellada de Van Gogh, una obra maestra que va a donde vos vayas.",
+    "tags": ["Van Gogh", "Arte", "Pintura"]
+  },
+  {
+    "file": "image-removebg-preview (14).png",
+    "title": "Honey",
+    "category": "frases",
+    "badge": "Frases",
+    "meta": "Texto",
+    "desc": "Frase honey con fondo de panal, diseño dulce y atractivo para cualquier soporte.",
+    "tags": ["Honey", "Frase", "Decorativo"]
+  },
+  {
+    "file": "image-removebg-preview (15).png",
+    "title": "Helado Minnie",
+    "category": "cine-series",
+    "badge": "Disney",
+    "meta": "Minnie Mouse",
+    "desc": "Helado con orejas de Minnie y moño a lunares, un clásico Disney irresistible.",
+    "tags": ["Minnie", "Disney", "Helado"]
+  },
+  {
+    "file": "image-removebg-preview (16).png",
+    "title": "Ají Spicy",
+    "category": "humor",
+    "badge": "Humor",
+    "meta": "Picante",
+    "desc": "Ají cartoon súper picante con actitud, ideal para los que aman el humor.",
+    "tags": ["Ají", "Spicy", "Humor"]
+  },
+  {
+    "file": "image-removebg-preview (17).png",
+    "title": "Sol y luna",
+    "category": "decorativo",
+    "badge": "Decorativo",
+    "meta": "Místico",
+    "desc": "Sol y luna en estilo tarot místico para una estética más bohemia y espiritual.",
+    "tags": ["Sol", "Luna", "Místico"]
+  },
+  {
+    "file": "image-removebg-preview (18).png",
+    "title": "Ardilla asustada",
+    "category": "cine-series",
+    "badge": "Cartoon",
+    "meta": "Gracioso",
+    "desc": "Ardilla asustada sosteniendo una poción, un personaje divertido y expresivo.",
+    "tags": ["Ardilla", "Cartoon", "Humor"]
+  },
+  {
+    "file": "image-removebg-preview (19).png",
+    "title": "Amortentia",
+    "category": "cine-series",
+    "badge": "Harry Potter",
+    "meta": "Poción",
+    "desc": "La poción del amor de Harry Potter, perfecta para fans del mundo mágico.",
+    "tags": ["Harry Potter", "Amortentia", "Magia"]
+  },
+  {
+    "file": "image-removebg-preview (20).png",
+    "title": "Mike Wazowski",
+    "category": "cine-series",
+    "badge": "Pixar",
+    "meta": "Monsters Inc",
+    "desc": "Mike Wazowski con su casco de trabajo, un clásico de Pixar para toda colección.",
+    "tags": ["Mike", "Monsters Inc", "Pixar"]
+  },
+  {
+    "file": "image-removebg-preview (21).png",
+    "title": "Baby Yoda navidad",
+    "category": "cine-series",
+    "badge": "Star Wars",
+    "meta": "The Mandalorian",
+    "desc": "Grogu dentro de un calcetín navideño, el bebé más tierno de la galaxia.",
+    "tags": ["Baby Yoda", "Star Wars", "Navidad"]
+  },
+  {
+    "file": "image-removebg-preview (22).png",
+    "title": "Galleta diabólica",
+    "category": "humor",
+    "badge": "Humor",
+    "meta": "Gracioso",
+    "desc": "Galleta de jengibre malvada entre llamas, para los que aman el humor oscuro.",
+    "tags": ["Galleta", "Fuego", "Humor"]
+  },
+  {
+    "file": "image-removebg-preview (23).png",
+    "title": "Bob Esponja cool",
+    "category": "cine-series",
+    "badge": "Cartoon",
+    "meta": "Bob Esponja",
+    "desc": "Bob Esponja con anteojos de moda mirando de costado, humor y estilo en uno.",
+    "tags": ["Bob Esponja", "Cartoon", "Humor"]
+  },
+  {
+    "file": "image-removebg-preview (24).png",
+    "title": "Patricio Gucci",
+    "category": "humor",
+    "badge": "Meme",
+    "meta": "Patricio",
+    "desc": "Patricio con billetes estilo Gucci, el meme del lujo y la clase que arrasa.",
+    "tags": ["Patricio", "Meme", "Humor"]
+  },
+  {
+    "file": "image-removebg-preview (25).png",
+    "title": "Logo Monsters Inc",
+    "category": "cine-series",
+    "badge": "Pixar",
+    "meta": "Monsters Inc",
+    "desc": "Logo oficial de Monsters Inc en azul, ideal para fans de Pixar y sus clásicos.",
+    "tags": ["Monsters Inc", "Pixar", "Logo"]
+  },
+  {
+    "file": "image-removebg-preview (26).png",
+    "title": "Winnie Pooh lector",
+    "category": "cine-series",
+    "badge": "Disney",
+    "meta": "Winnie the Pooh",
+    "desc": "Winnie the Pooh con un libro en la cabeza, tierno y divertido para fans del oso.",
+    "tags": ["Winnie Pooh", "Disney", "Libros"]
+  },
+  {
+    "file": "image-removebg-preview (27).png",
+    "title": "Rosa encantada",
+    "category": "cine-series",
+    "badge": "Disney",
+    "meta": "La Bella y la Bestia",
+    "desc": "La rosa de La Bella y la Bestia bajo su cúpula, un ícono Disney para colección.",
+    "tags": ["Disney", "Rosa", "La Bella y la Bestia"]
+  },
+  {
+    "file": "image-removebg-preview (28).png",
+    "title": "Hércules",
+    "category": "cine-series",
+    "badge": "Disney",
+    "meta": "Héroe",
+    "desc": "Hércules Disney confundido con sus poderes, un clásico animado para fans.",
+    "tags": ["Hércules", "Disney", "Héroe"]
+  },
+  {
+    "file": "image-removebg-preview (29).png",
+    "title": "Abuela Hey Arnold",
+    "category": "cine-series",
+    "badge": "Cartoons",
+    "meta": "Hey Arnold",
+    "desc": "La abuela de Hey Arnold con todo su humor característico para fans nostálgicos.",
+    "tags": ["Hey Arnold", "Abuela", "90s"]
+  },
+  {
+    "file": "image-removebg-preview (30).png",
+    "title": "Waddles",
+    "category": "cine-series",
+    "badge": "Cartoon",
+    "meta": "Gravity Falls",
+    "desc": "Waddles el cerdo de Gravity Falls, el personaje más adorable de la serie.",
+    "tags": ["Gravity Falls", "Waddles", "Cartoon"]
+  },
+  {
+    "file": "image-removebg-preview (31).png",
+    "title": "I'm fine - Friends",
+    "category": "cine-series",
+    "badge": "Friends",
+    "meta": "Serie",
+    "desc": "Ross de Friends con el clásico I'm Fine, humor de la serie para todos sus fans.",
+    "tags": ["Friends", "Ross", "Humor"]
+  },
+  {
+    "file": "image-removebg-preview (32).png",
+    "title": "Blossom",
+    "category": "cine-series",
+    "badge": "Cartoon",
+    "meta": "Chicas Superpoderosas",
+    "desc": "Blossom de Las Chicas Superpoderosas, el ícono de los cartoons de los 2000s.",
+    "tags": ["Blossom", "Chicas Superpoderosas", "Cartoon"]
+  },
+  {
+    "file": "image-removebg-preview (33).png",
+    "title": "Andén 9¾",
+    "category": "cine-series",
+    "badge": "Harry Potter",
+    "meta": "Hogwarts Express",
+    "desc": "Señal del Andén 9¾ del Hogwarts Express, imprescindible para fans de HP.",
+    "tags": ["Harry Potter", "Hogwarts", "Andén"]
+  },
+  {
+    "file": "image-removebg-preview (34).png",
+    "title": "Homero en el arbusto",
+    "category": "simpsons",
+    "badge": "Simpsons",
+    "meta": "Meme",
+    "desc": "El meme más famoso de Homero escondiéndose en el arbusto, un clásico viral.",
+    "tags": ["Homero", "Meme", "Simpsons"]
+  },
+  {
+    "file": "image-removebg-preview (35).png",
+    "title": "Lisa pop art",
+    "category": "simpsons",
+    "badge": "Simpsons",
+    "meta": "Pop Art",
+    "desc": "Lisa Simpson en versión pop art con colores vibrantes y estética diferente.",
+    "tags": ["Lisa", "Simpsons", "Pop Art"]
+  },
+  {
+    "file": "image-removebg-preview (36).png",
+    "title": "Bart zombie",
+    "category": "simpsons",
+    "badge": "Simpsons",
+    "meta": "Zombie",
+    "desc": "Bart Simpson en versión zombie skater, diseño dark para fans de los amarillos.",
+    "tags": ["Bart", "Zombie", "Simpsons"]
+  },
+  {
+    "file": "image-removebg-preview (38).png",
+    "title": "Chucky Simpson",
+    "category": "simpsons",
+    "badge": "Simpsons",
+    "meta": "Humor oscuro",
+    "desc": "Niño Simpson estilo Chucky con cuchillo, humor oscuro para los más atrevidos.",
+    "tags": ["Simpsons", "Chucky", "Humor"]
+  },
+  {
+    "file": "image-removebg-preview (39).png",
+    "title": "Good vibes",
+    "category": "frases",
+    "badge": "Frases",
+    "meta": "Texto",
+    "desc": "Good vibes en tipografía retro multicolor para transmitir buena energía.",
+    "tags": ["Good Vibes", "Frase", "Retro"]
+  },
+  {
+    "file": "image-removebg-preview (40).png",
+    "title": "Hello!",
+    "category": "frases",
+    "badge": "Frases",
+    "meta": "Texto",
+    "desc": "Hello! con cara sonriente, un sticker simpático para cualquier superficie.",
+    "tags": ["Hello", "Frase", "Decorativo"]
+  },
+  {
+    "file": "image-removebg-preview (41).png",
+    "title": "Smile please",
+    "category": "frases",
+    "badge": "Frases",
+    "meta": "Texto",
+    "desc": "Smile please en amarillo vibrante, una frase positiva para llevar a todos lados.",
+    "tags": ["Smile", "Frase", "Positivo"]
+  },
+  {
+    "file": "image-removebg-preview (42).png",
+    "title": "Best Mates",
+    "category": "frases",
+    "badge": "Frases",
+    "meta": "Texto",
+    "desc": "Best Mates en tipografía de cuadro negro, para los mejores amigos del mundo.",
+    "tags": ["Best Mates", "Amigos", "Frase"]
+  },
+  {
+    "file": "image-removebg-preview (43).png",
+    "title": "NASA retro",
+    "category": "decorativo",
+    "badge": "Decorativo",
+    "meta": "Espacio",
+    "desc": "Logo de NASA en versión retro colorida para los amantes del espacio y la ciencia.",
+    "tags": ["NASA", "Espacio", "Retro"]
+  },
+  {
+    "file": "image-removebg-preview (44).png",
+    "title": "Girl Power",
+    "category": "frases",
+    "badge": "Frases",
+    "meta": "Texto",
+    "desc": "GRL PWR con rayo, el sticker de empoderamiento femenino con estilo.",
+    "tags": ["Girl Power", "Frase", "Feminista"]
+  },
+  {
+    "file": "image-removebg-preview (45).png",
+    "title": "Mi pobre angelito",
+    "category": "cine-series",
+    "badge": "Cine",
+    "meta": "Home Alone",
+    "desc": "Kevin McCallister con la cara de sorpresa del cartel icónico de la película.",
+    "tags": ["Home Alone", "Kevin", "Película"]
+  },
+  {
+    "file": "image-removebg-preview (46).png",
+    "title": "Mr. Bean",
+    "category": "cine-series",
+    "badge": "Cine",
+    "meta": "Humor",
+    "desc": "La cara inconfundible de Mr. Bean, el sticker para los amantes del humor clásico.",
+    "tags": ["Mr. Bean", "Humor", "Cine"]
+  },
+  {
+    "file": "image-removebg-preview (47).png",
+    "title": "Marilyn Monroe",
+    "category": "decorativo",
+    "badge": "Pop Art",
+    "meta": "Ícono",
+    "desc": "Marilyn Monroe con globo de chicle rosa, imagen pop icónica para tu colección.",
+    "tags": ["Marilyn", "Pop Art", "Ícono"]
+  },
+  {
+    "file": "image-removebg-preview (48).png",
+    "title": "Café frío",
+    "category": "argentina",
+    "badge": "Argentina",
+    "meta": "Bebida",
+    "desc": "Café frío con espuma al estilo de siempre, un clásico de las tardes argentinas.",
+    "tags": ["Café", "Argentina", "Bebida"]
+  },
+  {
+    "file": "image-removebg-preview (49).png",
+    "title": "Meme pensador",
+    "category": "humor",
+    "badge": "Meme",
+    "meta": "Viral",
+    "desc": "El meme de señalarse la cabeza, perfecto para comunicar que algo fue muy inteligente.",
+    "tags": ["Meme", "Humor", "Viral"]
+  },
+  {
+    "file": "image-removebg-preview (50).png",
+    "title": "Doge",
+    "category": "humor",
+    "badge": "Meme",
+    "meta": "Viral",
+    "desc": "El famoso perro Doge mirando de costado, el meme más icónico de internet.",
+    "tags": ["Doge", "Meme", "Perro"]
+  },
+  {
+    "file": "image-removebg-preview (51).png",
+    "title": "Hoja tropical",
+    "category": "decorativo",
+    "badge": "Decorativo",
+    "meta": "Naturaleza",
+    "desc": "Hoja tropical ilustrada para una estética fresca y natural en cualquier soporte.",
+    "tags": ["Hoja", "Tropical", "Naturaleza"]
+  },
+  {
+    "file": "image-removebg-preview (52).png",
+    "title": "Mariposa monarca",
+    "category": "decorativo",
+    "badge": "Decorativo",
+    "meta": "Naturaleza",
+    "desc": "Mariposa monarca en colores vivos, un sticker elegante para decorar con estilo.",
+    "tags": ["Mariposa", "Naturaleza", "Decorativo"]
+  },
+  {
+    "file": "image-removebg-preview (53).png",
+    "title": "Concha de mar",
+    "category": "decorativo",
+    "badge": "Decorativo",
+    "meta": "Verano",
+    "desc": "Concha marina en acuarela rosa, diseño playero y refrescante para el verano.",
+    "tags": ["Mar", "Verano", "Decorativo"]
+  },
+  {
+    "file": "image-removebg-preview (54).png",
+    "title": "I don't care",
+    "category": "humor",
+    "badge": "Humor",
+    "meta": "Gato",
+    "desc": "Gato rosa tirado con la frase I don't care, perfecto para los más irreverentes.",
+    "tags": ["Gato", "Humor", "I Don't Care"]
+  },
+  {
+    "file": "image-removebg-preview (55).png",
+    "title": "Gato consentido",
+    "category": "decorativo",
+    "badge": "Decorativo",
+    "meta": "Tierno",
+    "desc": "Manos sosteniendo un gatito negro con amor, tierno y perfecto para amantes de gatos.",
+    "tags": ["Gato", "Tierno", "Decorativo"]
+  },
+  {
+    "file": "image-removebg-preview (56).png",
+    "title": "Perro salchicha",
+    "category": "decorativo",
+    "badge": "Decorativo",
+    "meta": "Tierno",
+    "desc": "Perro salchicha con la cola formando un corazón, el sticker más tierno del catálogo.",
+    "tags": ["Perro", "Salchicha", "Amor"]
+  },
+  {
+    "file": "image-removebg-preview (57).png",
+    "title": "T-Rex enamorado",
+    "category": "decorativo",
+    "badge": "Decorativo",
+    "meta": "Humor",
+    "desc": "T-Rex sosteniendo un corazón, el dinosaurio más tierno y gracioso que vas a ver.",
+    "tags": ["T-Rex", "Dinosaurio", "Amor"]
+  },
+  {
+    "file": "image-removebg-preview (58).png",
+    "title": "Calcifer",
+    "category": "cine-series",
+    "badge": "Ghibli",
+    "meta": "El castillo ambulante",
+    "desc": "Calcifer el demonio de fuego de El Castillo Ambulante, para fans de Studio Ghibli.",
+    "tags": ["Calcifer", "Ghibli", "Fuego"]
+  },
+  {
+    "file": "image-removebg-preview (59).png",
+    "title": "Ruta 40",
+    "category": "argentina",
+    "badge": "Argentina",
+    "meta": "Viaje",
+    "desc": "Señal de la mítica Ruta 40 argentina, para los viajeros y amantes del país.",
+    "tags": ["Ruta 40", "Argentina", "Viaje"]
   }
 ]
