@@ -1496,6 +1496,10 @@ footer {
     -4px 4px 0 rgba(255,111,97,0.35);
 }
 
+[data-theme="dark"] .work-title {
+  text-shadow: none;
+}
+
 /* Badges y eyebrows: pasan a amarillo en dark */
 [data-theme="dark"] .eyebrow,
 [data-theme="dark"] .section-kicker,
