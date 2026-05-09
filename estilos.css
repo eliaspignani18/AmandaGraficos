@@ -1645,20 +1645,41 @@ footer {
 /* ═══════════════════════════════════════════════════════════
    CARRUSEL DE FOTOS (trabajos recientes)
    ═══════════════════════════════════════════════════════════ */
+.carousel-wrap {
+  position: relative;
+}
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+  background: var(--cream-100);
+  border: 2px solid var(--ink-900);
+  border-radius: 50%;
+  width: 44px;
+  height: 44px;
+  font-size: 1.8rem;
+  line-height: 1;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  box-shadow: 3px 3px 0 var(--ink-900);
+  transition: background 0.2s;
+}
+.carousel-btn:hover { background: var(--p-blazing-yellow); }
+.carousel-btn--prev { left: -22px; }
+.carousel-btn--next { right: -22px; }
+
 .carousel-track {
   display: flex;
   gap: 8px;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
   -webkit-overflow-scrolling: touch;
-  padding-bottom: 8px;
   margin-top: var(--space-3);
-  scrollbar-width: thin;
-  scrollbar-color: var(--ink-200) transparent;
+  scrollbar-width: none;
 }
-.carousel-track::-webkit-scrollbar { height: 4px; }
-.carousel-track::-webkit-scrollbar-track { background: transparent; }
-.carousel-track::-webkit-scrollbar-thumb { background: var(--ink-200); border-radius: 99px; }
+.carousel-track::-webkit-scrollbar { display: none; }
 
 .photo-grid-item {
   flex: 0 0 220px;
@@ -1691,14 +1712,10 @@ footer {
   overflow-x: auto;
   scroll-snap-type: x mandatory;
   -webkit-overflow-scrolling: touch;
-  padding-bottom: 8px;
   margin-top: var(--space-4);
-  scrollbar-width: thin;
-  scrollbar-color: var(--ink-200) transparent;
+  scrollbar-width: none;
 }
-.packs-grid::-webkit-scrollbar { height: 4px; }
-.packs-grid::-webkit-scrollbar-track { background: transparent; }
-.packs-grid::-webkit-scrollbar-thumb { background: var(--ink-200); border-radius: 99px; }
+.packs-grid::-webkit-scrollbar { display: none; }
 .pack-card {
   flex: 0 0 min(760px, calc(100vw - 60px));
   scroll-snap-align: start;
