@@ -124,7 +124,7 @@ h1, h2, h3, h4 {
   margin: 0;
   position: relative;
   color: var(--p-blazing-yellow);
-  -webkit-text-stroke: 5px #1c1c20;
+  -webkit-text-stroke: 7px #1c1c20;
   paint-order: stroke fill;
   text-shadow:
     7px 7px 0 var(--p-living-coral),
@@ -149,7 +149,7 @@ h1::before, h2::before, h3::before, h4::before {
 
 /* h3 y h4 */
 h3, h4 {
-  -webkit-text-stroke: 3px #1c1c20;
+  -webkit-text-stroke: 5px #1c1c20;
   text-shadow:
     5px 5px 0 var(--p-living-coral),
     6px 6px 0 #1c1c20,
