@@ -181,5 +181,11 @@
   });
 }());
 </script>
+<script>
+document.querySelectorAll('h1,h2,h3,h4').forEach(function(el){
+  if(!el.classList.contains('work-title') && !el.dataset.text)
+    el.dataset.text = el.textContent.trim();
+});
+</script>
 </body>
 </html>

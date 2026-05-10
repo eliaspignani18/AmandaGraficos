@@ -560,5 +560,11 @@ function sendToWhatsApp(event) {
   window.open("https://wa.me/5493416117794?text=" + m, "_blank");
 }
 </script>
+<script>
+document.querySelectorAll('h1,h2,h3,h4').forEach(function(el){
+  if(!el.classList.contains('work-title') && !el.dataset.text)
+    el.dataset.text = el.textContent.trim();
+});
+</script>
 </body>
 </html>
