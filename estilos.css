@@ -3,6 +3,15 @@
    Estilo storefront editorial (inspirado en Claude Design)
    ═══════════════════════════════════════════════════════════ */
 
+@font-face {
+  font-family: "Mailboy";
+  src: url("fonts/Mailboy Bold.ttf") format("truetype"),
+       url("fonts/Mailboy Bold.otf") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
   /* Paleta */
   --p-blazing-yellow: #fbe122;
@@ -39,7 +48,7 @@
   --whatsapp: #25d366;
 
   /* Tipografía */
-  --font-display: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-display: "Mailboy", "Caveat", cursive;
   --font-body: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   --font-script: "Caveat", cursive;
 
