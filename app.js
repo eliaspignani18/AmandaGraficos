@@ -287,6 +287,11 @@
       document.getElementById("cartPanel").classList.toggle("open");
     });
 
+    // Cerrar panel carrito
+    document.getElementById("cartClose").addEventListener("click", () => {
+      document.getElementById("cartPanel").classList.remove("open");
+    });
+
     // Vaciar carrito
     document.getElementById("cartClear").addEventListener("click", () => {
       cart = [];
