@@ -510,9 +510,29 @@
     var track = wrap.querySelector('.carousel-track, .packs-grid');
     var prev  = wrap.querySelector('.carousel-btn--prev');
     var next  = wrap.querySelector('.carousel-btn--next');
-    var amount = track.offsetWidth * 0.75;
-    prev.addEventListener('click', function() { track.scrollBy({ left: -amount, behavior: 'smooth' }); });
-    next.addEventListener('click', function() { track.scrollBy({ left:  amount, behavior: 'smooth' }); });
+
+    // Duplicar items para loop infinito
+    Array.from(track.children).forEach(function(el) {
+      track.appendChild(el.cloneNode(true));
+    });
+
+    var step = track.offsetWidth * 0.75;
+    function half() { return track.scrollWidth / 2; }
+
+    next.addEventListener('click', function() {
+      track.scrollBy({ left: step, behavior: 'smooth' });
+      setTimeout(function() {
+        if (track.scrollLeft >= half()) track.scrollLeft -= half();
+      }, 450);
+    });
+
+    prev.addEventListener('click', function() {
+      if (track.scrollLeft < step) track.scrollLeft += half();
+      track.scrollBy({ left: -step, behavior: 'smooth' });
+      setTimeout(function() {
+        if (track.scrollLeft >= half()) track.scrollLeft -= half();
+      }, 450);
+    });
   });
 }());
 </script>
