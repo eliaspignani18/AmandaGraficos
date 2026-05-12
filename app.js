@@ -279,7 +279,6 @@
       modalConfirm.classList.add("added");
       setTimeout(() => {
         closeModal();
-        document.getElementById("cartPanel").classList.add("open");
       }, 700);
     });
 
