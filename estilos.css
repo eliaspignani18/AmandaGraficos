@@ -1680,7 +1680,8 @@ footer {
 
 /* CTA amarillo: texto siempre oscuro en dark */
 [data-theme="dark"] .cta:not(.wa):not(.secondary),
-[data-theme="dark"] .btn-stamp:not(.wa):not(.secondary) {
+[data-theme="dark"] .btn-stamp:not(.wa):not(.secondary),
+[data-theme="dark"] .shop-add-btn {
   color: var(--p-black-beauty);
 }
 
