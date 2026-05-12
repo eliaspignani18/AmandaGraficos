@@ -95,6 +95,7 @@ body {
   font-family: var(--font-body);
   color: var(--ink-900);
   background:
+    radial-gradient(125% 125% at 50% -50%, #c7d2fe 40%, transparent 100%),
     radial-gradient(ellipse at top right, rgba(251, 225, 34, 0.18), transparent 45%),
     radial-gradient(ellipse at bottom left, rgba(31, 58, 122, 0.06), transparent 45%),
     var(--cream-100);
@@ -191,7 +192,7 @@ a { color: inherit; }
   color: var(--ink-900);
   font-family: var(--font-display);
   font-size: 0.9375rem;
-  font-weight: 600;
+  font-weight: 400;
   letter-spacing: 0.01em;
   text-decoration: none;
   border: 2px solid var(--ink-900);
@@ -238,7 +239,7 @@ a { color: inherit; }
 .nav {
   max-width: var(--max);
   margin: 0 auto;
-  padding: 14px var(--space-3);
+  padding: 4px var(--space-3);
   display: flex;
   align-items: center;
   gap: var(--space-3);
@@ -280,7 +281,7 @@ a { color: inherit; }
 .brand-text strong {
   font-family: var(--font-display);
   font-size: 1rem;
-  font-weight: 700;
+  font-weight: 400;
   letter-spacing: -0.01em;
 }
 .brand-text span {
@@ -1583,6 +1584,7 @@ footer {
 
 [data-theme="dark"] body {
   background:
+    radial-gradient(125% 125% at 50% -50%, #6366f136 40%, transparent 100%),
     radial-gradient(ellipse at top right, rgba(251, 225, 34, 0.06), transparent 45%),
     radial-gradient(ellipse at bottom left, rgba(31, 58, 122, 0.12), transparent 45%),
     var(--cream-100);
@@ -1627,7 +1629,6 @@ footer {
 }
 
 /* Price card amarillo — texto oscuro legible */
-[data-theme="dark"] .price-card:nth-child(2) h3,
 [data-theme="dark"] .price-card:nth-child(2) .size,
 [data-theme="dark"] .price-card:nth-child(2) .price-list li,
 [data-theme="dark"] .price-card:nth-child(2) .price-list strong {
@@ -1646,6 +1647,20 @@ footer {
   border-color: rgba(19, 19, 26, 0.2);
   color: #13131a;
 }
+
+/* Pack tier destacado (amarillo) — texto oscuro en dark */
+[data-theme="dark"] .pack-tier--highlight,
+[data-theme="dark"] .pack-tier--highlight .tier-name,
+[data-theme="dark"] .pack-tier--highlight li {
+  color: var(--p-black-beauty);
+}
+
+/* CTA amarillo: texto siempre oscuro en dark */
+[data-theme="dark"] .cta:not(.wa):not(.secondary),
+[data-theme="dark"] .btn-stamp:not(.wa):not(.secondary) {
+  color: var(--p-black-beauty);
+}
+
 
 /* Toast: amarillo en dark */
 [data-theme="dark"] .toast {
