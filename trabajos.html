@@ -90,6 +90,11 @@
           <h2 class="modal-title" id="work-modal-title"></h2>
           <p class="modal-desc" id="work-modal-desc"></p>
         </div>
+        <div id="work-modal-nav" style="display:none; align-items:center; justify-content:space-between; gap:8px;">
+          <button id="work-modal-prev" type="button" class="btn-stamp" style="padding:8px 18px; font-size:1.1rem;">←</button>
+          <span id="work-modal-counter" style="font-size:0.85rem; font-weight:700;"></span>
+          <button id="work-modal-next" type="button" class="btn-stamp" style="padding:8px 18px; font-size:1.1rem;">→</button>
+        </div>
         <a class="cta wa" id="work-modal-wa" href="#" target="_blank" rel="noreferrer" style="display:inline-flex; align-items:center; gap:8px; text-decoration:none;">
           💬 Pedir trabajo
         </a>
@@ -133,6 +138,24 @@
   let trabajosData = [];
   let filtroActual = "all";
   const grid = document.getElementById("works-grid");
+  let displayItems = [];
+
+  function buildDisplayList(items) {
+    const groupMap = {};
+    const result = [];
+    items.forEach(item => {
+      if (item.group) {
+        if (!groupMap[item.group]) {
+          groupMap[item.group] = { isGroup: true, title: item.groupTitle || item.badge, badge: item.badge, items: [] };
+          result.push(groupMap[item.group]);
+        }
+        groupMap[item.group].items.push(item);
+      } else {
+        result.push(item);
+      }
+    });
+    return result;
+  }
 
   function renderTrabajos() {
     const items = filtroActual === "all" ? trabajosData : trabajosData.filter(t => t.category === filtroActual);
@@ -140,21 +163,34 @@
       grid.innerHTML = '<div class="works-empty"><span class="icon">📭</span><p>No hay trabajos en esta categoría.</p></div>';
       return;
     }
-    grid.innerHTML = items.map(t => `
-      <article class="work-card" style="cursor:pointer" tabindex="0" role="button" aria-label="Ver ${t.title}"
-        data-file="${t.file}" data-title="${t.title.replace(/"/g,'&quot;')}" data-badge="${t.badge}" data-desc="${t.desc.replace(/"/g,'&quot;')}">
-        <div class="work-visual"><img src="images/trabajos/${t.file}" alt="${t.title}" loading="lazy"></div>
+    displayItems = buildDisplayList(items);
+    grid.innerHTML = displayItems.map((d, idx) => {
+      if (d.isGroup) {
+        return `<article class="work-card work-card-group" style="cursor:pointer" data-idx="${idx}" tabindex="0" role="button" aria-label="Ver ${d.title}">
+          <div class="work-visual">
+            <img src="images/trabajos/${d.items[0].file}" alt="${d.title}" loading="lazy">
+            <span class="work-group-count">${d.items.length} fotos</span>
+          </div>
+          <div class="work-body">
+            <span class="work-badge">${d.badge}</span>
+            <h3 class="work-title">${d.title}</h3>
+          </div>
+        </article>`;
+      }
+      return `<article class="work-card" style="cursor:pointer" data-idx="${idx}" tabindex="0" role="button" aria-label="Ver ${d.title}">
+        <div class="work-visual"><img src="images/trabajos/${d.file}" alt="${d.title}" loading="lazy"></div>
         <div class="work-body">
-          <span class="work-badge">${t.badge}</span>
-          <h3 class="work-title">${t.title}</h3>
-          <p class="work-desc">${t.desc}</p>
+          <span class="work-badge">${d.badge}</span>
+          <h3 class="work-title">${d.title}</h3>
+          <p class="work-desc">${d.desc}</p>
         </div>
-      </article>
-    `).join("");
+      </article>`;
+    }).join("");
 
     grid.querySelectorAll(".work-card").forEach(card => {
-      card.addEventListener("click", () => openWorkModal(card.dataset));
-      card.addEventListener("keydown", e => { if (e.key === "Enter") openWorkModal(card.dataset); });
+      const idx = +card.dataset.idx;
+      card.addEventListener("click", () => openWorkModal(displayItems[idx]));
+      card.addEventListener("keydown", e => { if (e.key === "Enter") openWorkModal(displayItems[idx]); });
     });
   }
 
@@ -175,15 +211,33 @@
   });
 
   const workModal = document.getElementById("work-modal");
+  let modalItems = [];
+  let modalIdx = 0;
 
-  function openWorkModal({ file, title, badge, desc }) {
-    document.getElementById("work-modal-img").src = "images/trabajos/" + file;
-    document.getElementById("work-modal-img").alt = title;
-    document.getElementById("work-modal-badge").textContent = badge;
-    document.getElementById("work-modal-title").textContent = title;
-    document.getElementById("work-modal-desc").textContent = desc;
-    const msg = encodeURIComponent(`Hola Amanda Gráficos! Vi el trabajo "${title}" en tu página y me gustaría pedir algo similar. ¿Me podés pasar un presupuesto?`);
+  function renderModalSlide() {
+    const item = modalItems[modalIdx];
+    document.getElementById("work-modal-img").src = "images/trabajos/" + item.file;
+    document.getElementById("work-modal-img").alt = item.title;
+    document.getElementById("work-modal-badge").textContent = item.badge;
+    document.getElementById("work-modal-title").textContent = item.title;
+    document.getElementById("work-modal-desc").textContent = item.desc;
+    const msg = encodeURIComponent(`Hola Amanda Gráficos! Vi el trabajo "${item.title}" en tu página y me gustaría pedir algo similar. ¿Me podés pasar un presupuesto?`);
     document.getElementById("work-modal-wa").href = "https://wa.me/5493416117794?text=" + msg;
+    const nav = document.getElementById("work-modal-nav");
+    if (modalItems.length > 1) {
+      nav.style.display = "flex";
+      document.getElementById("work-modal-counter").textContent = `${modalIdx + 1} / ${modalItems.length}`;
+      document.getElementById("work-modal-prev").disabled = modalIdx === 0;
+      document.getElementById("work-modal-next").disabled = modalIdx === modalItems.length - 1;
+    } else {
+      nav.style.display = "none";
+    }
+  }
+
+  function openWorkModal(displayItem) {
+    modalItems = displayItem.isGroup ? displayItem.items : [displayItem];
+    modalIdx = 0;
+    renderModalSlide();
     workModal.classList.add("open");
     document.body.style.overflow = "hidden";
   }
@@ -194,8 +248,19 @@
   }
 
   document.getElementById("work-modal-close").addEventListener("click", closeWorkModal);
+  document.getElementById("work-modal-prev").addEventListener("click", () => {
+    if (modalIdx > 0) { modalIdx--; renderModalSlide(); }
+  });
+  document.getElementById("work-modal-next").addEventListener("click", () => {
+    if (modalIdx < modalItems.length - 1) { modalIdx++; renderModalSlide(); }
+  });
   workModal.addEventListener("click", e => { if (e.target === workModal) closeWorkModal(); });
-  document.addEventListener("keydown", e => { if (e.key === "Escape") closeWorkModal(); });
+  document.addEventListener("keydown", e => {
+    if (!workModal.classList.contains("open")) return;
+    if (e.key === "Escape") closeWorkModal();
+    if (e.key === "ArrowLeft" && modalIdx > 0) { modalIdx--; renderModalSlide(); }
+    if (e.key === "ArrowRight" && modalIdx < modalItems.length - 1) { modalIdx++; renderModalSlide(); }
+  });
 </script>
 <script>
 (function(){

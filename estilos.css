@@ -1370,6 +1370,19 @@ section {
   text-shadow: none;
 }
 .work-title::before { display: none; }
+.work-card-group .work-visual { position: relative; }
+.work-group-count {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  background: var(--ink-900);
+  color: var(--p-blazing-yellow);
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 4px 9px;
+  border-radius: 4px;
+  pointer-events: none;
+}
 .work-desc {
   display: none;
   font-size: 0.9rem;
