@@ -1370,6 +1370,21 @@ section {
   text-shadow: none;
 }
 .work-title::before { display: none; }
+.work-modal-card { max-width: 1400px; width: 100%; }
+.work-modal-grid { grid-template-columns: 4fr 2fr; }
+.work-modal-visual { aspect-ratio: 4/3; }
+
+@media (max-width: 720px) {
+  .work-modal-grid {
+    grid-template-columns: 1fr;
+  }
+  .work-modal-visual {
+    aspect-ratio: 4/3;
+    border-right: none;
+    border-bottom: 2px solid var(--ink-900);
+  }
+}
+
 .work-card-group .work-visual { position: relative; }
 .work-group-count {
   position: absolute;
