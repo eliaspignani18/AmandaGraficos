@@ -313,6 +313,7 @@ a { color: inherit; }
 
 @media (max-width: 880px) {
   .nav-links { display: none; }
+  .hero-slide-btn { display: none; }
 }
 
 /* ═══════════════════════════════════════════════════════════
