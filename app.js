@@ -141,6 +141,23 @@
     const modalConfirm = document.getElementById("modalConfirm");
     let currentItem    = null;
 
+    const MINS = {
+      "Chico (5×5 cm)":    15,
+      "Mediano (10×10 cm)": 10,
+      "Grande (15×15 cm)":   5
+    };
+
+    function checkMins() {
+      const totals = {};
+      cart.forEach(item => {
+        if (MINS[item.size] !== undefined)
+          totals[item.size] = (totals[item.size] || 0) + item.qty;
+      });
+      return Object.entries(MINS)
+        .filter(([size, min]) => totals[size] && totals[size] < min)
+        .map(([size, min]) => ({ size, current: totals[size], min, falta: min - totals[size] }));
+    }
+
     // Precio base unitario según tamaño (en pesos argentinos)
     const PRICES = {
       "Chico (5×5 cm)":     210,
@@ -301,6 +318,17 @@
     // Enviar por WhatsApp
     document.getElementById("cartWA").addEventListener("click", () => {
       if (cart.length === 0) return;
+
+      const errors = checkMins();
+      const warning = document.getElementById("cartMinWarning");
+      if (errors.length > 0) {
+        warning.innerHTML = errors.map(e =>
+          `Necesitás ${e.falta} ${e.size.split(" ")[0].toLowerCase()}${e.falta > 1 ? "s" : ""} más (mín. ${e.min})`
+        ).join("<br>");
+        return;
+      }
+      warning.innerHTML = "";
+
       let msg = "¡Hola Amanda Gráficos! Quiero hacer un pedido 🎨%0A%0A";
       cart.forEach(item => {
         msg += `▸ ${item.title} — ${item.size} — ${item.qty} unidades%0A`;
