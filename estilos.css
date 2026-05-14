@@ -332,6 +332,7 @@ a { color: inherit; }
   border-top: 2px solid var(--ink-900);
   border-bottom: 2px solid var(--ink-900);
   overflow: hidden;
+  background: var(--cream-100);
 }
 .hero-collage-item {
   position: absolute;
@@ -353,6 +354,14 @@ a { color: inherit; }
   object-fit: cover;
   object-position: center;
   display: block;
+}
+.hero-collage::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(253, 233, 122, 0.18);
+  pointer-events: none;
+  z-index: 1;
 }
 .hero-slide-btn {
   position: absolute;
