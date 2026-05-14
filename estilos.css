@@ -22,9 +22,9 @@
 
 :root {
   /* Paleta */
-  --p-blazing-yellow: #fbe122;
-  --p-mazarine: #1f3a7a;
-  --p-living-coral: #ff6f61;
+  --p-blazing-yellow: #fde97a;
+  --p-mazarine: #5b7fbf;
+  --p-living-coral: #ffb3ab;
   --p-red-bud: #c8102e;
   --p-pink-peacock: #d62d77;
   --p-greenery: #88b04b;
@@ -52,7 +52,7 @@
   --muted: var(--ink-500);
   --line: rgba(28, 28, 32, 0.14);
   --accent: var(--p-blazing-yellow);
-  --accent-dark: #d4bc00;
+  --accent-dark: #f5d84a;
   --whatsapp: #25d366;
 
   /* Tipografía */
