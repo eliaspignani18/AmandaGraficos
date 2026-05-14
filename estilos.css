@@ -122,7 +122,7 @@ h1, h2, h3, h4 {
   letter-spacing: 0.05em;
   line-height: var(--lh-tight);
   margin: 0;
-  color: #ffffff;
+  color: var(--p-blazing-yellow);
   -webkit-text-stroke: 7px #1c1c20;
   paint-order: stroke fill;
   text-shadow:
@@ -680,7 +680,12 @@ section {
 .contact-box {
   background: var(--p-blazing-yellow);
 }
-.contact-box h2 { margin: 14px 0 16px; }
+.contact-box h2 { margin: 14px 0 16px; color: #ffffff; -webkit-text-stroke: 5px #1c1c20; }
+.price-card:nth-child(2) h3,
+.on-yellow h1, .on-yellow h2, .on-yellow h3, .on-yellow h4 {
+  color: #ffffff;
+  -webkit-text-stroke: 5px #1c1c20;
+}
 .contact-list { list-style: none; padding: 0; margin: 0 0 var(--space-3); }
 .contact-list li {
   display: flex;
