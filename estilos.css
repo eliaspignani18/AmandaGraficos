@@ -405,9 +405,9 @@ a { color: inherit; }
 
 /* Slides de puro degradé (sin foto) */
 .hero-collage-item.hero-slide-gradient::after { display: none; }
-.hero-slide-grad-1 { background: linear-gradient(135deg, #fbe122 0%, #ff6f61 50%, #d62d77 100%); }
-.hero-slide-grad-2 { background: linear-gradient(135deg, #1f3a7a 0%, #d62d77 50%, #fbe122 100%); }
-.hero-slide-grad-3 { background: linear-gradient(135deg, #ff6f61 0%, #1f3a7a 100%); }
+.hero-slide-grad-1 { background: linear-gradient(135deg, #fde97a 0%, #ffb3ab 50%, #f0a080 100%); }
+.hero-slide-grad-2 { background: linear-gradient(135deg, #7a9bc4 0%, #ffb3ab 50%, #fde97a 100%); }
+.hero-slide-grad-3 { background: linear-gradient(135deg, #ffb3ab 0%, #7a9bc4 100%); }
 
 /* Collage slides */
 .hero-collage-item.hero-slide-collage::after { display: none; }
@@ -433,12 +433,12 @@ a { color: inherit; }
 .collage-5 img:nth-child(5) { max-width:25%; max-height:42%; bottom:3%; right:2%; transform:rotate(-7deg); }
 
 /* Fondos temáticos */
-.collage-arg      { background: linear-gradient(135deg, #5dbae8 0%, #ffffff 50%, #74b9d4 100%); }
-.collage-boca     { background: linear-gradient(135deg, #003087 0%, #1a5cbf 50%, #ffd700 100%); }
-.collage-river    { background: linear-gradient(135deg, #c8102e 0%, #ffffff 50%, #1c1c20 100%); }
-.collage-simpsons { background: linear-gradient(135deg, #ffd700 0%, #ff8c00 100%); }
-.collage-bttf     { background: linear-gradient(135deg, #0d0d1a 0%, #2d1b69 55%, #1a6b9a 100%); }
-.collage-skate    { background: linear-gradient(135deg, #fbe122 0%, #d62d77 55%, #1c1c20 100%); }
+.collage-arg      { background: linear-gradient(135deg, #b8dff0 0%, #f0f8ff 50%, #d4ecf7 100%); }
+.collage-boca     { background: linear-gradient(135deg, #7a9bc4 0%, #a8c0dc 50%, #fde97a 100%); }
+.collage-river    { background: linear-gradient(135deg, #ffb3b3 0%, #fff0f0 50%, #ffd4d4 100%); }
+.collage-simpsons { background: linear-gradient(135deg, #fde97a 0%, #f0a080 100%); }
+.collage-bttf     { background: linear-gradient(135deg, #c8d8f0 0%, #d4c8e8 55%, #b8d4e8 100%); }
+.collage-skate    { background: linear-gradient(135deg, #fde97a 0%, #ffb3ab 55%, #f0a080 100%); }
 
 .hero-copy {
   text-align: center;
