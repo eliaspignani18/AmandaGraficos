@@ -313,7 +313,6 @@ a { color: inherit; }
 
 @media (max-width: 880px) {
   .nav-links { display: none; }
-  .hero-slide-btn { display: none; }
 }
 
 /* ═══════════════════════════════════════════════════════════
@@ -368,6 +367,9 @@ a { color: inherit; }
 .hero-slide-btn:hover { background: var(--p-blazing-yellow); }
 .hero-slide-prev { left: 14px; }
 .hero-slide-next { right: 14px; }
+@media (max-width: 880px) {
+  .hero-slide-btn { display: none; }
+}
 
 /* Overlay con el título encima */
 .hero-overlay {
