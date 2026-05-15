@@ -335,7 +335,7 @@
       });
       const total = cart.reduce((s, i) => s + i.qty, 0);
       msg += `%0ATotal: ${total} unidades en ${cart.length} diseño${cart.length > 1 ? "s" : ""}.%0A%0AQuedo a la espera. ¡Gracias!`;
-      window.open("https://wa.me/5493416117794?text=" + msg, "_blank");
+      window.open("https://wa.me/5493417481079?text=" + msg, "_blank");
     });
 
     // ═══════════════════════════════════════════
@@ -380,5 +380,5 @@
       if (date)    message += "Fecha estimada: " + encodeURIComponent(date) + "%0A";
       if (details) message += "Detalle: " + encodeURIComponent(details) + "%0A";
       message += "%0AQuedo a la espera. ¡Gracias!";
-      window.open("https://wa.me/5493416117794?text=" + message, "_blank");
+      window.open("https://wa.me/5493417481079?text=" + message, "_blank");
     }
