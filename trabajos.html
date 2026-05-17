@@ -216,8 +216,11 @@
 
   function renderModalSlide() {
     const item = modalItems[modalIdx];
-    document.getElementById("work-modal-img").src = "images/trabajos/" + item.file;
-    document.getElementById("work-modal-img").alt = item.title;
+    const img = document.getElementById("work-modal-img");
+    img.style.transition = "none";
+    img.style.transform  = "translate(-50%, -50%)";
+    img.src = "images/trabajos/" + item.file;
+    img.alt = item.title;
     document.getElementById("work-modal-badge").textContent = item.badge;
     document.getElementById("work-modal-title").textContent = item.title;
     document.getElementById("work-modal-desc").textContent = item.desc;
@@ -260,6 +263,46 @@
     if (e.key === "Escape") closeWorkModal();
     if (e.key === "ArrowLeft" && modalIdx > 0) { modalIdx--; renderModalSlide(); }
     if (e.key === "ArrowRight" && modalIdx < modalItems.length - 1) { modalIdx++; renderModalSlide(); }
+  });
+
+  // Swipe táctil en el modal de trabajos
+  const modalVisual = document.querySelector(".work-modal-visual");
+  const modalImgEl  = document.getElementById("work-modal-img");
+  let touchStartX = 0, touchDelta = 0, touchActive = false;
+
+  function resetImgTransform(animate) {
+    modalImgEl.style.transition = animate ? "transform 0.25s ease" : "none";
+    modalImgEl.style.transform  = "translate(-50%, -50%)";
+  }
+
+  modalVisual.addEventListener("touchstart", e => {
+    if (modalItems.length <= 1) return;
+    touchStartX  = e.touches[0].clientX;
+    touchDelta   = 0;
+    touchActive  = true;
+    modalImgEl.style.transition = "none";
+  }, { passive: true });
+
+  modalVisual.addEventListener("touchmove", e => {
+    if (!touchActive) return;
+    touchDelta = e.touches[0].clientX - touchStartX;
+    // Resistencia en los extremos
+    if (touchDelta > 0 && modalIdx === 0)                        touchDelta *= 0.2;
+    if (touchDelta < 0 && modalIdx === modalItems.length - 1)    touchDelta *= 0.2;
+    modalImgEl.style.transform = `translate(calc(-50% + ${touchDelta * 0.5}px), -50%)`;
+  }, { passive: true });
+
+  modalVisual.addEventListener("touchend", () => {
+    if (!touchActive) return;
+    touchActive = false;
+    const THRESHOLD = 60;
+    let navigated = false;
+    if (touchDelta < -THRESHOLD && modalIdx < modalItems.length - 1) {
+      modalIdx++; renderModalSlide(); navigated = true;
+    } else if (touchDelta > THRESHOLD && modalIdx > 0) {
+      modalIdx--; renderModalSlide(); navigated = true;
+    }
+    if (!navigated) resetImgTransform(true);
   });
 </script>
 <script>
