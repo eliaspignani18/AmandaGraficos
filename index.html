@@ -531,5 +531,42 @@ document.querySelectorAll('h1,h2,h3,h4').forEach(function(el){
     el.dataset.text = el.textContent.trim();
 });
 </script>
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" defer></script>
+<script>
+// Parallax hero
+(function() {
+  var mq  = window.matchMedia('(min-width: 769px)');
+  var img = document.querySelector('.hero-bg-img');
+  if (!img) return;
+  function updateParallax() {
+    if (mq.matches) {
+      img.style.transform = 'translateY(' + (window.scrollY * 0.25) + 'px)';
+    }
+  }
+  window.addEventListener('scroll', updateParallax, { passive: true });
+  mq.addEventListener('change', function() {
+    if (!mq.matches) img.style.transform = '';
+  });
+}());
+
+// Animación de entrada del hero con GSAP
+window.addEventListener('load', function() {
+  if (!window.gsap) {
+    document.querySelectorAll('.hero-copy .eyebrow, .hero-copy h1, .hero-copy p, .hero-actions').forEach(function(el) {
+      el.style.opacity = 1;
+    });
+    return;
+  }
+  gsap.from(['.hero-copy .eyebrow', '.hero-copy h1', '.hero-copy p', '.hero-actions'], {
+    opacity: 0,
+    y: 30,
+    duration: 0.9,
+    ease: 'power3.out',
+    stagger: 0.18,
+    delay: 0.15
+  });
+});
+</script>
 </body>
 </html>
