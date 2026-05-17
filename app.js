@@ -158,29 +158,74 @@
         .map(([size, min]) => ({ size, current: totals[size], min, falta: min - totals[size] }));
     }
 
-    // Precio base unitario según tamaño (en pesos argentinos)
-    const PRICES = {
-      "Chico (5×5 cm)":     210,
-      "Mediano (10×10 cm)": 670,
-      "Grande (15×15 cm)":  1480,
-      "A consultar":         null
+    // Tabla de precios por tamaño y cantidad (precio real + precio de lista sin descuento)
+    const PRICE_TABLE = {
+      "Chico (5×5 cm)": [
+        { qty: 10,  price: 2100,   list: 2500 },
+        { qty: 20,  price: 3700,   list: 5000 },
+        { qty: 50,  price: 9300,   list: 12500 },
+        { qty: 100, price: 17100,  list: 25000 },
+        { qty: 200, price: 33300,  list: 50000 },
+      ],
+      "Mediano (10×10 cm)": [
+        { qty: 10,  price: 6700,   list: 9900 },
+        { qty: 20,  price: 12600,  list: 19800 },
+        { qty: 50,  price: 31300,  list: 49500 },
+        { qty: 100, price: 59500,  list: 99000 },
+        { qty: 200, price: 112000, list: 198000 },
+      ],
+      "Grande (15×15 cm)": [
+        { qty: 10,  price: 14800,  list: 22000 },
+        { qty: 20,  price: 28000,  list: 44000 },
+        { qty: 50,  price: 60800,  list: 110000 },
+        { qty: 100, price: 115000, list: 220000 },
+        { qty: 200, price: 215300, list: 440000 },
+      ],
     };
 
     function formatPrice(n) {
       return "$" + n.toLocaleString("es-AR");
     }
 
+    function getTieredPrice(size, qty) {
+      const table = PRICE_TABLE[size];
+      if (!table) return null;
+      let tier = table[0];
+      for (const t of table) { if (qty >= t.qty) tier = t; }
+      const unitPrice = tier.price / tier.qty;
+      const unitList  = tier.list  / tier.qty;
+      const total     = Math.round(unitPrice * qty);
+      const listTotal = Math.round(unitList  * qty);
+      const pct       = Math.round((listTotal - total) / listTotal * 100);
+      return { total, listTotal, unitPrice: Math.round(unitPrice), pct };
+    }
+
     function updateModalPrice() {
-      const unit = PRICES[modalSize.value];
-      const qty  = Math.max(1, +modalQty.value || 1);
-      if (unit === null || unit === undefined) {
-        modalPrice.textContent = "A consultar";
-        modalPriceUnit.textContent = "";
+      const size        = modalSize.value;
+      const qty         = Math.max(1, +modalQty.value || 1);
+      const priceListEl = document.getElementById("modalPriceList");
+      const priceOffEl  = document.getElementById("modalPriceOff");
+
+      if (size === "A consultar") {
+        modalPrice.textContent      = "A consultar";
+        modalPriceUnit.textContent  = "";
+        priceListEl.style.display   = "none";
+        priceOffEl.style.display    = "none";
+        return;
+      }
+
+      const r = getTieredPrice(size, qty);
+      modalPrice.textContent     = formatPrice(r.total);
+      modalPriceUnit.textContent = `(${qty} × ${formatPrice(r.unitPrice)})`;
+
+      if (r.pct > 0) {
+        priceListEl.textContent   = formatPrice(r.listTotal);
+        priceOffEl.textContent    = `${r.pct}% off`;
+        priceListEl.style.display = "";
+        priceOffEl.style.display  = "";
       } else {
-        modalPrice.textContent = formatPrice(unit * qty);
-        modalPriceUnit.textContent = qty === 1
-          ? `(${formatPrice(unit)} / unidad)`
-          : `(${qty} × ${formatPrice(unit)})`;
+        priceListEl.style.display = "none";
+        priceOffEl.style.display  = "none";
       }
     }
 

@@ -1803,6 +1803,24 @@ footer {
   color-scheme: dark;
 }
 
+/* Precios tachados y badges de descuento */
+.price-original {
+  text-decoration: line-through;
+  color: var(--ink-500);
+  font-size: 0.85em;
+  font-weight: 400;
+}
+.price-off {
+  background: var(--p-blazing-yellow);
+  color: var(--p-black-beauty);
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 999px;
+  white-space: nowrap;
+  letter-spacing: 0.02em;
+}
+
 /* Catálogo: fondo degradé naranja en claro, oscuro en dark */
 .catalog-main {
   background: linear-gradient(135deg, #ffd08a 0%, #ffac6a 35%, #ff8c55 65%, #ff7f7f 100%);
