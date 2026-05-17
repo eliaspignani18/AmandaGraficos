@@ -1763,6 +1763,12 @@ footer {
   border-color: #13131a;
 }
 
+/* Badge de cantidad de fotos: siempre negro + amarillo */
+[data-theme="dark"] .work-group-count {
+  background: #1c1c20;
+  color: var(--p-blazing-yellow);
+}
+
 /* Footer: siempre muy oscuro */
 [data-theme="dark"] footer {
   background: #0c0c12;
