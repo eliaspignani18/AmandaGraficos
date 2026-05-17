@@ -349,11 +349,23 @@ a { color: inherit; }
   object-fit: cover;
 }
 .hero-bg-img {
+  position: absolute;
+  top: -15%;
+  left: 0;
   width: 100%;
-  height: 100%;
+  height: 130%;
   object-fit: cover;
   object-position: center;
   display: block;
+  will-change: transform;
+}
+@media (max-width: 768px) {
+  .hero-bg-img {
+    position: static;
+    top: auto;
+    height: 100%;
+    will-change: auto;
+  }
 }
 .hero-collage::after {
   content: '';
