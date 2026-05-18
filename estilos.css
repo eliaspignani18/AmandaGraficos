@@ -371,7 +371,7 @@ a { color: inherit; }
   content: '';
   position: absolute;
   inset: 0;
-  background: rgba(253, 233, 122, 0.18);
+  background: rgba(0, 0, 0, 0.50);
   pointer-events: none;
   z-index: 1;
 }
@@ -475,7 +475,7 @@ a { color: inherit; }
 }
 .hero-copy .eyebrow {
   margin-bottom: var(--space-3);
-  background: white;
+  background: #fdf6e3;
   color: var(--ink-900);
 }
 .hero-copy h1 {
@@ -488,11 +488,13 @@ a { color: inherit; }
   color: var(--p-blazing-yellow);
 }
 .hero-copy p {
-  font-size: 1.1rem;
-  color: rgba(255, 255, 255, 0.88);
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #ffffff;
   max-width: 48ch;
   margin: 0 auto var(--space-4);
   line-height: 1.6;
+  text-shadow: 0 1px 4px rgba(0,0,0,0.5);
 }
 .hero-actions {
   display: flex;
