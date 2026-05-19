@@ -94,11 +94,14 @@ body {
   margin: 0;
   font-family: var(--font-body);
   color: var(--ink-900);
-  background:
+  background-image:
+    linear-gradient(to right, rgba(0,0,0,0.06) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0,0,0,0.06) 1px, transparent 1px),
     radial-gradient(125% 125% at 50% -50%, #c7d2fe 40%, transparent 100%),
     radial-gradient(ellipse at top right, rgba(251, 225, 34, 0.18), transparent 45%),
-    radial-gradient(ellipse at bottom left, rgba(31, 58, 122, 0.06), transparent 45%),
-    var(--cream-100);
+    radial-gradient(ellipse at bottom left, rgba(31, 58, 122, 0.06), transparent 45%);
+  background-size: 40px 40px, 40px 40px, auto, auto, auto;
+  background-color: var(--cream-100);
   line-height: var(--lh-normal);
   -webkit-font-smoothing: antialiased;
 }
