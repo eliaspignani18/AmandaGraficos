@@ -312,7 +312,9 @@ a { color: inherit; }
 
 @media (max-width: 880px) {
   .nav-links { display: none; }
-  .brand { flex: 1; }
+  .brand { flex: 1; min-width: 0; }
+  .brand-logo { height: 44px; }
+  .brand-text span { display: none; }
 }
 
 /* ═══════════════════════════════════════════════════════════
