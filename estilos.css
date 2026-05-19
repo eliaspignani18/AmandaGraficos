@@ -1663,22 +1663,22 @@ footer {
    TEMA OSCURO
    ═══════════════════════════════════════════════════════════ */
 [data-theme="dark"] {
-  --cream-50:  #1c1c26;
-  --cream-100: #13131a;
-  --cream-200: #22222e;
-  --cream-300: #2e2e3c;
+  --cream-50:  #1c1c1c;
+  --cream-100: #111111;
+  --cream-200: #222222;
+  --cream-300: #2e2e2e;
 
   --ink-900: #ece9e0;
   --ink-800: #cac7be;
   --ink-700: #a4a19a;
   --ink-500: #78756e;
-  --ink-300: #46464e;
-  --ink-100: #2a2a34;
-  --paper: #1c1c26;
+  --ink-300: #464646;
+  --ink-100: #2a2a2a;
+  --paper: #1c1c1c;
 
-  --bg: #13131a;
-  --surface: #1c1c26;
-  --surface-strong: #22222e;
+  --bg: #111111;
+  --surface: #1c1c1c;
+  --surface-strong: #222222;
   --ink: #ece9e0;
   --muted: #78756e;
   --line: rgba(236, 233, 224, 0.1);
