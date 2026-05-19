@@ -634,6 +634,7 @@ section {
 .price-list li {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   padding: 8px 0;
   border-bottom: 1px solid rgba(28, 28, 32, 0.12);
   font-size: 0.92rem;
@@ -1731,6 +1732,12 @@ footer {
   color: var(--p-blazing-yellow);
 }
 
+/* Price card amarillo — burbuja de descuento en crema para que se vea */
+.price-card:nth-child(2) .price-off {
+  background: var(--cream-50);
+  color: var(--ink-900);
+}
+
 /* Price card amarillo — texto oscuro legible */
 [data-theme="dark"] .price-card:nth-child(2) .size,
 [data-theme="dark"] .price-card:nth-child(2) .price-list li,
@@ -1821,6 +1828,8 @@ footer {
   font-weight: 400;
 }
 .price-off {
+  display: inline-flex;
+  align-items: center;
   background: var(--p-blazing-yellow);
   color: var(--p-black-beauty);
   font-size: 0.72rem;
