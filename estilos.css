@@ -1846,7 +1846,7 @@ footer {
 
 /* Catálogo: fondo degradé naranja en claro, oscuro en dark */
 .catalog-main {
-  background: linear-gradient(135deg, #ffd08a 0%, #ffac6a 35%, #ff8c55 65%, #ff7f7f 100%);
+  background: transparent;
 }
 [data-theme="dark"] .catalog-main {
   background: transparent;
