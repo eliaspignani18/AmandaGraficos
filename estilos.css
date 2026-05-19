@@ -1849,11 +1849,7 @@ footer {
   background: linear-gradient(135deg, #ffd08a 0%, #ffac6a 35%, #ff8c55 65%, #ff7f7f 100%);
 }
 [data-theme="dark"] .catalog-main {
-  background:
-    radial-gradient(125% 125% at 50% -50%, #6366f136 40%, transparent 100%),
-    radial-gradient(ellipse at top right, rgba(251, 225, 34, 0.06), transparent 45%),
-    radial-gradient(ellipse at bottom left, rgba(31, 58, 122, 0.12), transparent 45%),
-    var(--cream-100);
+  background: transparent;
 }
 
 /* ═══════════════════════════════════════════════════════════
