@@ -2212,9 +2212,6 @@ footer {
   width: 160px;
   height: 120px;
   padding: 28px;
-  border-radius: var(--radius-md);
-  background: var(--cream-50);
-  border: 1px solid var(--ink-100);
   flex-shrink: 0;
   overflow: hidden;
 }
@@ -2231,6 +2228,11 @@ footer {
 }
 
 .clients-logo:hover img { opacity: 0.8; }
+
+[data-theme="dark"] .clients-logo img {
+  opacity: 0.65;
+  filter: grayscale(100%) brightness(1.8);
+}
 
 .clients-logo img[alt="Brokers Rosario"]  { transform: scale(2.0); }
 .clients-logo img[alt="La Granja"]        { transform: scale(1.3); }
