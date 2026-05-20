@@ -97,9 +97,9 @@ body {
   background-image:
     linear-gradient(to right, rgba(0,0,0,0.06) 1px, transparent 1px),
     linear-gradient(to bottom, rgba(0,0,0,0.06) 1px, transparent 1px),
-    radial-gradient(125% 125% at 50% -50%, #c7d2fe 40%, transparent 100%),
-    radial-gradient(ellipse at top right, rgba(251, 225, 34, 0.18), transparent 45%),
-    radial-gradient(ellipse at bottom left, rgba(31, 58, 122, 0.06), transparent 45%);
+    radial-gradient(125% 125% at 50% -50%, #ffc9a0 40%, transparent 100%),
+    radial-gradient(ellipse at top right, rgba(255, 180, 60, 0.18), transparent 45%),
+    radial-gradient(ellipse at bottom left, rgba(220, 100, 50, 0.05), transparent 45%);
   background-size: 40px 40px, 40px 40px, auto, auto, auto;
   background-color: var(--cream-100);
   line-height: var(--lh-normal);
@@ -2222,26 +2222,37 @@ footer {
   width: auto;
   height: auto;
   object-fit: contain;
-  opacity: 0.45;
+  opacity: 1;
   filter: grayscale(100%);
   transition: opacity 0.2s;
 }
 
-.clients-logo:hover img { opacity: 0.8; }
+.clients-logo:hover img { opacity: 0.7; }
 
 [data-theme="dark"] .clients-logo img {
   opacity: 0.65;
   filter: grayscale(100%) brightness(1.8);
 }
 
-.clients-logo img[alt="Brokers Rosario"]  { transform: scale(2.0); }
-.clients-logo img[alt="La Granja"]        { transform: scale(1.3); }
+.clients-logo img[alt="Brokers Rosario"]  { transform: scale(2.0); filter: grayscale(100%) brightness(1.4); }
+.clients-logo img[alt="FMS"]              { filter: grayscale(100%) brightness(1.6); }
+.clients-logo img[alt="Botines Rosario"]  { filter: grayscale(100%) brightness(0.7); }
+.clients-logo img[alt="Amuchastegui"]     { filter: grayscale(100%) brightness(1.5); }
+.clients-logo img[alt="Yeia"]             { filter: grayscale(100%) brightness(1.5); }
+.clients-logo img[alt="Hola Loterías"]    { filter: grayscale(100%) brightness(1.5); }
+.clients-logo img[alt="La Granja"]        { filter: grayscale(100%) brightness(1.5); }
+.clients-logo img[alt="Club Río Negro"]   { filter: grayscale(100%) brightness(1.5); }
+.clients-logo img[alt="Ferbar"]           { filter: grayscale(100%) brightness(1.4); }
+.clients-logo img[alt="Ross Team"]        { transform: scale(1.3); filter: grayscale(100%) brightness(0.8); }
+.clients-logo img[alt="La Granja"]        { transform: scale(1.5); }
+.clients-logo img[alt="De Bruno Luaca"]   { transform: scale(1.3); filter: grayscale(100%) brightness(1.4); }
+.clients-logo img[alt="Barber Point"]     { transform: scale(1.3); }
 .clients-logo img[alt="Moss"]             { transform: scale(0.75); }
-.clients-logo img[alt="Club Río Negro"]   { transform: scale(1.5); }
+.clients-logo img[alt="Club Río Negro"]   { transform: scale(1.4); }
 .clients-logo img[alt="Hola Loterías"]    { transform: scale(0.7); }
-.clients-logo img[alt="NG"]               { transform: scale(1.2); }
+.clients-logo img[alt="NG"]               { transform: scale(1.4); }
+.clients-logo img[alt="FBI"]              { transform: scale(1.4); }
 .clients-logo img[alt="Rosario Solutions"]{ transform: scale(1.3); }
 .clients-logo img[alt="Amuchastegui"]     { transform: scale(1.3); }
 .clients-logo img[alt="Ferbar"]           { transform: scale(1.2); }
 .clients-logo img[alt="Yeia"]             { transform: scale(1.3); }
-.clients-logo img[alt="Kairós"]           { transform: scale(1.2); }
