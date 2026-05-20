@@ -2254,6 +2254,9 @@ footer {
 .clients-logo img[alt="NG"]               { transform: scale(1.4); }
 .clients-logo img[alt="FBI"]              { transform: scale(1.4); }
 .clients-logo img[alt="Costantini Mecánica"] { transform: scale(1.4); }
+.clients-logo img[alt="Chic Indumentaria"] { transform: scale(1.15); filter: grayscale(100%) contrast(0.2) brightness(1.5); }
+.clients-logo img[alt="Parallel"]           { transform: scale(1.2); filter: grayscale(100%) contrast(0.2) brightness(1.5); }
+.clients-logo img[alt="The Quint"]          { transform: scale(1.5); filter: grayscale(100%) brightness(0.6); }
 .clients-logo img[alt="Rosario Solutions"]{ transform: scale(1.3); }
 .clients-logo img[alt="Amuchastegui"]     { transform: scale(1.3); }
 .clients-logo img[alt="Ferbar"]           { transform: scale(1.2); }
