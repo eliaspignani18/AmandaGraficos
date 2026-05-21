@@ -97,7 +97,7 @@ body {
   background-image:
     linear-gradient(to right, rgba(0,0,0,0.06) 1px, transparent 1px),
     linear-gradient(to bottom, rgba(0,0,0,0.06) 1px, transparent 1px),
-    radial-gradient(125% 125% at 50% -50%, #ffc9a0 40%, transparent 100%),
+    radial-gradient(90% 40% at 50% 0%, #ffc9a0 10%, transparent 100%),
     radial-gradient(ellipse at top right, rgba(255, 180, 60, 0.18), transparent 45%),
     radial-gradient(ellipse at bottom left, rgba(220, 100, 50, 0.05), transparent 45%);
   background-size: 40px 40px, 40px 40px, auto, auto, auto;
@@ -195,7 +195,7 @@ a { color: inherit; }
   letter-spacing: 0.01em;
   text-decoration: none;
   border: 2px solid var(--ink-900);
-  border-radius: 999px;
+  border-radius: 6px;
   box-shadow: var(--shadow-stamp);
   cursor: pointer;
   transition: transform 0.15s, box-shadow 0.15s;
@@ -542,7 +542,7 @@ section {
 .card {
   background: var(--paper);
   border: 2px solid var(--ink-900);
-  border-radius: var(--radius-lg);
+  border-radius: 6px;
   overflow: hidden;
 }
 
@@ -556,12 +556,13 @@ section {
   padding: 24px;
   background: var(--paper);
   border: 2px solid var(--ink-900);
-  border-radius: var(--radius-md);
+  border-radius: 6px;
+  box-shadow: var(--shadow-stamp);
   transition: transform 0.2s, box-shadow 0.2s;
 }
 .service:hover {
   transform: translate(-2px, -2px);
-  box-shadow: var(--shadow-stamp);
+  box-shadow: var(--shadow-stamp-hover);
 }
 .service-icon {
   width: 54px; height: 54px;
@@ -621,8 +622,9 @@ section {
 .price-card {
   padding: 20px;
   border: 2px solid var(--ink-900);
-  border-radius: var(--radius-md);
+  border-radius: 6px;
   background: var(--cream-50);
+  box-shadow: var(--shadow-stamp);
 }
 .price-card:nth-child(1) { background: var(--cream-50); }
 .price-card:nth-child(2) { background: var(--p-blazing-yellow); }
@@ -668,7 +670,8 @@ section {
   padding: var(--space-4);
   background: var(--paper);
   border: 2px solid var(--ink-900);
-  border-radius: var(--radius-lg);
+  border-radius: 6px;
+  box-shadow: var(--shadow-stamp);
   text-decoration: none;
   color: var(--ink-900);
   display: flex;
@@ -811,7 +814,7 @@ section {
   gap: 12px;
   background: var(--paper);
   border: 2px solid var(--ink-900);
-  border-radius: 999px;
+  border-radius: 6px;
   padding: 12px 22px;
   margin-bottom: var(--space-3);
   max-width: 520px;
@@ -846,7 +849,7 @@ section {
   font-weight: 500;
   letter-spacing: 0;
   padding: 8px 18px;
-  border-radius: 999px;
+  border-radius: 6px;
   cursor: pointer;
   transition: background 0.15s, color 0.15s;
 }
@@ -864,7 +867,8 @@ section {
 .shop-card {
   background: var(--paper);
   border: 2px solid var(--ink-900);
-  border-radius: var(--radius-md);
+  border-radius: 6px;
+  box-shadow: var(--shadow-stamp);
   overflow: hidden;
   cursor: pointer;
   display: flex;
@@ -878,7 +882,7 @@ section {
   inset: 0;
   z-index: 2;
   pointer-events: none;
-  border-radius: var(--radius-md);
+  border-radius: 6px;
   background: radial-gradient(
     circle 220px at var(--glow-x, -300px) var(--glow-y, -300px),
     rgba(120, 160, 255, 0.28),
@@ -958,7 +962,7 @@ section {
   background: var(--cream-200);
   color: var(--ink-700);
   padding: 3px 8px;
-  border-radius: 999px;
+  border-radius: 3px;
   font-weight: 700;
 }
 .shop-add-btn {
@@ -967,7 +971,7 @@ section {
   background: var(--p-blazing-yellow);
   color: var(--ink-900);
   border: 2px solid var(--ink-900);
-  border-radius: 999px;
+  border-radius: 6px;
   font-family: var(--font-display);
   font-size: 0.8125rem;
   font-weight: 600;
@@ -1009,7 +1013,7 @@ section {
 .modal-card {
   background: var(--paper);
   border: 2px solid var(--ink-900);
-  border-radius: var(--radius-lg);
+  border-radius: 6px;
   max-width: 720px;
   width: 100%;
   max-height: 90vh;
@@ -1364,7 +1368,8 @@ section {
 .work-card {
   background: var(--paper);
   border: 2px solid var(--ink-900);
-  border-radius: var(--radius-md);
+  border-radius: 6px;
+  box-shadow: var(--shadow-stamp);
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -1372,7 +1377,7 @@ section {
 }
 .work-card:hover {
   transform: translate(-2px, -2px);
-  box-shadow: var(--shadow-stamp);
+  box-shadow: var(--shadow-stamp-hover);
 }
 .work-visual {
   aspect-ratio: 4 / 3;
@@ -1844,8 +1849,9 @@ footer {
   color: var(--p-black-beauty);
   font-size: 0.72rem;
   font-weight: 700;
-  padding: 2px 8px;
-  border-radius: 999px;
+  padding: 2px 6px;
+  border-radius: 3px;
+  border: 1.5px solid var(--ink-900);
   white-space: nowrap;
   letter-spacing: 0.02em;
 }
@@ -1974,7 +1980,8 @@ footer {
   padding: var(--space-4);
   background: var(--paper);
   border: 2px solid var(--ink-900);
-  border-radius: var(--radius-lg);
+  border-radius: 6px;
+  box-shadow: var(--shadow-stamp);
   display: flex;
   flex-direction: column;
   gap: var(--space-3);
@@ -1985,9 +1992,20 @@ footer {
   align-items: flex-start;
 }
 .pack-icon {
-  font-size: 2rem;
+  font-size: 0.8rem;
+  font-weight: 900;
   line-height: 1;
   flex-shrink: 0;
+  width: 42px;
+  height: 42px;
+  background: var(--p-blazing-yellow);
+  color: var(--ink-900);
+  border: 2px solid var(--ink-900);
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  letter-spacing: 0.03em;
 }
 .pack-card-header h3 { margin: 0 0 4px; font-size: 1.25rem; }
 .pack-card-header p  { margin: 0; color: var(--ink-500); font-size: 0.9rem; }
