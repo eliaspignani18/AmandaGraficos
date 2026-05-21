@@ -449,39 +449,44 @@
         </article>
 
         <article class="form-box" id="pedido">
-          <span class="section-kicker">Formulario</span>
-          <h2>Pedí tu presupuesto</h2>
-          <form onsubmit="sendToWhatsApp(event)">
-            <div class="form-row">
-              <div class="field"><label for="name">Tu nombre</label><input type="text" id="name" placeholder="Ej. Sofía"></div>
-              <div class="field"><label for="product">Producto</label><select id="product">
-                <option value="">Elegí una opción</option>
-                <option>Stickers chicos (5 × 5 cm)</option>
-                <option>Stickers medianos (10 × 10 cm)</option>
-                <option>Stickers grandes (15 × 15 cm)</option>
-                <option>Logo / identidad visual</option>
-                <option>Candy bar</option>
-                <option>Banner / lona</option>
-                <option>Vinilo para local</option>
-                <option>Tarjetería</option>
-                <option>Otro pedido</option>
-              </select></div>
-            </div>
-            <div class="form-row">
-              <div class="field"><label for="quantity">Cantidad</label><select id="quantity">
-                <option value="">Elegí una cantidad</option>
-                <option>10 unidades</option>
-                <option>20 unidades</option>
-                <option>50 unidades</option>
-                <option>100 unidades</option>
-                <option>200 unidades</option>
-                <option>Otra cantidad</option>
-              </select></div>
-              <div class="field"><label for="date">¿Para cuándo?</label><input type="text" id="date" placeholder="Ej. 15 de junio"></div>
-            </div>
-            <div class="field" style="margin-bottom:14px"><label for="details">Detalle</label><textarea id="details" placeholder="Contanos brevemente qué necesitás..."></textarea></div>
-            <button type="submit" class="cta wa form-submit">Enviar pedido por WhatsApp</button>
-          </form>
+          <button class="form-toggle" type="button" aria-expanded="false" aria-controls="form-content">
+            ¿Preferís dejar un mensaje escrito? <span class="form-toggle-arrow">↓</span>
+          </button>
+          <div class="form-content" id="form-content" hidden>
+            <span class="section-kicker">Formulario</span>
+            <h2>Pedí tu presupuesto</h2>
+            <form onsubmit="sendToWhatsApp(event)">
+              <div class="form-row">
+                <div class="field"><label for="name">Tu nombre</label><input type="text" id="name" placeholder="Ej. Sofía"></div>
+                <div class="field"><label for="product">Producto</label><select id="product">
+                  <option value="">Elegí una opción</option>
+                  <option>Stickers chicos (5 × 5 cm)</option>
+                  <option>Stickers medianos (10 × 10 cm)</option>
+                  <option>Stickers grandes (15 × 15 cm)</option>
+                  <option>Logo / identidad visual</option>
+                  <option>Candy bar</option>
+                  <option>Banner / lona</option>
+                  <option>Vinilo para local</option>
+                  <option>Tarjetería</option>
+                  <option>Otro pedido</option>
+                </select></div>
+              </div>
+              <div class="form-row">
+                <div class="field"><label for="quantity">Cantidad</label><select id="quantity">
+                  <option value="">Elegí una cantidad</option>
+                  <option>10 unidades</option>
+                  <option>20 unidades</option>
+                  <option>50 unidades</option>
+                  <option>100 unidades</option>
+                  <option>200 unidades</option>
+                  <option>Otra cantidad</option>
+                </select></div>
+                <div class="field"><label for="date">¿Para cuándo?</label><input type="text" id="date" placeholder="Ej. 15 de junio"></div>
+              </div>
+              <div class="field" style="margin-bottom:14px"><label for="details">Detalle</label><textarea id="details" placeholder="Contanos brevemente qué necesitás..."></textarea></div>
+              <button type="submit" class="cta wa form-submit">Enviar pedido por WhatsApp</button>
+            </form>
+          </div>
         </article>
       </div>
     </div>
@@ -741,6 +746,19 @@ document.querySelectorAll('[data-carousel]').forEach(function(carousel) {
 
   resetTimer();
 });
+</script>
+
+<script>
+(function() {
+  var toggle = document.querySelector('.form-toggle');
+  var content = document.getElementById('form-content');
+  if (!toggle || !content) return;
+  toggle.addEventListener('click', function() {
+    var expanded = this.getAttribute('aria-expanded') === 'true';
+    this.setAttribute('aria-expanded', String(!expanded));
+    content.hidden = expanded;
+  });
+})();
 </script>
 
 </body>
