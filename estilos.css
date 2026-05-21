@@ -132,10 +132,14 @@ h1, h2, h3, h4 {
     6px 6px 0 #1c1c20;
 }
 
+h2 {
+  -webkit-text-stroke: 4px #1c1c20;
+  text-shadow: 3px 3px 0 #1c1c20;
+}
+
 h3, h4 {
-  -webkit-text-stroke: 5px #1c1c20;
-  text-shadow:
-    4px 4px 0 #1c1c20;
+  -webkit-text-stroke: 3px #1c1c20;
+  text-shadow: 2px 2px 0 #1c1c20;
 }
 
 h1 { font-size: clamp(2.5rem, 7vw, 5rem); }
@@ -627,7 +631,7 @@ section {
   box-shadow: var(--shadow-stamp);
 }
 .price-card:nth-child(1) { background: var(--cream-50); }
-.price-card:nth-child(2) { background: var(--p-blazing-yellow); }
+.price-card:nth-child(2) { background: var(--cream-50); border: 3px solid var(--p-pink-peacock); }
 .price-card:nth-child(3) { background: var(--cream-200); }
 .price-card h3 {
   font-size: 1.6rem;
@@ -711,10 +715,32 @@ section {
   padding: var(--space-4);
   background: var(--paper);
   border: 2px solid var(--ink-900);
-  border-radius: var(--radius-lg);
+  border-radius: 6px;
 }
 .contact-box {
   background: var(--p-blazing-yellow);
+  position: relative;
+  overflow: hidden;
+}
+.contact-gato {
+  position: absolute;
+  width: 180px;
+  opacity: 0.13;
+  bottom: -20px;
+  right: -15px;
+  pointer-events: none;
+  -webkit-touch-callout: none;
+  user-select: none;
+}
+.packs-gato {
+  display: block;
+  width: 90px;
+  opacity: 0.18;
+  margin: var(--space-3) auto 0;
+  pointer-events: none;
+  -webkit-touch-callout: none;
+  user-select: none;
+  filter: brightness(0) invert(1);
 }
 .contact-box h2 { margin: 14px 0 16px; color: #ffffff; -webkit-text-stroke: 5px #1c1c20; }
 .price-card:nth-child(2) h3,
@@ -1747,17 +1773,11 @@ footer {
   color: var(--p-blazing-yellow);
 }
 
-/* Price card amarillo — burbuja de descuento en crema para que se vea */
-.price-card:nth-child(2) .price-off {
-  background: var(--cream-50);
-  color: var(--ink-900);
-}
-
-/* Price card amarillo — texto oscuro legible */
+/* Price card destacada con borde Pink Peacock — h3 hereda el tratamiento normal */
 [data-theme="dark"] .price-card:nth-child(2) .size,
 [data-theme="dark"] .price-card:nth-child(2) .price-list li,
 [data-theme="dark"] .price-card:nth-child(2) .price-list strong {
-  color: #13131a;
+  color: var(--ink-900);
 }
 
 /* Contact box amarillo — texto oscuro */
@@ -1779,6 +1799,17 @@ footer {
 [data-theme="dark"] .pack-tier--highlight li {
   color: var(--p-black-beauty);
 }
+
+/* Pack badges numericos: texto siempre oscuro sobre amarillo */
+[data-theme="dark"] .pack-icon {
+  color: #1c1c20;
+  border-color: #1c1c20;
+}
+
+/* Seccion Packs fondo coral: textos siempre en cream claro */
+[data-theme="dark"] #packs .section-head h2,
+[data-theme="dark"] #packs .section-sub { color: #fdf6e3; }
+[data-theme="dark"] #packs .packs-note { color: rgba(253, 246, 227, 0.65); }
 
 /* CTA amarillo: texto siempre oscuro en dark */
 [data-theme="dark"] .cta:not(.wa):not(.secondary),
@@ -2050,6 +2081,18 @@ footer {
   font-size: 0.88rem;
   color: var(--ink-500);
 }
+
+/* Sección Packs — fondo Red Bud */
+#packs {
+  background-color: #d85564;
+  background-image:
+    linear-gradient(to right, rgba(253, 246, 227, 0.07) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(253, 246, 227, 0.07) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+#packs .section-head h2,
+#packs .section-sub { color: var(--cream-100); }
+#packs .packs-note { color: rgba(253, 246, 227, 0.65); }
 @media (max-width: 600px) {
   .pack-card { flex: 0 0 calc(100vw - 40px); }
   .pack-tiers { grid-template-columns: 1fr; }
