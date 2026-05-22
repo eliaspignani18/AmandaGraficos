@@ -97,7 +97,7 @@ body {
   background-image:
     linear-gradient(to right, rgba(0,0,0,0.06) 1px, transparent 1px),
     linear-gradient(to bottom, rgba(0,0,0,0.06) 1px, transparent 1px),
-    radial-gradient(90% 40% at 50% 0%, #ffc9a0 10%, transparent 100%),
+    radial-gradient(90% 40% at 50% 0%, var(--cream-300) 10%, transparent 100%),
     radial-gradient(ellipse at top right, rgba(255, 180, 60, 0.18), transparent 45%),
     radial-gradient(ellipse at bottom left, rgba(220, 100, 50, 0.05), transparent 45%);
   background-size: 40px 40px, 40px 40px, auto, auto, auto;
@@ -199,7 +199,7 @@ a { color: inherit; }
   letter-spacing: 0.01em;
   text-decoration: none;
   border: 2px solid var(--ink-900);
-  border-radius: 6px;
+  border-radius: var(--radius-sm);
   box-shadow: var(--shadow-stamp);
   cursor: pointer;
   transition: transform 0.15s, box-shadow 0.15s;
@@ -221,6 +221,7 @@ a { color: inherit; }
 .cta.wa, .btn-stamp.wa {
   background: var(--whatsapp);
   color: white;
+  border: 2px solid var(--p-black-beauty);
 }
 
 .cta.dark {
@@ -546,7 +547,7 @@ section {
 .card {
   background: var(--paper);
   border: 2px solid var(--ink-900);
-  border-radius: 6px;
+  border-radius: var(--radius-sm);
   overflow: hidden;
 }
 
@@ -560,7 +561,7 @@ section {
   padding: 24px;
   background: var(--paper);
   border: 2px solid var(--ink-900);
-  border-radius: 6px;
+  border-radius: var(--radius-sm);
   box-shadow: var(--shadow-stamp);
   transition: transform 0.2s, box-shadow 0.2s;
 }
@@ -626,7 +627,7 @@ section {
 .price-card {
   padding: 20px;
   border: 2px solid var(--ink-900);
-  border-radius: 6px;
+  border-radius: var(--radius-sm);
   background: var(--cream-50);
   box-shadow: var(--shadow-stamp);
 }
@@ -674,7 +675,7 @@ section {
   padding: var(--space-4);
   background: var(--paper);
   border: 2px solid var(--ink-900);
-  border-radius: 6px;
+  border-radius: var(--radius-sm);
   box-shadow: var(--shadow-stamp);
   text-decoration: none;
   color: var(--ink-900);
@@ -715,7 +716,7 @@ section {
   padding: var(--space-4);
   background: var(--paper);
   border: 2px solid var(--ink-900);
-  border-radius: 6px;
+  border-radius: var(--radius-sm);
 }
 .contact-box {
   background: var(--p-blazing-yellow);
@@ -866,7 +867,7 @@ section {
   gap: 12px;
   background: var(--paper);
   border: 2px solid var(--ink-900);
-  border-radius: 6px;
+  border-radius: var(--radius-sm);
   padding: 12px 22px;
   margin-bottom: var(--space-3);
   max-width: 520px;
@@ -901,7 +902,7 @@ section {
   font-weight: 500;
   letter-spacing: 0;
   padding: 8px 18px;
-  border-radius: 6px;
+  border-radius: var(--radius-sm);
   cursor: pointer;
   transition: background 0.15s, color 0.15s;
 }
@@ -919,7 +920,7 @@ section {
 .shop-card {
   background: var(--paper);
   border: 2px solid var(--ink-900);
-  border-radius: 6px;
+  border-radius: var(--radius-sm);
   box-shadow: var(--shadow-stamp);
   overflow: hidden;
   cursor: pointer;
@@ -934,7 +935,7 @@ section {
   inset: 0;
   z-index: 2;
   pointer-events: none;
-  border-radius: 6px;
+  border-radius: var(--radius-sm);
   background: radial-gradient(
     circle 220px at var(--glow-x, -300px) var(--glow-y, -300px),
     rgba(120, 160, 255, 0.28),
@@ -1023,7 +1024,7 @@ section {
   background: var(--p-blazing-yellow);
   color: var(--ink-900);
   border: 2px solid var(--ink-900);
-  border-radius: 6px;
+  border-radius: var(--radius-sm);
   font-family: var(--font-display);
   font-size: 0.8125rem;
   font-weight: 600;
@@ -1065,7 +1066,7 @@ section {
 .modal-card {
   background: var(--paper);
   border: 2px solid var(--ink-900);
-  border-radius: 6px;
+  border-radius: var(--radius-sm);
   max-width: 720px;
   width: 100%;
   max-height: 90vh;
@@ -1230,7 +1231,6 @@ section {
   background: var(--p-blazing-yellow);
   color: var(--ink-900);
   border: 2px solid var(--ink-900);
-  font-size: 1.5rem;
   cursor: pointer;
   box-shadow: var(--shadow-stamp);
   display: grid;
@@ -1420,7 +1420,7 @@ section {
 .work-card {
   background: var(--paper);
   border: 2px solid var(--ink-900);
-  border-radius: 6px;
+  border-radius: var(--radius-sm);
   box-shadow: var(--shadow-stamp);
   overflow: hidden;
   display: flex;
@@ -2050,7 +2050,7 @@ footer {
   padding: var(--space-4);
   background: var(--paper);
   border: 2px solid var(--ink-900);
-  border-radius: 6px;
+  border-radius: var(--radius-sm);
   box-shadow: var(--shadow-stamp);
   display: flex;
   flex-direction: column;
