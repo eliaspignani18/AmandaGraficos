@@ -11,7 +11,7 @@
   gtag('config', 'G-0NZM3CS0M6');
 </script>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
   <meta name="description" content="Amanda Gráficos crea stickers, logos, candy bar, banners y piezas gráficas personalizadas para emprendimientos, eventos y regalos. Rosario, desde 2018.">
   <title>Amanda Gráficos | Diseño personalizado en Rosario</title>
   <meta name="theme-color" content="#fbe122">
@@ -438,7 +438,7 @@
           </div>
         </div>
         <div class="prices-foot">
-          <a class="cta wa" href="https://wa.me/5493417481079?text=Hola!%20Quiero%20cotizar%20stickers.%20Necesito%20aprox.%20___%20unidades%20de%20tama%C3%B1o%20___%20para%3A%20___" target="_blank" rel="noreferrer">Cotizar mi pedido</a>
+          <button class="cta" onclick="stkrOpenModal()">Cotizar mi pedido</button>
         </div>
       </article>
     </div>
@@ -771,5 +771,245 @@ document.querySelectorAll('[data-carousel]').forEach(function(carousel) {
 })();
 </script>
 
+<!-- MODAL COTIZADOR -->
+<div class="stkr-overlay" id="stkrOverlay" aria-modal="true" role="dialog" aria-label="Cotizador de stickers" style="display:none">
+  <div class="stkr-modal">
+    <div class="stkr-modal-head">
+      <div>
+        <h3 class="stkr-modal-title">Armá tu pedido de stickers</h3>
+        <p class="stkr-modal-sub">Elegís tamaño y cantidad. Después nos mandás tu diseño por WhatsApp.</p>
+      </div>
+      <button class="stkr-modal-close" id="stkrClose" aria-label="Cerrar">✕</button>
+    </div>
+
+    <div class="stkr-sizes">
+      <button class="stkr-size-btn stkr-size-btn--active" data-size="Chico (5×5 cm)">
+        <span class="stkr-size-name">Chico</span>
+        <span class="stkr-size-dim">5 × 5 cm</span>
+        <span class="stkr-size-from">desde $2.100 · 10 u.</span>
+      </button>
+      <button class="stkr-size-btn" data-size="Mediano (10×10 cm)">
+        <span class="stkr-size-name">Mediano</span>
+        <span class="stkr-size-dim">10 × 10 cm</span>
+        <span class="stkr-size-from">desde $6.700 · 10 u.</span>
+      </button>
+      <button class="stkr-size-btn" data-size="Grande (15×15 cm)">
+        <span class="stkr-size-name">Grande</span>
+        <span class="stkr-size-dim">15 × 15 cm</span>
+        <span class="stkr-size-from">desde $14.800 · 10 u.</span>
+      </button>
+    </div>
+
+    <div class="stkr-presets">
+      <button class="stkr-preset stkr-preset--active" data-qty="10">10</button>
+      <button class="stkr-preset" data-qty="20">20</button>
+      <button class="stkr-preset" data-qty="50">50</button>
+      <button class="stkr-preset" data-qty="100">100</button>
+      <button class="stkr-preset" data-qty="200">200</button>
+    </div>
+
+    <div class="stkr-row">
+      <div class="qty-control">
+        <button type="button" id="stkrMinus">−</button>
+        <input type="number" id="stkrQty" value="10" min="1">
+        <button type="button" id="stkrPlus">+</button>
+      </div>
+      <div class="stkr-price-display">
+        <span class="stkr-price-off" id="stkrOff" style="display:none"></span>
+        <span class="stkr-price-list" id="stkrList" style="display:none"></span>
+        <span class="stkr-price-val" id="stkrPrice">$2.100</span>
+        <span class="stkr-price-unit">en total</span>
+      </div>
+      <button class="cta" id="stkrAdd">+ Agregar</button>
+    </div>
+
+    <div class="stkr-cart" id="stkrCart" style="display:none">
+      <div class="stkr-cart-head">
+        <strong>Tu pedido</strong>
+        <button class="stkr-clear-btn" id="stkrClear">Vaciar</button>
+      </div>
+      <div class="stkr-cart-items" id="stkrItems"></div>
+      <div class="stkr-cart-foot">
+        <div class="stkr-cart-total" id="stkrTotal"></div>
+        <a class="cta wa" id="stkrWA" href="#" target="_blank" rel="noreferrer">Enviar por WhatsApp</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+(function () {
+  const PRICE_TABLE = {
+    "Chico (5×5 cm)": [
+      { qty: 10,  price: 2100,   list: 2500 },
+      { qty: 20,  price: 3700,   list: 5000 },
+      { qty: 50,  price: 9300,   list: 12500 },
+      { qty: 100, price: 17100,  list: 25000 },
+      { qty: 200, price: 33300,  list: 50000 },
+    ],
+    "Mediano (10×10 cm)": [
+      { qty: 10,  price: 6700,   list: 9900 },
+      { qty: 20,  price: 12600,  list: 19800 },
+      { qty: 50,  price: 31300,  list: 49500 },
+      { qty: 100, price: 59500,  list: 99000 },
+      { qty: 200, price: 112000, list: 198000 },
+    ],
+    "Grande (15×15 cm)": [
+      { qty: 10,  price: 14800,  list: 22000 },
+      { qty: 20,  price: 28000,  list: 44000 },
+      { qty: 50,  price: 60800,  list: 110000 },
+      { qty: 100, price: 115000, list: 220000 },
+      { qty: 200, price: 215300, list: 440000 },
+    ],
+  };
+
+  let currentSize = "Chico (5×5 cm)";
+  let stkrCart = [];
+
+  function calcPrice(size, qty) {
+    const table = PRICE_TABLE[size];
+    let tier = table[0];
+    for (const t of table) { if (qty >= t.qty) tier = t; }
+    const total     = Math.round(tier.price / tier.qty * qty);
+    const listTotal = Math.round(tier.list  / tier.qty * qty);
+    const pct       = Math.round((1 - (tier.price / tier.qty) / (tier.list / tier.qty)) * 100);
+    return { total, listTotal, pct };
+  }
+
+  function fmt(n) {
+    return "$" + n.toLocaleString("es-AR");
+  }
+
+  function updatePriceDisplay() {
+    const qty = Math.max(1, +document.getElementById("stkrQty").value || 1);
+    const r = calcPrice(currentSize, qty);
+    const offEl  = document.getElementById("stkrOff");
+    const listEl = document.getElementById("stkrList");
+    document.getElementById("stkrPrice").textContent = fmt(r.total);
+    if (r.pct > 0) {
+      offEl.textContent  = r.pct + "% off";
+      listEl.textContent = fmt(r.listTotal);
+      offEl.style.display  = "";
+      listEl.style.display = "";
+    } else {
+      offEl.style.display  = "none";
+      listEl.style.display = "none";
+    }
+  }
+
+  function updatePresets(qty) {
+    document.querySelectorAll(".stkr-preset").forEach(function (btn) {
+      btn.classList.toggle("stkr-preset--active", +btn.dataset.qty === qty);
+    });
+  }
+
+  function renderCart() {
+    const cartEl = document.getElementById("stkrCart");
+    const itemsEl = document.getElementById("stkrItems");
+    const totalEl = document.getElementById("stkrTotal");
+    const waEl    = document.getElementById("stkrWA");
+
+    if (stkrCart.length === 0) { cartEl.style.display = "none"; return; }
+    cartEl.style.display = "";
+
+    itemsEl.innerHTML = stkrCart.map(function (item, i) {
+      const r = calcPrice(item.size, item.qty);
+      return '<div class="stkr-cart-item">'
+        + '<div class="stkr-cart-item-info">'
+        + '<div class="stkr-cart-item-name">' + item.size + '</div>'
+        + '<div class="stkr-cart-item-detail">' + item.qty + ' unidades</div>'
+        + '</div>'
+        + '<div class="stkr-cart-item-price">' + fmt(r.total) + '</div>'
+        + '<button class="stkr-cart-item-remove" data-i="' + i + '" aria-label="Quitar">✕</button>'
+        + '</div>';
+    }).join("");
+
+    itemsEl.querySelectorAll(".stkr-cart-item-remove").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        stkrCart.splice(+btn.dataset.i, 1);
+        renderCart();
+      });
+    });
+
+    const grandTotal  = stkrCart.reduce(function (s, item) { return s + calcPrice(item.size, item.qty).total; }, 0);
+    const totalUnits  = stkrCart.reduce(function (s, item) { return s + item.qty; }, 0);
+    totalEl.innerHTML = '<strong>' + fmt(grandTotal) + '</strong> · ' + totalUnits + ' unidades';
+
+    var msg = "¡Hola Amanda Gráficos! Quiero hacer un pedido de stickers personalizados 🎨%0A%0A";
+    stkrCart.forEach(function (item) {
+      var r = calcPrice(item.size, item.qty);
+      msg += "▸ " + item.size + " — " + item.qty + " unidades — " + fmt(r.total) + "%0A";
+    });
+    msg += "%0ATotal: " + totalUnits + " unidades · " + fmt(grandTotal) + "%0A%0ALes voy a pasar el diseño por acá. ¡Gracias!";
+    waEl.href = "https://wa.me/5493417481079?text=" + msg;
+  }
+
+  document.querySelectorAll(".stkr-size-btn").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      document.querySelectorAll(".stkr-size-btn").forEach(function (b) { b.classList.remove("stkr-size-btn--active"); });
+      btn.classList.add("stkr-size-btn--active");
+      currentSize = btn.dataset.size;
+      updatePriceDisplay();
+    });
+  });
+
+  document.querySelectorAll(".stkr-preset").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      document.getElementById("stkrQty").value = btn.dataset.qty;
+      updatePresets(+btn.dataset.qty);
+      updatePriceDisplay();
+    });
+  });
+
+  document.getElementById("stkrMinus").addEventListener("click", function () {
+    var input = document.getElementById("stkrQty");
+    input.value = Math.max(1, (+input.value || 1) - 1);
+    updatePresets(+input.value);
+    updatePriceDisplay();
+  });
+  document.getElementById("stkrPlus").addEventListener("click", function () {
+    var input = document.getElementById("stkrQty");
+    input.value = (+input.value || 1) + 1;
+    updatePresets(+input.value);
+    updatePriceDisplay();
+  });
+  document.getElementById("stkrQty").addEventListener("input", function () {
+    updatePresets(+this.value);
+    updatePriceDisplay();
+  });
+
+  document.getElementById("stkrAdd").addEventListener("click", function () {
+    var qty = Math.max(1, +document.getElementById("stkrQty").value || 1);
+    var existing = stkrCart.find(function (i) { return i.size === currentSize; });
+    if (existing) { existing.qty += qty; } else { stkrCart.push({ size: currentSize, qty: qty }); }
+    renderCart();
+  });
+
+  document.getElementById("stkrClear").addEventListener("click", function () {
+    stkrCart = [];
+    renderCart();
+  });
+
+  // Modal open/close
+  function openModal() {
+    document.getElementById("stkrOverlay").style.display = "flex";
+    document.body.style.overflow = "hidden";
+  }
+  function closeModal() {
+    document.getElementById("stkrOverlay").style.display = "none";
+    document.body.style.overflow = "";
+  }
+  window.stkrOpenModal = openModal;
+  document.getElementById("stkrClose").addEventListener("click", closeModal);
+  document.getElementById("stkrOverlay").addEventListener("click", function (e) {
+    if (e.target === this) closeModal();
+  });
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape") closeModal();
+  });
+
+  updatePriceDisplay();
+}());
+</script>
 </body>
 </html>
