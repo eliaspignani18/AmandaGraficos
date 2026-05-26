@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://amandagraficos.store/sitemap.xml
+Sitemap: https://www.amandagraficos.store/sitemap.xml
