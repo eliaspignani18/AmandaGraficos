@@ -2367,4 +2367,195 @@ footer {
 .clients-logo img[alt="Amuchastegui"]     { transform: scale(1.3); }
 .clients-logo img[alt="Ferbar"]           { transform: scale(1.2); }
 .clients-logo img[alt="Yeia"]             { transform: scale(1.3); }
+
+/* ═══════════════════════════════════════════════════════════
+   COTIZADOR DE STICKERS — MODAL (index.html)
+   ═══════════════════════════════════════════════════════════ */
+.stkr-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+.stkr-modal {
+  background: var(--paper);
+  border: 2px solid var(--ink-900);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-stamp);
+  width: 100%;
+  max-width: 620px;
+  max-height: 90vh;
+  overflow-y: auto;
+  padding: 28px 28px 24px;
+}
+.stkr-modal-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+.stkr-modal-title { font-size: 1.3rem; font-weight: 700; margin-bottom: 4px; }
+.stkr-modal-sub { font-size: 0.88rem; color: var(--ink-500); }
+.stkr-modal-close {
+  background: none;
+  border: 1.5px solid var(--ink-300);
+  border-radius: var(--radius-sm);
+  width: 32px;
+  height: 32px;
+  font-size: 1rem;
+  cursor: pointer;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.15s;
+}
+.stkr-modal-close:hover { border-color: var(--ink-900); background: var(--p-blazing-yellow); }
+
+.stkr-sizes {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-bottom: 20px;
+}
+.stkr-size-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 18px 12px;
+  border: 2px solid var(--ink-300);
+  border-radius: var(--radius-md);
+  background: var(--paper);
+  cursor: pointer;
+  transition: border-color 0.15s, background 0.15s, box-shadow 0.15s;
+  font-family: inherit;
+}
+.stkr-size-btn:hover { border-color: var(--ink-900); }
+.stkr-size-btn--active {
+  border-color: var(--ink-900);
+  background: var(--p-blazing-yellow);
+  box-shadow: var(--shadow-stamp);
+}
+.stkr-size-name { font-family: var(--font-display); font-size: 1.2rem; font-weight: 700; }
+.stkr-size-dim { font-size: 0.8rem; color: var(--ink-500); font-weight: 600; }
+.stkr-size-btn--active .stkr-size-dim { color: var(--ink-700); }
+.stkr-size-from { font-size: 0.74rem; color: var(--ink-500); margin-top: 4px; }
+.stkr-size-btn--active .stkr-size-from { color: var(--ink-700); }
+
+.stkr-presets {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+.stkr-preset {
+  padding: 6px 16px;
+  border: 1.5px solid var(--ink-300);
+  border-radius: 100px;
+  background: var(--paper);
+  font-size: 0.88rem;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: inherit;
+  transition: all 0.15s;
+}
+.stkr-preset:hover { border-color: var(--ink-900); }
+.stkr-preset--active { background: var(--ink-900); color: var(--p-blazing-yellow); border-color: var(--ink-900); }
+
+.stkr-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 28px;
+}
+.stkr-price-display {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.stkr-price-off {
+  background: var(--p-blazing-yellow);
+  color: var(--p-black-beauty);
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 2px 6px;
+  border-radius: 3px;
+  border: 1.5px solid var(--ink-900);
+}
+.stkr-price-list { text-decoration: line-through; color: var(--ink-500); font-size: 0.88rem; }
+.stkr-price-val { font-family: var(--font-display); font-size: 2rem; font-weight: 700; letter-spacing: -0.02em; }
+.stkr-price-unit { font-size: 0.8rem; color: var(--ink-500); }
+
+.stkr-cart {
+  border: 2px solid var(--ink-900);
+  border-radius: var(--radius-md);
+  background: var(--paper);
+  overflow: hidden;
+  text-align: left;
+}
+.stkr-cart-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 20px;
+  border-bottom: 1.5px solid var(--ink-900);
+  background: var(--cream-100);
+}
+.stkr-cart-head strong { font-size: 1rem; }
+.stkr-clear-btn {
+  background: none;
+  border: 1.5px solid var(--ink-300);
+  border-radius: var(--radius-sm);
+  padding: 4px 10px;
+  font-size: 0.8rem;
+  cursor: pointer;
+  font-family: inherit;
+  transition: all 0.15s;
+}
+.stkr-clear-btn:hover { border-color: var(--ink-900); background: var(--p-blazing-yellow); }
+.stkr-cart-items { padding: 0 20px; }
+.stkr-cart-item {
+  display: flex;
+  align-items: center;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--line);
+  gap: 12px;
+}
+.stkr-cart-item:last-child { border-bottom: none; }
+.stkr-cart-item-info { flex: 1; }
+.stkr-cart-item-name { font-weight: 700; font-size: 0.95rem; }
+.stkr-cart-item-detail { font-size: 0.82rem; color: var(--ink-500); margin-top: 2px; }
+.stkr-cart-item-price { font-weight: 700; font-size: 0.95rem; white-space: nowrap; }
+.stkr-cart-item-remove { background: none; border: none; cursor: pointer; color: var(--ink-500); font-size: 1rem; padding: 0 2px; }
+.stkr-cart-item-remove:hover { color: var(--p-red-bud); }
+.stkr-cart-foot {
+  padding: 16px 20px 20px;
+  border-top: 1.5px solid var(--ink-900);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.stkr-cart-total { font-size: 0.95rem; font-weight: 600; }
+.stkr-cart-total strong { font-family: var(--font-display); font-size: 1.5rem; }
+
+[data-theme="dark"] .stkr-modal { background: var(--cream-100); }
+[data-theme="dark"] .stkr-size-btn { background: var(--cream-200); border-color: var(--ink-300); }
+[data-theme="dark"] .stkr-size-btn--active { background: var(--p-blazing-yellow); border-color: var(--ink-900); color: var(--ink-900); }
+[data-theme="dark"] .stkr-preset { background: var(--cream-200); border-color: var(--ink-300); color: var(--ink-900); }
+[data-theme="dark"] .stkr-preset--active { background: var(--p-blazing-yellow); color: var(--ink-900); border-color: var(--ink-900); }
+[data-theme="dark"] .stkr-cart { background: var(--cream-200); }
+[data-theme="dark"] .stkr-cart-head { background: var(--cream-50); }
 .clients-logo img[alt="Ninja"]            { transform: scale(1.5); }
