@@ -863,11 +863,14 @@ document.querySelectorAll('[data-carousel]').forEach(function(carousel) {
         <input type="number" id="stkrQty" value="10" min="1">
         <button type="button" id="stkrPlus">+</button>
       </div>
-      <div class="stkr-price-display">
-        <span class="stkr-price-off" id="stkrOff" style="display:none"></span>
-        <span class="stkr-price-list" id="stkrList" style="display:none"></span>
-        <span class="stkr-price-val" id="stkrPrice">$2.100</span>
-        <span class="stkr-price-unit">en total</span>
+      <div style="display:flex;flex-direction:column;align-items:center;gap:4px">
+        <div class="stkr-price-display">
+          <span class="stkr-price-off" id="stkrOff" style="display:none"></span>
+          <span class="stkr-price-list" id="stkrList" style="display:none"></span>
+          <span class="stkr-price-val" id="stkrPrice">$2.100</span>
+          <span class="stkr-price-unit">en total</span>
+        </div>
+        <span class="stkr-bolsa-hint" id="stkrBolsaHint" style="display:none"></span>
       </div>
       <button class="cta" id="stkrAdd">+ Agregar</button>
     </div>
@@ -912,6 +915,8 @@ document.querySelectorAll('[data-carousel]').forEach(function(carousel) {
     ],
   };
 
+  const BOLSA = { "Chico (5×5 cm)": 200, "Mediano (10×10 cm)": 200, "Grande (15×15 cm)": 400 };
+
   let currentSize = "Chico (5×5 cm)";
   let stkrCart = [];
 
@@ -919,10 +924,11 @@ document.querySelectorAll('[data-carousel]').forEach(function(carousel) {
     const table = PRICE_TABLE[size];
     let tier = table[0];
     for (const t of table) { if (qty >= t.qty) tier = t; }
-    const total     = Math.round(tier.price / tier.qty * qty);
-    const listTotal = Math.round(tier.list  / tier.qty * qty);
+    const bolsa     = BOLSA[size] || 0;
+    const total     = Math.round(tier.price / tier.qty * qty) + bolsa;
+    const listTotal = Math.round(tier.list  / tier.qty * qty) + bolsa;
     const pct       = Math.round((1 - (tier.price / tier.qty) / (tier.list / tier.qty)) * 100);
-    return { total, listTotal, pct };
+    return { total, listTotal, pct, bolsa };
   }
 
   function fmt(n) {
@@ -932,8 +938,9 @@ document.querySelectorAll('[data-carousel]').forEach(function(carousel) {
   function updatePriceDisplay() {
     const qty = Math.max(1, +document.getElementById("stkrQty").value || 1);
     const r = calcPrice(currentSize, qty);
-    const offEl  = document.getElementById("stkrOff");
-    const listEl = document.getElementById("stkrList");
+    const offEl    = document.getElementById("stkrOff");
+    const listEl   = document.getElementById("stkrList");
+    const bolsaEl  = document.getElementById("stkrBolsaHint");
     document.getElementById("stkrPrice").textContent = fmt(r.total);
     if (r.pct > 0) {
       offEl.textContent  = r.pct + "% off";
@@ -943,6 +950,12 @@ document.querySelectorAll('[data-carousel]').forEach(function(carousel) {
     } else {
       offEl.style.display  = "none";
       listEl.style.display = "none";
+    }
+    if (r.bolsa > 0) {
+      bolsaEl.textContent   = "+ " + fmt(r.bolsa) + " bolsa incluida";
+      bolsaEl.style.display = "";
+    } else {
+      bolsaEl.style.display = "none";
     }
   }
 
@@ -963,10 +976,11 @@ document.querySelectorAll('[data-carousel]').forEach(function(carousel) {
 
     itemsEl.innerHTML = stkrCart.map(function (item, i) {
       const r = calcPrice(item.size, item.qty);
+      const bolsaStr = r.bolsa > 0 ? ' · +' + fmt(r.bolsa) + ' bolsa' : '';
       return '<div class="stkr-cart-item">'
         + '<div class="stkr-cart-item-info">'
         + '<div class="stkr-cart-item-name">' + item.size + '</div>'
-        + '<div class="stkr-cart-item-detail">' + item.qty + ' unidades</div>'
+        + '<div class="stkr-cart-item-detail">' + item.qty + ' unidades' + bolsaStr + '</div>'
         + '</div>'
         + '<div class="stkr-cart-item-price">' + fmt(r.total) + '</div>'
         + '<button class="stkr-cart-item-remove" data-i="' + i + '" aria-label="Quitar">✕</button>'
