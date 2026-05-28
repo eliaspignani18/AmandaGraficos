@@ -2432,6 +2432,7 @@ footer {
   border: 2px solid var(--ink-300);
   border-radius: var(--radius-md);
   background: var(--cream-100);
+  color: var(--ink-900);
   cursor: pointer;
   transition: border-color 0.15s, background 0.15s, box-shadow 0.15s;
   font-family: inherit;
@@ -2556,7 +2557,7 @@ footer {
 .stkr-cart-total strong { font-family: var(--font-display); font-size: 1.5rem; }
 
 [data-theme="dark"] .stkr-modal { background: var(--cream-100); }
-[data-theme="dark"] .stkr-size-btn { background: var(--cream-300); border-color: var(--ink-300); }
+[data-theme="dark"] .stkr-size-btn { background: var(--cream-300); border-color: var(--ink-300); color: var(--ink-900); }
 [data-theme="dark"] .stkr-size-btn--active { background: var(--p-blazing-yellow); border-color: var(--p-black-beauty); color: var(--p-black-beauty); }
 [data-theme="dark"] .stkr-preset { background: var(--cream-300); border-color: var(--ink-300); color: var(--ink-900); }
 [data-theme="dark"] .stkr-preset--active { background: var(--p-blazing-yellow); color: var(--p-black-beauty); border-color: var(--p-black-beauty); }
