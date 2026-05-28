@@ -2557,9 +2557,9 @@ footer {
 
 [data-theme="dark"] .stkr-modal { background: var(--cream-100); }
 [data-theme="dark"] .stkr-size-btn { background: var(--cream-300); border-color: var(--ink-300); }
-[data-theme="dark"] .stkr-size-btn--active { background: var(--p-blazing-yellow); border-color: var(--ink-900); color: var(--ink-900); }
+[data-theme="dark"] .stkr-size-btn--active { background: var(--p-blazing-yellow); border-color: var(--p-black-beauty); color: var(--p-black-beauty); }
 [data-theme="dark"] .stkr-preset { background: var(--cream-300); border-color: var(--ink-300); color: var(--ink-900); }
-[data-theme="dark"] .stkr-preset--active { background: var(--p-blazing-yellow); color: var(--ink-900); border-color: var(--ink-900); }
+[data-theme="dark"] .stkr-preset--active { background: var(--p-blazing-yellow); color: var(--p-black-beauty); border-color: var(--p-black-beauty); }
 [data-theme="dark"] .stkr-cart { background: var(--cream-200); }
 [data-theme="dark"] .stkr-cart-head { background: var(--cream-50); }
 
