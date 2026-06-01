@@ -2188,6 +2188,9 @@ footer {
   -webkit-text-stroke: 0;
   text-shadow: none;
   font-size: clamp(1.125rem, 2.5vw, 1.5rem);
+  font-weight: 700;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 .star-card__desc {
@@ -2224,6 +2227,7 @@ footer {
   width: 32px;
   height: 32px;
   background: var(--cream-50);
+  color: var(--ink-900);
   border: 2px solid var(--ink-900);
   border-radius: 50%;
   cursor: pointer;
