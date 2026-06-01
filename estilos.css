@@ -1471,22 +1471,62 @@ section {
   text-shadow: none;
 }
 .work-title::before { display: none; }
-.work-modal-card { max-width: 1400px; width: 100%; }
-.work-modal-grid { grid-template-columns: 3fr 1fr; }
-.work-modal-visual { aspect-ratio: 4/3; overflow: hidden; }
+.work-modal-card { max-width: 680px; width: 100%; }
+.work-modal-grid { display: flex; flex-direction: column; }
+.work-modal-visual {
+  aspect-ratio: 4/3;
+  overflow: hidden;
+  border-right: none;
+  border-bottom: 2px solid var(--ink-900);
+  position: relative;
+}
 
-@media (max-width: 720px) {
-  .work-modal-grid {
-    grid-template-columns: 1fr;
-  }
-  .work-modal-visual {
-    aspect-ratio: 1/1;
-    border-right: none;
-    border-bottom: 2px solid var(--ink-900);
-  }
-  #work-modal-prev,
-  #work-modal-next { display: none; }
-  #work-modal-counter { width: 100%; text-align: center; }
+/* Flechas superpuestas sobre la imagen */
+#work-modal-nav { position: absolute; inset: 0; pointer-events: none; }
+#work-modal-prev,
+#work-modal-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px; height: 40px;
+  background: rgba(255,255,255,0.88);
+  color: #1c1c20;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: auto;
+  transition: background 0.15s;
+  font-family: inherit;
+}
+#work-modal-prev:hover, #work-modal-next:hover { background: var(--p-blazing-yellow); }
+#work-modal-prev:disabled, #work-modal-next:disabled { opacity: 0.25; pointer-events: none; }
+#work-modal-prev { left: 12px; }
+#work-modal-next { right: 12px; }
+#work-modal-counter {
+  position: absolute;
+  bottom: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(28,28,32,0.6);
+  color: #fff;
+  font-size: 0.78rem;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 99px;
+  pointer-events: none;
+  white-space: nowrap;
+}
+
+/* Panel de info debajo de la imagen */
+.work-modal-body {
+  padding: var(--space-3);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
 }
 
 .work-card-group .work-visual { position: relative; }
