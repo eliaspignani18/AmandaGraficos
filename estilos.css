@@ -1154,6 +1154,27 @@ section {
   letter-spacing: -0.02em;
 }
 .modal-price-unit { font-size: 0.78rem; color: var(--ink-500); }
+.modal-material-toggle {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+  margin-bottom: 14px;
+}
+.modal-mat-btn {
+  padding: 10px 14px;
+  border: 1.5px solid var(--ink-900);
+  border-radius: 8px;
+  font: inherit;
+  font-size: 0.92rem;
+  font-weight: 600;
+  background: var(--cream-50);
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+}
+.modal-mat-btn.active {
+  background: var(--ink-900);
+  color: var(--cream-50);
+}
 .modal-controls {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -1170,15 +1191,19 @@ section {
   width: 100%;
   padding: 10px 14px;
   border: 1.5px solid var(--ink-900);
-  border-radius: 999px;
+  border-radius: 8px;
   font: inherit;
   background: var(--cream-50);
 }
+.modal-controls select {
+  cursor: pointer;
+}
 .qty-control {
+  border-radius: 8px;
   display: flex;
   align-items: center;
   gap: 8px;
-  padding: 4px;
+  padding: 7px 8px;
 }
 .qty-control button {
   width: 30px; height: 30px;
@@ -1939,6 +1964,13 @@ footer {
   color: var(--ink-500);
   font-size: 0.85em;
   font-weight: 400;
+}
+.price-card .price-min {
+  font-size: 0.78rem;
+  color: var(--ink-500);
+  margin-top: -10px;
+  margin-bottom: 14px;
+  font-style: italic;
 }
 .price-off {
   display: inline-flex;
