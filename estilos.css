@@ -1070,6 +1070,7 @@ section {
   max-width: 720px;
   width: 100%;
   max-height: 90vh;
+  max-height: calc(100dvh - 40px);
   overflow-y: auto;
   box-shadow: var(--shadow-stamp-hover);
   position: relative;
@@ -1226,13 +1227,16 @@ section {
 .modal-confirm.added { background: var(--p-greenery); color: white; }
 
 @media (max-width: 720px) {
-  .modal-grid { grid-template-columns: 1fr; }
+  .modal-grid { grid-template-columns: 1fr; min-height: 0; }
   .modal-visual {
     border-right: none;
     border-bottom: 2px solid var(--ink-900);
-    aspect-ratio: 4 / 3;
+    aspect-ratio: 16 / 9;
+    min-height: 0;
   }
   .modal-controls { grid-template-columns: 1fr; }
+  .modal-price { flex-wrap: wrap; }
+  .modal-price-unit { width: 100%; }
 }
 
 /* ═══════════════════════════════════════════════════════════
