@@ -142,20 +142,33 @@
     let currentItem    = null;
 
     const MINS = {
-      "Chico (5×5 cm)":    15,
-      "Mediano (10×10 cm)": 10,
-      "Grande (15×15 cm)":   5
+      vinilo: {
+        "Chico (5×5 cm)":    20,
+        "Mediano (10×10 cm)": 10,
+        "Grande (15×15 cm)":  10,
+      },
+      dtf: {
+        "Mini (3×3 cm)":      150,
+        "Chico (5×5 cm)":     50,
+        "Mediano (10×10 cm)": 10,
+      }
     };
 
     function checkMins() {
-      const totals = {};
-      cart.forEach(item => {
-        if (MINS[item.size] !== undefined)
-          totals[item.size] = (totals[item.size] || 0) + item.qty;
+      const errors = [];
+      ['vinilo', 'dtf'].forEach(mat => {
+        const minsForMat = MINS[mat];
+        const totals = {};
+        cart.filter(i => (i.material || 'vinilo') === mat).forEach(item => {
+          if (minsForMat[item.size] !== undefined)
+            totals[item.size] = (totals[item.size] || 0) + item.qty;
+        });
+        Object.entries(minsForMat).forEach(([size, min]) => {
+          if (totals[size] && totals[size] < min)
+            errors.push({ size, mat, current: totals[size], min, falta: min - totals[size] });
+        });
       });
-      return Object.entries(MINS)
-        .filter(([size, min]) => totals[size] && totals[size] < min)
-        .map(([size, min]) => ({ size, current: totals[size], min, falta: min - totals[size] }));
+      return errors;
     }
 
     // Tabla de precios por tamaño y cantidad (precio real + precio de lista sin descuento)
@@ -183,12 +196,54 @@
       ],
     };
 
+    const DTF_PRICE_TABLE = {
+      "Mini (3×3 cm)": [
+        { qty: 150,  price: 16200,  list: 20300 },
+        { qty: 250,  price: 26000,  list: 33800 },
+        { qty: 500,  price: 50600,  list: 67500 },
+        { qty: 1000, price: 97200,  list: 135000 },
+      ],
+      "Chico (5×5 cm)": [
+        { qty: 50,  price: 16000,  list: 20000 },
+        { qty: 100, price: 30000,  list: 40000 },
+        { qty: 200, price: 57600,  list: 80000 },
+        { qty: 500, price: 136000, list: 200000 },
+      ],
+      "Mediano (10×10 cm)": [
+        { qty: 10,  price: 14800,  list: 18500 },
+        { qty: 20,  price: 27800,  list: 37000 },
+        { qty: 50,  price: 65800,  list: 92500 },
+        { qty: 100, price: 125800, list: 185000 },
+        { qty: 250, price: 314500, list: 462500 },
+      ],
+    };
+
+    let currentMaterial = 'vinilo';
+
+    const VINILO_SIZES = ["Chico (5×5 cm)", "Mediano (10×10 cm)", "Grande (15×15 cm)", "A consultar"];
+    const DTF_SIZES    = ["Mini (3×3 cm)", "Chico (5×5 cm)", "Mediano (10×10 cm)", "A consultar"];
+
+    function setMaterial(mat) {
+      currentMaterial = mat;
+      document.querySelectorAll('.modal-mat-btn').forEach(b =>
+        b.classList.toggle('active', b.dataset.mat === mat)
+      );
+      const sizes       = mat === 'dtf' ? DTF_SIZES : VINILO_SIZES;
+      const defaultSize = mat === 'dtf' ? "Chico (5×5 cm)" : "Mediano (10×10 cm)";
+      const defaultQty  = mat === 'dtf' ? 50 : 10;
+      modalSize.innerHTML = sizes.map(s =>
+        `<option${s === defaultSize ? ' selected' : ''}>${s}</option>`
+      ).join('');
+      modalQty.value = defaultQty;
+      updateModalPrice();
+    }
+
     function formatPrice(n) {
       return "$" + n.toLocaleString("es-AR");
     }
 
-    function getTieredPrice(size, qty) {
-      const table = PRICE_TABLE[size];
+    function getTieredPrice(size, qty, priceTable) {
+      const table = (priceTable || PRICE_TABLE)[size];
       if (!table) return null;
       let tier = table[0];
       for (const t of table) { if (qty >= t.qty) tier = t; }
@@ -214,7 +269,15 @@
         return;
       }
 
-      const r = getTieredPrice(size, qty);
+      const table = currentMaterial === 'dtf' ? DTF_PRICE_TABLE : PRICE_TABLE;
+      const r = getTieredPrice(size, qty, table);
+      if (!r) {
+        modalPrice.textContent     = "A consultar";
+        modalPriceUnit.textContent = "";
+        priceListEl.style.display  = "none";
+        priceOffEl.style.display   = "none";
+        return;
+      }
       modalPrice.textContent     = formatPrice(r.total);
       modalPriceUnit.textContent = `(${qty} × ${formatPrice(r.unitPrice)})`;
 
@@ -237,9 +300,7 @@
       modalBadge.textContent = currentItem.badge;
       modalTitle.textContent  = currentItem.title;
       modalDesc.textContent   = currentItem.desc;
-      modalSize.value = "Mediano (10×10 cm)";
-      modalQty.value  = "10";
-      updateModalPrice();
+      setMaterial('vinilo');
       modalConfirm.innerHTML = '<span>🛒</span> Agregar al pedido';
       modalConfirm.classList.remove("added");
       modal.classList.add("open");
@@ -250,6 +311,10 @@
       modal.classList.remove("open");
       document.body.style.overflow = "";
     }
+
+    document.querySelectorAll('.modal-mat-btn').forEach(btn => {
+      btn.addEventListener('click', () => setMaterial(btn.dataset.mat));
+    });
 
     document.getElementById("modalClose").addEventListener("click", closeModal);
     modal.addEventListener("click", e => { if (e.target === modal) closeModal(); });
@@ -296,7 +361,7 @@
           <img class="cart-item-img" src="${encodeURI('images/' + item.file)}" alt="${item.title}">
           <div class="cart-item-info">
             <div class="cart-item-name">${item.title}</div>
-            <div class="cart-item-detail">${item.size} · ${item.qty} unidades</div>
+            <div class="cart-item-detail">${item.size}${item.material === 'dtf' ? ' · DTF' : ''} · ${item.qty} unidades</div>
           </div>
           <button class="cart-item-remove" data-i="${i}" aria-label="Quitar">✕</button>
         </div>
@@ -327,11 +392,11 @@
       if (!currentItem) return;
       const qty  = Math.max(1, parseInt(modalQty.value) || 1);
       const size = modalSize.value;
-      const existing = cart.find(i => i.file === currentItem.file && i.size === size);
+      const existing = cart.find(i => i.file === currentItem.file && i.size === size && i.material === currentMaterial);
       if (existing) {
         existing.qty += qty;
       } else {
-        cart.push({ ...currentItem, qty, size });
+        cart.push({ ...currentItem, qty, size, material: currentMaterial });
       }
       updateCartUI();
       showToast(`✓ ${currentItem.title} agregado al pedido`);
@@ -368,7 +433,7 @@
       const warning = document.getElementById("cartMinWarning");
       if (errors.length > 0) {
         warning.innerHTML = errors.map(e =>
-          `Necesitás ${e.falta} ${e.size.split(" ")[0].toLowerCase()}${e.falta > 1 ? "s" : ""} más (mín. ${e.min})`
+          `Necesitás ${e.falta} ${e.size.split(" ")[0].toLowerCase()}${e.falta > 1 ? "s" : ""} más en ${e.mat === 'dtf' ? 'DTF' : 'vinilo'} (mín. ${e.min})`
         ).join("<br>");
         return;
       }
@@ -376,7 +441,7 @@
 
       let msg = "¡Hola Amanda Gráficos! Quiero hacer un pedido 🎨%0A%0A";
       cart.forEach(item => {
-        msg += `▸ ${item.title} — ${item.size} — ${item.qty} unidades%0A`;
+        msg += `▸ ${item.title} — ${item.size}${item.material === 'dtf' ? ' (DTF)' : ''} — ${item.qty} unidades%0A`;
       });
       const total = cart.reduce((s, i) => s + i.qty, 0);
       msg += `%0ATotal: ${total} unidades en ${cart.length} diseño${cart.length > 1 ? "s" : ""}.%0A%0AQuedo a la espera. ¡Gracias!`;
