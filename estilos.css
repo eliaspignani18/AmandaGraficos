@@ -2420,6 +2420,10 @@ footer {
   opacity: 0.65;
   filter: grayscale(100%) brightness(1.8);
 }
+[data-theme="dark"] .clients-logo img[alt="Churros Bike"]  { filter: invert(1) grayscale(100%) brightness(1.2); }
+[data-theme="dark"] .clients-logo img[alt="Kairos"]        { filter: grayscale(100%) invert(1) brightness(0.8); }
+[data-theme="dark"] .clients-logo img[alt="Pelota al Pie"] { filter: invert(1) grayscale(100%) brightness(1.2); }
+[data-theme="dark"] .clients-logo img[alt="Eclipse"]       { filter: invert(1) grayscale(100%) brightness(1.2); }
 
 .clients-logo img[alt="Brokers Rosario"]  { transform: scale(2.0); filter: grayscale(100%) brightness(1.4); }
 .clients-logo img[alt="FMS"]              { filter: grayscale(100%) brightness(1.6); }
@@ -2448,6 +2452,8 @@ footer {
 .clients-logo img[alt="Amuchastegui"]     { transform: scale(1.3); }
 .clients-logo img[alt="Ferbar"]           { transform: scale(1.2); }
 .clients-logo img[alt="Yeia"]             { transform: scale(1.3); }
+.clients-logo img[alt="Pelota al Pie"]    { filter: invert(1) grayscale(100%); }
+.clients-logo img[alt="Eclipse"]          { filter: invert(1) grayscale(100%); }
 
 /* ═══════════════════════════════════════════════════════════
    COTIZADOR DE STICKERS — MODAL (index.html)
