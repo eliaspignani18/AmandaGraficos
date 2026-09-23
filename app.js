@@ -198,23 +198,23 @@
 
     const DTF_PRICE_TABLE = {
       "Mini (3×3 cm)": [
-        { qty: 150,  price: 16200,  list: 20300 },
-        { qty: 250,  price: 26000,  list: 33800 },
-        { qty: 500,  price: 50600,  list: 67500 },
-        { qty: 1000, price: 97200,  list: 135000 },
+        { qty: 150,  price: 18800,  list: 23600 },
+        { qty: 250,  price: 30400,  list: 39500 },
+        { qty: 500,  price: 59500,  list: 79400 },
+        { qty: 1000, price: 115000, list: 159700 },
       ],
       "Chico (5×5 cm)": [
-        { qty: 50,  price: 16000,  list: 20000 },
-        { qty: 100, price: 30000,  list: 40000 },
-        { qty: 200, price: 57600,  list: 80000 },
-        { qty: 500, price: 136000, list: 200000 },
+        { qty: 50,  price: 19200,  list: 24000 },
+        { qty: 100, price: 35300,  list: 47100 },
+        { qty: 200, price: 68700,  list: 95400 },
+        { qty: 500, price: 165000, list: 242700 },
       ],
       "Mediano (10×10 cm)": [
-        { qty: 10,  price: 14800,  list: 18500 },
-        { qty: 20,  price: 27800,  list: 37000 },
-        { qty: 50,  price: 65800,  list: 92500 },
-        { qty: 100, price: 125800, list: 185000 },
-        { qty: 250, price: 314500, list: 462500 },
+        { qty: 10,  price: 13900,  list: 17400 },
+        { qty: 20,  price: 26000,  list: 34600 },
+        { qty: 50,  price: 64700,  list: 91000 },
+        { qty: 100, price: 122700, list: 180500 },
+        { qty: 250, price: 275000, list: 404500 },
       ],
     };
 
