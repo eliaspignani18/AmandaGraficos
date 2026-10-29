@@ -105,7 +105,7 @@
   },
   {
     "file": "1 copa del mundo.webp",
-    "title": "Copa Mundial",
+    "title": "Copa del Mundo ilustrada",
     "category": "futbol",
     "badge": "Fútbol",
     "meta": "Trofeo",
@@ -118,7 +118,7 @@
   },
   {
     "file": "1 copa del mundo 1.webp",
-    "title": "Copa del mundo",
+    "title": "Copa del Mundo realista",
     "category": "futbol",
     "badge": "Fútbol",
     "meta": "Trofeo",
@@ -174,7 +174,7 @@
     "category": "futbol",
     "badge": "Fútbol",
     "meta": "Leyenda",
-    "desc": "Una imagen potente para destacar a Diego dentro del catálogo deportivo.",
+    "desc": "Diego y Messi abrazados con la copa, el encuentro soñado de los dos más grandes.",
     "tags": [
       "Diego",
       "Copa",
@@ -326,7 +326,7 @@
   },
   {
     "file": "messi copa 1.webp",
-    "title": "Messi y la copa",
+    "title": "Messi levantando la copa",
     "category": "futbol",
     "badge": "Fútbol",
     "meta": "Campeón",
@@ -339,7 +339,7 @@
   },
   {
     "file": "messi copa mundo 3.webp",
-    "title": "Messi Mundial",
+    "title": "Messi besando la copa",
     "category": "futbol",
     "badge": "Fútbol",
     "meta": "Mundial",
@@ -352,7 +352,7 @@
   },
   {
     "file": "messi copa.webp",
-    "title": "Messi copa",
+    "title": "Messi con la bandera y la copa",
     "category": "futbol",
     "badge": "Fútbol",
     "meta": "Ídolo",
@@ -1214,7 +1214,7 @@
     "category": "musica",
     "badge": "Música",
     "meta": "Banda",
-    "desc": "2D de Gorillaz, el personaje animado de la banda virtual más coolde todos los tiempos.",
+    "desc": "2D de Gorillaz, el personaje animado de la banda virtual más cool de todos los tiempos.",
     "tags": ["Gorillaz", "Banda", "Alternativo"]
   },
   {
