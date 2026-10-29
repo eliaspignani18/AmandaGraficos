@@ -206,7 +206,12 @@
         { qty: 50,  price: 19200,  list: 25600 },
         { qty: 100, price: 35300,  list: 49000 },
       ],
-      // Mediano DTF sin tabla: el cotizador muestra "A consultar"
+      "Mediano (10×10 cm)": [
+        { qty: 3,   price: 5600,   list: 7000 },
+        { qty: 8,   price: 14900,  list: 19400 },
+        { qty: 20,  price: 34900,  list: 46500 },
+        { qty: 50,  price: 84400,  list: 117200 },
+      ],
     };
 
     let currentMaterial = 'vinilo';
