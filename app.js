@@ -174,25 +174,22 @@
     // Tabla de precios por tamaño y cantidad (precio real + precio de lista sin descuento)
     const PRICE_TABLE = {
       "Chico (5×5 cm)": [
-        { qty: 10,  price: 2100,   list: 2500 },
-        { qty: 20,  price: 3700,   list: 5000 },
-        { qty: 50,  price: 9300,   list: 12500 },
-        { qty: 100, price: 17100,  list: 25000 },
-        { qty: 200, price: 33300,  list: 50000 },
+        { qty: 10,  price: 2900,   list: 3500 },
+        { qty: 20,  price: 5200,   list: 7000 },
+        { qty: 50,  price: 13000,  list: 17500 },
+        { qty: 100, price: 23900,  list: 35000 },
       ],
       "Mediano (10×10 cm)": [
-        { qty: 10,  price: 6700,   list: 9900 },
-        { qty: 20,  price: 12600,  list: 19800 },
-        { qty: 50,  price: 31300,  list: 49500 },
-        { qty: 100, price: 59500,  list: 99000 },
-        { qty: 200, price: 112000, list: 198000 },
+        { qty: 10,  price: 9400,   list: 13800 },
+        { qty: 20,  price: 17600,  list: 27700 },
+        { qty: 50,  price: 43800,  list: 69200 },
+        { qty: 100, price: 83200,  list: 138500 },
       ],
       "Grande (15×15 cm)": [
-        { qty: 10,  price: 14800,  list: 22000 },
-        { qty: 20,  price: 28000,  list: 44000 },
-        { qty: 50,  price: 60800,  list: 110000 },
-        { qty: 100, price: 115000, list: 220000 },
-        { qty: 200, price: 215300, list: 440000 },
+        { qty: 10,  price: 20700,  list: 30800 },
+        { qty: 20,  price: 39200,  list: 61500 },
+        { qty: 50,  price: 85000,  list: 153900 },
+        { qty: 100, price: 160900, list: 307700 },
       ],
     };
 
@@ -200,21 +197,16 @@
       "Mini (3×3 cm)": [
         { qty: 150,  price: 18800,  list: 23600 },
         { qty: 250,  price: 30400,  list: 39500 },
-        { qty: 500,  price: 59500,  list: 79400 },
-        { qty: 1000, price: 115000, list: 159700 },
       ],
       "Chico (5×5 cm)": [
         { qty: 50,  price: 19200,  list: 24000 },
         { qty: 100, price: 35300,  list: 47100 },
-        { qty: 200, price: 68700,  list: 95400 },
-        { qty: 500, price: 165000, list: 242700 },
       ],
       "Mediano (10×10 cm)": [
         { qty: 10,  price: 13900,  list: 17400 },
         { qty: 20,  price: 26000,  list: 34600 },
         { qty: 50,  price: 64700,  list: 91000 },
         { qty: 100, price: 122700, list: 180500 },
-        { qty: 250, price: 275000, list: 404500 },
       ],
     };
 
