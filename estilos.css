@@ -653,6 +653,31 @@ section {
 }
 .price-list li:last-child { border-bottom: none; }
 .price-list strong { font-weight: 800; }
+/* Filas con precio tachado: grilla con aire entre cantidad, precios y badge */
+.price-list li:has(.price-qty) {
+  display: grid;
+  grid-template-columns: 1fr auto auto auto;
+  column-gap: 8px;
+}
+.price-qty { white-space: nowrap; }
+/* Cuando la tarjeta es angosta: cantidad a la izquierda; precio arriba y tachado + badge abajo */
+@media (max-width: 1150px) {
+  .price-list li:has(.price-qty) {
+    grid-template-columns: 1fr auto auto;
+    grid-template-areas:
+      "qty price price"
+      "qty orig off";
+    row-gap: 2px;
+  }
+  .price-list li .price-qty { grid-area: qty; }
+  .price-list li .price-original { grid-area: orig; text-align: right; }
+  .price-list li strong { grid-area: price; text-align: right; font-size: 1.05em; }
+  .price-list li .price-off { grid-area: off; justify-self: end; }
+}
+@media (max-width: 600px) {
+  .prices-box { padding: 20px 16px; }
+  .price-card { padding: 16px; }
+}
 .prices-foot {
   margin-top: var(--space-3);
   text-align: center;
