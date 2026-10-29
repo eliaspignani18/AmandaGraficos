@@ -195,16 +195,16 @@
 
     const DTF_PRICE_TABLE = {
       "Mini (3×3 cm)": [
-        { qty: 35,  price: 9300,   list: 11600 },
-        { qty: 50,  price: 13300,  list: 17300 },
-        { qty: 100, price: 25700,  list: 34300 },
-        { qty: 150, price: 37400,  list: 51900 },
+        { qty: 35,  price: 4800,   list: 6000 },
+        { qty: 50,  price: 6900,   list: 9000 },
+        { qty: 100, price: 12700,  list: 16900 },
+        { qty: 150, price: 18800,  list: 26100 },
       ],
       "Chico (5×5 cm)": [
-        { qty: 14,  price: 9200,   list: 11500 },
-        { qty: 20,  price: 13200,  list: 17100 },
-        { qty: 50,  price: 32000,  list: 42700 },
-        { qty: 100, price: 62000,  list: 86100 },
+        { qty: 14,  price: 5600,   list: 7000 },
+        { qty: 20,  price: 7700,   list: 10000 },
+        { qty: 50,  price: 19200,  list: 25600 },
+        { qty: 100, price: 35300,  list: 49000 },
       ],
       // Mediano DTF sin tabla: el cotizador muestra "A consultar"
     };
