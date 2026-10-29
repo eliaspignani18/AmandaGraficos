@@ -195,19 +195,18 @@
 
     const DTF_PRICE_TABLE = {
       "Mini (3×3 cm)": [
-        { qty: 150,  price: 18800,  list: 23600 },
-        { qty: 250,  price: 30400,  list: 39500 },
+        { qty: 35,  price: 9300,   list: 11600 },
+        { qty: 50,  price: 13300,  list: 17300 },
+        { qty: 100, price: 25700,  list: 34300 },
+        { qty: 150, price: 37400,  list: 51900 },
       ],
       "Chico (5×5 cm)": [
-        { qty: 50,  price: 19200,  list: 24000 },
-        { qty: 100, price: 35300,  list: 47100 },
+        { qty: 14,  price: 9200,   list: 11500 },
+        { qty: 20,  price: 13200,  list: 17100 },
+        { qty: 50,  price: 32000,  list: 42700 },
+        { qty: 100, price: 62000,  list: 86100 },
       ],
-      "Mediano (10×10 cm)": [
-        { qty: 10,  price: 13900,  list: 17400 },
-        { qty: 20,  price: 26000,  list: 34600 },
-        { qty: 50,  price: 64700,  list: 91000 },
-        { qty: 100, price: 122700, list: 180500 },
-      ],
+      // Mediano DTF sin tabla: el cotizador muestra "A consultar"
     };
 
     let currentMaterial = 'vinilo';
