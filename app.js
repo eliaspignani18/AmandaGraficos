@@ -174,22 +174,22 @@
     // Tabla de precios por tamaño y cantidad (precio real + precio de lista sin descuento)
     const PRICE_TABLE = {
       "Chico (5×5 cm)": [
-        { qty: 10,  price: 2900,   list: 3500 },
-        { qty: 20,  price: 5200,   list: 7000 },
-        { qty: 50,  price: 13000,  list: 17500 },
-        { qty: 100, price: 23900,  list: 35000 },
+        { qty: 10,  price: 3040,   list: 3670 },
+        { qty: 20,  price: 5460,   list: 7350 },
+        { qty: 50,  price: 13640,  list: 18370 },
+        { qty: 100, price: 25090,  list: 36740 },
       ],
       "Mediano (10×10 cm)": [
-        { qty: 10,  price: 9400,   list: 13800 },
-        { qty: 20,  price: 17600,  list: 27700 },
-        { qty: 50,  price: 43800,  list: 69200 },
-        { qty: 100, price: 83200,  list: 138500 },
+        { qty: 10,  price: 9870,   list: 14480 },
+        { qty: 20,  price: 18470,  list: 29070 },
+        { qty: 50,  price: 45970,  list: 72630 },
+        { qty: 100, price: 87330,  list: 145370 },
       ],
       "Grande (15×15 cm)": [
-        { qty: 10,  price: 20700,  list: 30800 },
-        { qty: 20,  price: 39200,  list: 61500 },
-        { qty: 50,  price: 85000,  list: 153900 },
-        { qty: 100, price: 160900, list: 307700 },
+        { qty: 10,  price: 21730,  list: 32330 },
+        { qty: 20,  price: 41140,  list: 64550 },
+        { qty: 50,  price: 89210,  list: 161530 },
+        { qty: 100, price: 168880, list: 322960 },
       ],
     };
 
