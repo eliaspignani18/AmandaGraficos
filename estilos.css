@@ -618,6 +618,37 @@ section {
   color: var(--ink-500);
   margin-bottom: var(--space-3);
 }
+/* Selector de vinilo (blanco / holográfico) en la lista de precios */
+.vinyl-toggle {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0 0 var(--space-3);
+}
+.vinyl-btn {
+  padding: 8px 18px;
+  border: 2px solid var(--ink-300);
+  border-radius: 999px;
+  background: var(--cream-100);
+  color: var(--ink-900);
+  font-family: inherit;
+  font-weight: 700;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: border-color 0.15s, background 0.15s, box-shadow 0.15s;
+  -webkit-appearance: none;
+  appearance: none;
+}
+.vinyl-btn:hover { border-color: var(--ink-900); }
+.vinyl-btn--active {
+  border-color: var(--ink-900);
+  background: var(--p-blazing-yellow);
+  box-shadow: var(--shadow-stamp);
+}
+[data-theme="dark"] .vinyl-btn { background: var(--cream-300); border-color: var(--ink-300); color: var(--ink-900); }
+[data-theme="dark"] .vinyl-btn--active { background: var(--p-blazing-yellow); border-color: var(--p-black-beauty); color: var(--p-black-beauty); }
+
 .price-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -2532,6 +2563,8 @@ footer {
   gap: 12px;
   margin-bottom: 20px;
 }
+.stkr-materials { grid-template-columns: repeat(2, 1fr); }
+.stkr-materials .stkr-size-btn { padding: 12px; }
 .stkr-size-btn {
   display: flex;
   flex-direction: column;

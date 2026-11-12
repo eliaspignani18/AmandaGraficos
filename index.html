@@ -581,12 +581,16 @@
         <div style="text-align: center;">
           <h2>Stickers vinilo</h2>
           <p class="prices-intro">Valores de referencia. Otros tamaños y formas se cotizan aparte. ¿Necesitás más cantidad? Consultanos por precio mayorista.</p>
+          <div class="vinyl-toggle" role="group" aria-label="Tipo de vinilo">
+            <button type="button" class="vinyl-btn vinyl-btn--active" data-material="blanco" aria-pressed="true">Vinilo blanco</button>
+            <button type="button" class="vinyl-btn" data-material="holografico" aria-pressed="false">Vinilo holográfico ✨</button>
+          </div>
         </div>
         <div class="price-grid">
           <div class="price-card">
             <h3>Chicos</h3><p class="size">5 cm × 5 cm</p>
             <p class="price-min">mínimo 20 unidades</p>
-            <ul class="price-list">
+            <ul class="price-list" data-size="Chico (5×5 cm)">
               <li><span class="price-qty">20 unidades</span> <span class="price-original">$7.350</span> <strong>$5.460</strong> <span class="price-off">26% off</span></li>
               <li><span class="price-qty">50 unidades</span> <span class="price-original">$18.370</span> <strong>$13.640</strong> <span class="price-off">26% off</span></li>
               <li><span class="price-qty">100 unidades</span> <span class="price-original">$36.740</span> <strong>$25.090</strong> <span class="price-off">32% off</span></li>
@@ -595,7 +599,7 @@
           <div class="price-card">
             <h3>Medianos</h3><p class="size">10 cm × 10 cm</p>
             <p class="price-min">mínimo 10 unidades</p>
-            <ul class="price-list">
+            <ul class="price-list" data-size="Mediano (10×10 cm)">
               <li><span class="price-qty">10 unidades</span> <span class="price-original">$14.480</span> <strong>$9.870</strong> <span class="price-off">32% off</span></li>
               <li><span class="price-qty">20 unidades</span> <span class="price-original">$29.070</span> <strong>$18.470</strong> <span class="price-off">36% off</span></li>
               <li><span class="price-qty">50 unidades</span> <span class="price-original">$72.630</span> <strong>$45.970</strong> <span class="price-off">37% off</span></li>
@@ -605,7 +609,7 @@
           <div class="price-card">
             <h3>Grandes</h3><p class="size">15 cm × 15 cm</p>
             <p class="price-min">mínimo 10 unidades</p>
-            <ul class="price-list">
+            <ul class="price-list" data-size="Grande (15×15 cm)">
               <li><span class="price-qty">10 unidades</span> <span class="price-original">$32.330</span> <strong>$21.730</strong> <span class="price-off">33% off</span></li>
               <li><span class="price-qty">20 unidades</span> <span class="price-original">$64.550</span> <strong>$41.140</strong> <span class="price-off">36% off</span></li>
               <li><span class="price-qty">50 unidades</span> <span class="price-original">$161.530</span> <strong>$89.210</strong> <span class="price-off">45% off</span></li>
@@ -978,9 +982,20 @@ document.querySelectorAll('[data-carousel]').forEach(function(carousel) {
     <div class="stkr-modal-head">
       <div>
         <h3 class="stkr-modal-title">Armá tu pedido de stickers</h3>
-        <p class="stkr-modal-sub">Elegís tamaño y cantidad. Después nos mandás tu diseño por WhatsApp.</p>
+        <p class="stkr-modal-sub">Elegís vinilo, tamaño y cantidad. Después nos mandás tu diseño por WhatsApp.</p>
       </div>
       <button class="stkr-modal-close" id="stkrClose" aria-label="Cerrar">✕</button>
+    </div>
+
+    <div class="stkr-sizes stkr-materials">
+      <button class="stkr-size-btn stkr-size-btn--active" data-material="blanco">
+        <span class="stkr-size-name">Vinilo blanco</span>
+        <span class="stkr-size-dim">el clásico</span>
+      </button>
+      <button class="stkr-size-btn" data-material="holografico">
+        <span class="stkr-size-name">Holográfico ✨</span>
+        <span class="stkr-size-dim">tornasolado</span>
+      </button>
     </div>
 
     <div class="stkr-sizes">
@@ -1065,11 +1080,28 @@ document.querySelectorAll('[data-carousel]').forEach(function(carousel) {
 
   const BOLSA = { "Chico (5×5 cm)": 200, "Mediano (10×10 cm)": 200, "Grande (15×15 cm)": 400 };
 
+  // Vinilo holográfico: mismos tamaños y cantidades, precio escalado por el costo del m²
+  // (igual que en AmandaGestion). Si cambia un costo, actualizar solo estos dos valores.
+  const COSTO_M2 = { blanco: 25400, holografico: 37000 };
+
+  function tablaDe(size, material) {
+    const base = PRICE_TABLE[size];
+    if (material !== "holografico") return base;
+    const f = COSTO_M2.holografico / COSTO_M2.blanco;
+    const r10 = function (v) { return Math.round(v / 10) * 10; };
+    return base.map(function (t) { return { qty: t.qty, price: r10(t.price * f), list: r10(t.list * f) }; });
+  }
+
+  function nombreItem(item) {
+    return item.material === "holografico" ? item.size + " holográfico" : item.size;
+  }
+
   let currentSize = "Chico (5×5 cm)";
+  let currentMaterial = "blanco";
   let stkrCart = [];
 
-  function calcPrice(size, qty) {
-    const table = PRICE_TABLE[size];
+  function calcPrice(size, qty, material) {
+    const table = tablaDe(size, material || "blanco");
     let tier = table[0];
     for (const t of table) { if (qty >= t.qty) tier = t; }
     const bolsa     = BOLSA[size] || 0;
@@ -1083,9 +1115,47 @@ document.querySelectorAll('[data-carousel]').forEach(function(carousel) {
     return "$" + n.toLocaleString("es-AR");
   }
 
+  // Lista de precios de la sección "Stickers vinilo": se reescribe según el vinilo elegido
+  function renderPriceBox() {
+    document.querySelectorAll(".price-list[data-size]").forEach(function (ul) {
+      const tabla = tablaDe(ul.dataset.size, currentMaterial);
+      ul.querySelectorAll("li").forEach(function (li) {
+        const qty = parseInt(li.querySelector(".price-qty").textContent, 10);
+        const t = tabla.find(function (x) { return x.qty === qty; });
+        if (!t) return;
+        li.querySelector(".price-original").textContent = fmt(t.list);
+        li.querySelector("strong").textContent = fmt(t.price);
+        li.querySelector(".price-off").textContent = Math.round((1 - t.price / t.list) * 100) + "% off";
+      });
+    });
+  }
+
+  // "desde $X · 10 u." de los botones de tamaño del cotizador
+  function renderDesde() {
+    document.querySelectorAll(".stkr-size-btn[data-size]").forEach(function (btn) {
+      const el = btn.querySelector(".stkr-size-from");
+      if (el) el.textContent = "desde " + fmt(calcPrice(btn.dataset.size, 10, currentMaterial).total) + " · 10 u.";
+    });
+  }
+
+  function setMaterial(material) {
+    currentMaterial = material;
+    document.querySelectorAll(".vinyl-btn").forEach(function (b) {
+      const on = b.dataset.material === material;
+      b.classList.toggle("vinyl-btn--active", on);
+      b.setAttribute("aria-pressed", on ? "true" : "false");
+    });
+    document.querySelectorAll(".stkr-size-btn[data-material]").forEach(function (b) {
+      b.classList.toggle("stkr-size-btn--active", b.dataset.material === material);
+    });
+    renderPriceBox();
+    renderDesde();
+    updatePriceDisplay();
+  }
+
   function updatePriceDisplay() {
     const qty = Math.max(1, +document.getElementById("stkrQty").value || 1);
-    const r = calcPrice(currentSize, qty);
+    const r = calcPrice(currentSize, qty, currentMaterial);
     const offEl    = document.getElementById("stkrOff");
     const listEl   = document.getElementById("stkrList");
     const bolsaEl  = document.getElementById("stkrBolsaHint");
@@ -1123,11 +1193,11 @@ document.querySelectorAll('[data-carousel]').forEach(function(carousel) {
     cartEl.style.display = "";
 
     itemsEl.innerHTML = stkrCart.map(function (item, i) {
-      const r = calcPrice(item.size, item.qty);
+      const r = calcPrice(item.size, item.qty, item.material);
       const bolsaStr = r.bolsa > 0 ? ' · +' + fmt(r.bolsa) + ' bolsa' : '';
       return '<div class="stkr-cart-item">'
         + '<div class="stkr-cart-item-info">'
-        + '<div class="stkr-cart-item-name">' + item.size + '</div>'
+        + '<div class="stkr-cart-item-name">' + nombreItem(item) + '</div>'
         + '<div class="stkr-cart-item-detail">' + item.qty + ' unidades' + bolsaStr + '</div>'
         + '</div>'
         + '<div class="stkr-cart-item-price">' + fmt(r.total) + '</div>'
@@ -1142,26 +1212,31 @@ document.querySelectorAll('[data-carousel]').forEach(function(carousel) {
       });
     });
 
-    const grandTotal  = stkrCart.reduce(function (s, item) { return s + calcPrice(item.size, item.qty).total; }, 0);
+    const grandTotal  = stkrCart.reduce(function (s, item) { return s + calcPrice(item.size, item.qty, item.material).total; }, 0);
     const totalUnits  = stkrCart.reduce(function (s, item) { return s + item.qty; }, 0);
     totalEl.innerHTML = '<strong>' + fmt(grandTotal) + '</strong> · ' + totalUnits + ' unidades';
 
     var msg = "¡Hola Amanda Gráficos! Quiero hacer un pedido de stickers personalizados 🎨%0A%0A";
     stkrCart.forEach(function (item) {
-      var r = calcPrice(item.size, item.qty);
-      msg += "▸ " + item.size + " — " + item.qty + " unidades — " + fmt(r.total) + "%0A";
+      var r = calcPrice(item.size, item.qty, item.material);
+      msg += "▸ " + nombreItem(item) + " — " + item.qty + " unidades — " + fmt(r.total) + "%0A";
     });
     msg += "%0ATotal: " + totalUnits + " unidades · " + fmt(grandTotal) + "%0A%0ALes voy a pasar el diseño por acá. ¡Gracias!";
     waEl.href = "https://wa.me/5493417481079?text=" + msg;
   }
 
-  document.querySelectorAll(".stkr-size-btn").forEach(function (btn) {
+  document.querySelectorAll(".stkr-size-btn[data-size]").forEach(function (btn) {
     btn.addEventListener("click", function () {
-      document.querySelectorAll(".stkr-size-btn").forEach(function (b) { b.classList.remove("stkr-size-btn--active"); });
+      document.querySelectorAll(".stkr-size-btn[data-size]").forEach(function (b) { b.classList.remove("stkr-size-btn--active"); });
       btn.classList.add("stkr-size-btn--active");
       currentSize = btn.dataset.size;
       updatePriceDisplay();
     });
+  });
+
+  // Vinilo blanco / holográfico: los botones de la lista de precios y los del cotizador van sincronizados
+  document.querySelectorAll(".vinyl-btn, .stkr-size-btn[data-material]").forEach(function (btn) {
+    btn.addEventListener("click", function () { setMaterial(btn.dataset.material); });
   });
 
   document.querySelectorAll(".stkr-preset").forEach(function (btn) {
@@ -1191,8 +1266,8 @@ document.querySelectorAll('[data-carousel]').forEach(function(carousel) {
 
   document.getElementById("stkrAdd").addEventListener("click", function () {
     var qty = Math.max(1, +document.getElementById("stkrQty").value || 1);
-    var existing = stkrCart.find(function (i) { return i.size === currentSize; });
-    if (existing) { existing.qty += qty; } else { stkrCart.push({ size: currentSize, qty: qty }); }
+    var existing = stkrCart.find(function (i) { return i.size === currentSize && i.material === currentMaterial; });
+    if (existing) { existing.qty += qty; } else { stkrCart.push({ size: currentSize, qty: qty, material: currentMaterial }); }
     renderCart();
   });
 
@@ -1219,6 +1294,7 @@ document.querySelectorAll('[data-carousel]').forEach(function(carousel) {
     if (e.key === "Escape") closeModal();
   });
 
+  renderDesde();
   updatePriceDisplay();
 }());
 </script>
