@@ -1104,10 +1104,12 @@ document.querySelectorAll('[data-carousel]').forEach(function(carousel) {
     const table = tablaDe(size, material || "blanco");
     let tier = table[0];
     for (const t of table) { if (qty >= t.qty) tier = t; }
+    // Nunca más caro que la escala siguiente (19 u no puede costar más que 20 u)
+    const tope      = Math.min(Infinity, ...table.filter(t => t.qty > qty).map(t => t.price));
     const bolsa     = BOLSA[size] || 0;
-    const total     = Math.round(tier.price / tier.qty * qty) + bolsa;
+    const total     = Math.min(Math.round(tier.price / tier.qty * qty), tope) + bolsa;
     const listTotal = Math.round(tier.list  / tier.qty * qty) + bolsa;
-    const pct       = Math.round((1 - (tier.price / tier.qty) / (tier.list / tier.qty)) * 100);
+    const pct       = Math.round((1 - (total - bolsa) / (listTotal - bolsa)) * 100);
     return { total, listTotal, pct, bolsa };
   }
 

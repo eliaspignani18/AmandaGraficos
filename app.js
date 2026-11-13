@@ -243,12 +243,13 @@
       if (!table) return null;
       let tier = table[0];
       for (const t of table) { if (qty >= t.qty) tier = t; }
-      const unitPrice = tier.price / tier.qty;
       const unitList  = tier.list  / tier.qty;
-      const total     = Math.round(unitPrice * qty);
+      // Nunca más caro que la escala siguiente (19 u no puede costar más que 20 u)
+      const tope      = Math.min(Infinity, ...table.filter(t => t.qty > qty).map(t => t.price));
+      const total     = Math.min(Math.round(tier.price / tier.qty * qty), tope);
       const listTotal = Math.round(unitList  * qty);
       const pct       = Math.round((listTotal - total) / listTotal * 100);
-      return { total, listTotal, unitPrice: Math.round(unitPrice), pct };
+      return { total, listTotal, unitPrice: Math.round(total / qty), pct };
     }
 
     function updateModalPrice() {
