@@ -171,48 +171,71 @@
       return errors;
     }
 
-    // Tabla de precios por tamaño y cantidad (precio real + precio de lista sin descuento)
+    // Tabla de precios por tamaño y cantidad (precio real + precio de lista sin descuento).
+    // MISMAS tablas que AmandaGestion (ST_PRICE_TABLE y ST_DTF_PRICE_TABLE) e index.html, con las
+    // escalas mayoristas: no se muestran (desde MAYORISTA_DESDE dice "a consultar"), pero hacen que
+    // los precios por debajo den igual que en Gestión. Si se cambia un precio, cambiarlo en todos lados.
     const PRICE_TABLE = {
       "Chico (5×5 cm)": [
         { qty: 10,  price: 3040,   list: 3670 },
         { qty: 20,  price: 5460,   list: 7350 },
         { qty: 50,  price: 13640,  list: 18370 },
         { qty: 100, price: 25090,  list: 36740 },
+        { qty: 200, price: 48910,  list: 73370 },
+        { qty: 500, price: 110210, list: 183470 },
       ],
       "Mediano (10×10 cm)": [
         { qty: 10,  price: 9870,   list: 14480 },
         { qty: 20,  price: 18470,  list: 29070 },
         { qty: 50,  price: 45970,  list: 72630 },
         { qty: 100, price: 87330,  list: 145370 },
+        { qty: 200, price: 164470, list: 290740 },
+        { qty: 500, price: 370080, list: 726840 },
       ],
       "Grande (15×15 cm)": [
         { qty: 10,  price: 21730,  list: 32330 },
         { qty: 20,  price: 41140,  list: 64550 },
         { qty: 50,  price: 89210,  list: 161530 },
         { qty: 100, price: 168880, list: 322960 },
+        { qty: 200, price: 316140, list: 646020 },
+        { qty: 500, price: 711300, list: 1615100 },
       ],
     };
 
+    // Bolsa por ítem (solo vinilo), igual que en Gestión: va incluida en el precio que se muestra
+    const BOLSA = { "Chico (5×5 cm)": 200, "Mediano (10×10 cm)": 200, "Grande (15×15 cm)": 400 };
+
     const DTF_PRICE_TABLE = {
       "Mini (3×3 cm)": [
-        { qty: 35,  price: 4800,   list: 6000 },
-        { qty: 50,  price: 6900,   list: 9000 },
-        { qty: 100, price: 12700,  list: 16900 },
-        { qty: 150, price: 18800,  list: 26100 },
+        { qty: 35,   price: 4800,   list: 6000 },
+        { qty: 50,   price: 6900,   list: 9000 },
+        { qty: 100,  price: 12700,  list: 16900 },
+        { qty: 150,  price: 18800,  list: 26100 },
+        { qty: 200,  price: 24700,  list: 24700 },
+        { qty: 250,  price: 30400,  list: 30400 },
+        { qty: 500,  price: 59500,  list: 59500 },
+        { qty: 1000, price: 115000, list: 115000 },
       ],
       "Chico (5×5 cm)": [
         { qty: 14,  price: 5600,   list: 7000 },
         { qty: 20,  price: 7700,   list: 10000 },
         { qty: 50,  price: 19200,  list: 25600 },
         { qty: 100, price: 35300,  list: 49000 },
+        { qty: 200, price: 68700,  list: 68700 },
+        { qty: 500, price: 165000, list: 165000 },
       ],
       "Mediano (10×10 cm)": [
         { qty: 3,   price: 5600,   list: 7000 },
         { qty: 8,   price: 14900,  list: 19400 },
         { qty: 20,  price: 34900,  list: 46500 },
         { qty: 50,  price: 84400,  list: 117200 },
+        { qty: 100, price: 163100, list: 234400 },
+        { qty: 250, price: 379700, list: 379700 },
       ],
     };
+
+    // Desde esta cantidad el precio es mayorista y se pasa por WhatsApp (sale de Gestión)
+    const MAYORISTA_DESDE = 200;
 
     let currentMaterial = 'vinilo';
 
@@ -239,16 +262,20 @@
     }
 
     function getTieredPrice(size, qty, priceTable) {
-      const table = (priceTable || PRICE_TABLE)[size];
+      const pt    = priceTable || PRICE_TABLE;
+      const table = pt[size];
       if (!table) return null;
+      if (qty >= MAYORISTA_DESDE) return null;   // precio mayorista: "A consultar"
       let tier = table[0];
       for (const t of table) { if (qty >= t.qty) tier = t; }
-      const unitList  = tier.list  / tier.qty;
-      // Nunca más caro que la escala siguiente (19 u no puede costar más que 20 u)
+      // Mismo cálculo que Gestión: nunca más caro que la escala siguiente, y la bolsa incluida
       const tope      = Math.min(Infinity, ...table.filter(t => t.qty > qty).map(t => t.price));
-      const total     = Math.min(Math.round(tier.price / tier.qty * qty), tope);
-      const listTotal = Math.round(unitList  * qty);
-      const pct       = Math.round((listTotal - total) / listTotal * 100);
+      const neto      = Math.min(Math.round(tier.price / tier.qty * qty), tope);
+      const listNeto  = Math.round(tier.list / tier.qty * qty);
+      const bolsa     = pt === PRICE_TABLE ? (BOLSA[size] || 0) : 0;
+      const total     = neto + bolsa;
+      const listTotal = listNeto + bolsa;
+      const pct       = Math.round((1 - neto / listNeto) * 100);
       return { total, listTotal, unitPrice: Math.round(total / qty), pct };
     }
 
@@ -269,8 +296,8 @@
       const table = currentMaterial === 'dtf' ? DTF_PRICE_TABLE : PRICE_TABLE;
       const r = getTieredPrice(size, qty, table);
       if (!r) {
-        modalPrice.textContent     = "A consultar";
-        modalPriceUnit.textContent = "";
+        modalPrice.textContent     = qty >= MAYORISTA_DESDE ? "Precio mayorista" : "A consultar";
+        modalPriceUnit.textContent = qty >= MAYORISTA_DESDE ? "(consultanos por WhatsApp)" : "";
         priceListEl.style.display  = "none";
         priceOffEl.style.display   = "none";
         return;
