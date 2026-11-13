@@ -1113,6 +1113,21 @@ document.querySelectorAll('[data-carousel]').forEach(function(carousel) {
     return { total, listTotal, pct, bolsa };
   }
 
+  // Cargo de preparación del pedido (embalaje y traslados a la imprenta), escalonado según el
+  // subtotal. TIENE QUE SER IGUAL al de AmandaGestion (CARGO_PEDIDO_ESCALAS / cargoPedido):
+  // si se cambia en un lado, cambiarlo en el otro.
+  const CARGO_PEDIDO_ESCALAS = [
+    { hasta: 10000, cargo: 1950 },
+    { hasta: 30000, cargo: 950 },
+  ];
+  function cargoPedido(subtotal) {
+    let cargo = 0;
+    for (const e of CARGO_PEDIDO_ESCALAS) {
+      cargo = Math.max(cargo, subtotal <= e.hasta ? e.cargo : e.hasta + e.cargo - subtotal);
+    }
+    return Math.round(cargo);
+  }
+
   function fmt(n) {
     return "$" + n.toLocaleString("es-AR");
   }
@@ -1214,8 +1229,20 @@ document.querySelectorAll('[data-carousel]').forEach(function(carousel) {
       });
     });
 
-    const grandTotal  = stkrCart.reduce(function (s, item) { return s + calcPrice(item.size, item.qty, item.material).total; }, 0);
+    const subtotal    = stkrCart.reduce(function (s, item) { return s + calcPrice(item.size, item.qty, item.material).total; }, 0);
+    const cargo       = cargoPedido(subtotal);
+    const grandTotal  = subtotal + cargo;
     const totalUnits  = stkrCart.reduce(function (s, item) { return s + item.qty; }, 0);
+    if (cargo > 0) {
+      itemsEl.insertAdjacentHTML('beforeend', '<div class="stkr-cart-item">'
+        + '<div class="stkr-cart-item-info">'
+        + '<div class="stkr-cart-item-name">Preparación del pedido</div>'
+        + '<div class="stkr-cart-item-detail">Embalaje y traslados</div>'
+        + '</div>'
+        + '<div class="stkr-cart-item-price">' + fmt(cargo) + '</div>'
+        + '<span class="stkr-cart-item-remove" style="visibility:hidden;cursor:default" aria-hidden="true">✕</span>'
+        + '</div>');
+    }
     totalEl.innerHTML = '<strong>' + fmt(grandTotal) + '</strong> · ' + totalUnits + ' unidades';
 
     var msg = "¡Hola Amanda Gráficos! Quiero hacer un pedido de stickers personalizados 🎨%0A%0A";
@@ -1223,6 +1250,7 @@ document.querySelectorAll('[data-carousel]').forEach(function(carousel) {
       var r = calcPrice(item.size, item.qty, item.material);
       msg += "▸ " + nombreItem(item) + " — " + item.qty + " unidades — " + fmt(r.total) + "%0A";
     });
+    if (cargo > 0) msg += "▸ Preparación del pedido — " + fmt(cargo) + "%0A";
     msg += "%0ATotal: " + totalUnits + " unidades · " + fmt(grandTotal) + "%0A%0ALes voy a pasar el diseño por acá. ¡Gracias!";
     waEl.href = "https://wa.me/5493417481079?text=" + msg;
   }
