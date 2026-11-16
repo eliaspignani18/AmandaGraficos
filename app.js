@@ -143,6 +143,7 @@
 
     const MINS = {
       vinilo: {
+        "Mini (3×3 cm)":      20,
         "Chico (5×5 cm)":    20,
         "Mediano (10×10 cm)": 10,
         "Grande (15×15 cm)":  10,
@@ -176,6 +177,14 @@
     // escalas mayoristas: no se muestran (desde MAYORISTA_DESDE dice "a consultar"), pero hacen que
     // los precios por debajo den igual que en Gestión. Si se cambia un precio, cambiarlo en todos lados.
     const PRICE_TABLE = {
+      "Mini (3×3 cm)": [
+        { qty: 10,  price: 1260,   list: 1520 },
+        { qty: 20,  price: 2260,   list: 3040 },
+        { qty: 50,  price: 5640,   list: 7590 },
+        { qty: 100, price: 10370,  list: 15180 },
+        { qty: 200, price: 20210,  list: 30320 },
+        { qty: 500, price: 45550,  list: 75820 },
+      ],
       "Chico (5×5 cm)": [
         { qty: 10,  price: 3040,   list: 3670 },
         { qty: 20,  price: 5460,   list: 7350 },
@@ -203,7 +212,7 @@
     };
 
     // Bolsa por ítem (solo vinilo), igual que en Gestión: va incluida en el precio que se muestra
-    const BOLSA = { "Chico (5×5 cm)": 200, "Mediano (10×10 cm)": 200, "Grande (15×15 cm)": 400 };
+    const BOLSA = { "Mini (3×3 cm)": 200, "Chico (5×5 cm)": 200, "Mediano (10×10 cm)": 200, "Grande (15×15 cm)": 400 };
 
     const DTF_PRICE_TABLE = {
       "Mini (3×3 cm)": [
@@ -239,7 +248,7 @@
 
     let currentMaterial = 'vinilo';
 
-    const VINILO_SIZES = ["Chico (5×5 cm)", "Mediano (10×10 cm)", "Grande (15×15 cm)", "A consultar"];
+    const VINILO_SIZES = ["Mini (3×3 cm)", "Chico (5×5 cm)", "Mediano (10×10 cm)", "Grande (15×15 cm)", "A consultar"];
     const DTF_SIZES    = ["Mini (3×3 cm)", "Chico (5×5 cm)", "Mediano (10×10 cm)", "A consultar"];
 
     function setMaterial(mat) {

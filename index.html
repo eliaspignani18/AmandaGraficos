@@ -586,7 +586,16 @@
             <button type="button" class="vinyl-btn" data-material="holografico" aria-pressed="false">Vinilo holográfico ✨</button>
           </div>
         </div>
-        <div class="price-grid">
+        <div class="price-grid price-grid--4">
+          <div class="price-card">
+            <h3>Mini</h3><p class="size">3 cm × 3 cm</p>
+            <p class="price-min">mínimo 20 unidades</p>
+            <ul class="price-list" data-size="Mini (3×3 cm)">
+              <li><span class="price-qty">20 unidades</span> <span class="price-original">$3.240</span> <strong>$2.460</strong> <span class="price-off">26% off</span></li>
+              <li><span class="price-qty">50 unidades</span> <span class="price-original">$7.790</span> <strong>$5.840</strong> <span class="price-off">26% off</span></li>
+              <li><span class="price-qty">100 unidades</span> <span class="price-original">$15.380</span> <strong>$10.570</strong> <span class="price-off">32% off</span></li>
+            </ul>
+          </div>
           <div class="price-card">
             <h3>Chicos</h3><p class="size">5 cm × 5 cm</p>
             <p class="price-min">mínimo 20 unidades</p>
@@ -738,6 +747,7 @@
                 <div class="field"><label for="name">Tu nombre</label><input type="text" id="name" placeholder="Ej. Sofía"></div>
                 <div class="field"><label for="product">Producto</label><select id="product">
                   <option value="">Elegí una opción</option>
+                  <option>Stickers mini (3 × 3 cm)</option>
                   <option>Stickers chicos (5 × 5 cm)</option>
                   <option>Stickers medianos (10 × 10 cm)</option>
                   <option>Stickers grandes (15 × 15 cm)</option>
@@ -998,7 +1008,12 @@ document.querySelectorAll('[data-carousel]').forEach(function(carousel) {
       </button>
     </div>
 
-    <div class="stkr-sizes">
+    <div class="stkr-sizes stkr-sizes--4">
+      <button class="stkr-size-btn" data-size="Mini (3×3 cm)">
+        <span class="stkr-size-name">Mini</span>
+        <span class="stkr-size-dim">3 × 3 cm</span>
+        <span class="stkr-size-from">desde $1.460 · 10 u.</span>
+      </button>
       <button class="stkr-size-btn stkr-size-btn--active" data-size="Chico (5×5 cm)">
         <span class="stkr-size-name">Chico</span>
         <span class="stkr-size-dim">5 × 5 cm</span>
@@ -1061,6 +1076,14 @@ document.querySelectorAll('[data-carousel]').forEach(function(carousel) {
   // las muestra (desde MAYORISTA_DESDE dice "consultanos"), pero se usan para que entre 100 y 199
   // el precio dé igual que en Gestión. Si se cambia un precio, cambiarlo en los dos lados.
   const PRICE_TABLE = {
+    "Mini (3×3 cm)": [
+      { qty: 10,  price: 1260,   list: 1520 },
+      { qty: 20,  price: 2260,   list: 3040 },
+      { qty: 50,  price: 5640,   list: 7590 },
+      { qty: 100, price: 10370,  list: 15180 },
+      { qty: 200, price: 20210,  list: 30320 },
+      { qty: 500, price: 45550,  list: 75820 },
+    ],
     "Chico (5×5 cm)": [
       { qty: 10,  price: 3040,   list: 3670 },
       { qty: 20,  price: 5460,   list: 7350 },
@@ -1090,7 +1113,7 @@ document.querySelectorAll('[data-carousel]').forEach(function(carousel) {
   // Desde esta cantidad por ítem el precio es mayorista y se pasa por WhatsApp (sale de Gestión)
   const MAYORISTA_DESDE = 200;
 
-  const BOLSA = { "Chico (5×5 cm)": 200, "Mediano (10×10 cm)": 200, "Grande (15×15 cm)": 400 };
+  const BOLSA = { "Mini (3×3 cm)": 200, "Chico (5×5 cm)": 200, "Mediano (10×10 cm)": 200, "Grande (15×15 cm)": 400 };
 
   // Vinilo holográfico: mismos tamaños y cantidades, precio escalado por el costo del m²
   // (igual que en AmandaGestion). Si cambia un costo, actualizar solo estos dos valores.

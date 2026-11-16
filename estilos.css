@@ -718,6 +718,7 @@ section {
   font-size: 0.92rem;
   margin-bottom: 14px;
 }
+.price-grid--4 { grid-template-columns: repeat(2, 1fr); }
 @media (max-width: 720px) { .price-grid { grid-template-columns: 1fr; } }
 
 /* Tarjetas grandes CTA (catálogo y trabajos en landing) */
@@ -2564,6 +2565,8 @@ footer {
   margin-bottom: 20px;
 }
 .stkr-materials { grid-template-columns: repeat(2, 1fr); }
+.stkr-sizes--4 { grid-template-columns: repeat(4, 1fr); }
+@media (max-width: 560px) { .stkr-sizes--4 { grid-template-columns: repeat(2, 1fr); } }
 .stkr-materials .stkr-size-btn { padding: 12px; }
 .stkr-size-btn {
   display: flex;
