@@ -41,7 +41,11 @@
         <article class="shop-card" data-cat="${item.category}" data-idx="${catalogItems.indexOf(item)}" tabindex="0" role="button" aria-label="Ver ${item.title}">
           <div class="shop-visual" style="background:${catBg(item.category)}">
             <span class="shop-badge">${item.badge}</span>
-            <img class="shop-photo" src="${encodeURI('images/' + item.file)}" alt="${item.title}" loading="lazy">
+            <div class="shop-stack">
+              <img class="shop-photo stack-3" src="${encodeURI('images/' + item.file)}" alt="" aria-hidden="true" loading="lazy">
+              <img class="shop-photo stack-2" src="${encodeURI('images/' + item.file)}" alt="" aria-hidden="true" loading="lazy">
+              <img class="shop-photo stack-1" src="${encodeURI('images/' + item.file)}" alt="${item.title}" loading="lazy">
+            </div>
           </div>
           <div class="shop-body">
             <div class="shop-meta">
