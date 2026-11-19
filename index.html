@@ -1113,7 +1113,8 @@ document.querySelectorAll('[data-carousel]').forEach(function(carousel) {
   // Desde esta cantidad por ítem el precio es mayorista y se pasa por WhatsApp (sale de Gestión)
   const MAYORISTA_DESDE = 200;
 
-  const BOLSA = { "Mini (3×3 cm)": 200, "Chico (5×5 cm)": 200, "Mediano (10×10 cm)": 200, "Grande (15×15 cm)": 400 };
+  // Paquete por ítem (bolsita + tarjeta). TIENE QUE SER IGUAL a ST_BOLSA de Gestión y a BOLSA de app.js.
+  const BOLSA = { "Mini (3×3 cm)": 263, "Chico (5×5 cm)": 263, "Mediano (10×10 cm)": 448, "Grande (15×15 cm)": 448 };
 
   // Vinilo holográfico: mismos tamaños y cantidades, precio escalado por el costo del m²
   // (igual que en AmandaGestion). Si cambia un costo, actualizar solo estos dos valores.
@@ -1230,7 +1231,7 @@ document.querySelectorAll('[data-carousel]').forEach(function(carousel) {
       listEl.style.display = "none";
     }
     if (r.bolsa > 0) {
-      bolsaEl.textContent   = "+ " + fmt(r.bolsa) + " bolsa incluida";
+      bolsaEl.textContent   = "Bolsita y tarjeta de regalo incluidas";
       bolsaEl.style.display = "";
     } else {
       bolsaEl.style.display = "none";
@@ -1257,7 +1258,7 @@ document.querySelectorAll('[data-carousel]').forEach(function(carousel) {
 
     itemsEl.innerHTML = stkrCart.map(function (item, i) {
       const r = calcPrice(item.size, item.qty, item.material);
-      const bolsaStr = r.bolsa > 0 && !esMayorista(item) ? ' · bolsa incluida' : '';
+      const bolsaStr = r.bolsa > 0 && !esMayorista(item) ? ' · bolsita y tarjeta incluidas' : '';
       return '<div class="stkr-cart-item">'
         + '<div class="stkr-cart-item-info">'
         + '<div class="stkr-cart-item-name">' + nombreItem(item) + '</div>'

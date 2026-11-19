@@ -212,7 +212,7 @@
     };
 
     // Bolsa por ítem (solo vinilo), igual que en Gestión: va incluida en el precio que se muestra
-    const BOLSA = { "Mini (3×3 cm)": 200, "Chico (5×5 cm)": 200, "Mediano (10×10 cm)": 200, "Grande (15×15 cm)": 400 };
+    const BOLSA = { "Mini (3×3 cm)": 263, "Chico (5×5 cm)": 263, "Mediano (10×10 cm)": 448, "Grande (15×15 cm)": 448 };
 
     const DTF_PRICE_TABLE = {
       "Mini (3×3 cm)": [
