@@ -211,7 +211,7 @@
       ],
     };
 
-    // Bolsa por ítem (solo vinilo), igual que en Gestión: va incluida en el precio que se muestra
+    // Paquete por ítem (bolsita + tarjeta, vinilo y DTF), igual que en Gestión: va incluida en el precio que se muestra
     const BOLSA = { "Mini (3×3 cm)": 263, "Chico (5×5 cm)": 263, "Mediano (10×10 cm)": 448, "Grande (15×15 cm)": 448 };
 
     const DTF_PRICE_TABLE = {
@@ -281,7 +281,7 @@
       const tope      = Math.min(Infinity, ...table.filter(t => t.qty > qty).map(t => t.price));
       const neto      = Math.min(Math.round(tier.price / tier.qty * qty), tope);
       const listNeto  = Math.round(tier.list / tier.qty * qty);
-      const bolsa     = pt === PRICE_TABLE ? (BOLSA[size] || 0) : 0;
+      const bolsa     = BOLSA[size] || 0;   // vinilo y DTF llevan el mismo paquete
       const total     = neto + bolsa;
       const listTotal = listNeto + bolsa;
       const pct       = Math.round((1 - neto / listNeto) * 100);
