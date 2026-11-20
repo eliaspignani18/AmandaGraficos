@@ -1882,10 +1882,9 @@ footer {
 }
 
 [data-theme="dark"] body {
-  background-image:
-    linear-gradient(to right, rgba(255,255,255,0.05) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255,255,255,0.05) 1px, transparent 1px);
-  background-size: 40px 40px, 40px 40px;
+  /* fondo punteado (antes cuadriculado) */
+  background-image: radial-gradient(rgba(255,255,255,0.09) 1.2px, transparent 1.4px);
+  background-size: 22px 22px;
   background-color: #111111;
 }
 
@@ -2256,13 +2255,11 @@ footer {
   color: var(--ink-500);
 }
 
-/* Sección Packs — fondo oscuro con brillo lila arriba y lunares lila (como el logo) */
+/* Sección Packs — fondo oscuro liso con brillo lila arriba (como el logo) */
 #packs {
   background-color: #141418;
-  background-image:
-    radial-gradient(ellipse 70% 45% at 50% 0%, rgba(216, 140, 240, 0.28), transparent 70%),
-    radial-gradient(rgba(216, 140, 240, 0.16) 1.2px, transparent 1.4px);
-  background-size: auto, 22px 22px;
+  background-image: radial-gradient(ellipse 70% 45% at 50% 0%, rgba(216, 140, 240, 0.28), transparent 70%);
+  background-size: auto;
   border-top: 2px solid var(--lila, #d88cf0);
   border-bottom: 2px solid var(--lila, #d88cf0);
 }
@@ -2479,7 +2476,6 @@ footer {
   filter: grayscale(100%) brightness(1.8);
 }
 [data-theme="dark"] .clients-logo img[alt="Churros Bike"]  { filter: invert(1) grayscale(100%) brightness(1.2); }
-[data-theme="dark"] .clients-logo img[alt="Kairos"]        { filter: grayscale(100%) invert(1) brightness(0.8); }
 [data-theme="dark"] .clients-logo img[alt="Pelota al Pie"] { filter: invert(1) grayscale(100%) brightness(1.2); }
 [data-theme="dark"] .clients-logo img[alt="Eclipse"]       { filter: invert(1) grayscale(100%) brightness(1.2); }
 
