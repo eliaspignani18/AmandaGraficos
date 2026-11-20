@@ -169,11 +169,45 @@ function buildWorks() {
   console.log(`✓ trabajos.html  — ${displayItems.length} trabajos pre-renderizados`);
 }
 
+
+// ─── CARRUSEL DE STICKERS (index.html) ───────────────────────────────────────
+
+// Toma stickers de todas las categorías por turnos, así el carrusel queda variado.
+function buildStickerStrip() {
+  const productos = JSON.parse(fs.readFileSync(path.join(ROOT, 'productos.json'), 'utf8'));
+  const porCat = {};
+  productos.forEach(p => { (porCat[p.category] = porCat[p.category] || []).push(p); });
+  const cats = Object.keys(porCat);
+  const elegidos = [];
+  for (let i = 0; elegidos.length < 22; i++) {
+    let alguno = false;
+    cats.forEach(c => {
+      const lista = porCat[c];
+      const k = Math.floor(i * lista.length / 4) % lista.length; // salteados dentro de la categoría
+      if (i < Math.min(4, lista.length) && elegidos.length < 22) { elegidos.push(lista[k]); alguno = true; }
+    });
+    if (!alguno) break;
+  }
+  const item = (p, dup) => `<a class="sticker-strip__item" href="catalogo.html"${dup ? ' aria-hidden="true" tabindex="-1"' : ''}><img src="${encodeURI('images/' + p.file)}" alt="${dup ? '' : esc(p.title)}" loading="lazy" width="160" height="160"></a>`;
+  const html = elegidos.map(p => item(p, false)).join('\n') +
+    '\n<!-- duplicado para loop infinito -->\n' +
+    elegidos.map(p => item(p, true)).join('\n');
+
+  const A = '<!-- STICKERS:START -->', Z = '<!-- STICKERS:END -->';
+  let idx = fs.readFileSync(path.join(ROOT, 'index.html'), 'utf8');
+  const si = idx.indexOf(A), ei = idx.indexOf(Z);
+  if (si === -1 || ei === -1) { console.warn('⚠️  index.html sin marcadores STICKERS'); return; }
+  idx = idx.slice(0, si) + A + '\n' + html + '\n' + Z + idx.slice(ei);
+  fs.writeFileSync(path.join(ROOT, 'index.html'), idx, 'utf8');
+  console.log(`✓ index.html     — ${elegidos.length} stickers en el carrusel`);
+}
+
 // ─── MAIN ────────────────────────────────────────────────────────────────────
 
 try {
   buildCatalog();
   buildWorks();
+  buildStickerStrip();
   console.log('\n✅ Build completo. Podés hacer git push.');
 } catch (err) {
   console.error('\n❌ Error durante el build:', err.message);
