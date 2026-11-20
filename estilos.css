@@ -1960,10 +1960,10 @@ footer {
   border-color: #1c1c20;
 }
 
-/* Seccion Packs fondo coral: textos siempre en cream claro */
-[data-theme="dark"] #packs .section-head h2,
-[data-theme="dark"] #packs .section-sub { color: #fdf6e3; }
-[data-theme="dark"] #packs .packs-note { color: rgba(253, 246, 227, 0.65); }
+/* Sección Packs (oscura con brillo lila): etiquetas lila, tarjetas con borde y sombra lila */
+[data-theme="dark"] #packs .eyebrow { background: var(--lila, #d88cf0); color: var(--p-black-beauty); border-color: var(--lila, #d88cf0); }
+[data-theme="dark"] #packs .pack-card { border-color: var(--lila, #d88cf0); box-shadow: 5px 5px 0 var(--lila, #d88cf0); }
+#packs .packs-gato { opacity: 0.35; }
 
 /* CTA amarillo: texto siempre oscuro en dark */
 [data-theme="dark"] .cta:not(.wa):not(.secondary),
@@ -2256,15 +2256,17 @@ footer {
   color: var(--ink-500);
 }
 
-/* Sección Packs — fondo Red Bud */
+/* Sección Packs — fondo oscuro con brillo lila arriba y lunares lila (como el logo) */
 #packs {
-  background-color: #d85564;
-  background-image: radial-gradient(rgba(253, 246, 227, 0.14) 1.2px, transparent 1.4px);
-  background-size: 22px 22px;
+  background-color: #141418;
+  background-image:
+    radial-gradient(ellipse 70% 45% at 50% 0%, rgba(216, 140, 240, 0.28), transparent 70%),
+    radial-gradient(rgba(216, 140, 240, 0.16) 1.2px, transparent 1.4px);
+  background-size: auto, 22px 22px;
+  border-top: 2px solid var(--lila, #d88cf0);
+  border-bottom: 2px solid var(--lila, #d88cf0);
 }
-#packs .section-head h2,
-#packs .section-sub { color: var(--cream-100); }
-#packs .packs-note { color: rgba(253, 246, 227, 0.65); }
+#packs .packs-note { color: rgba(244, 236, 216, 0.65); }
 @media (max-width: 600px) {
   .pack-card { flex: 0 0 calc(100vw - 40px); }
   .pack-tiers { grid-template-columns: 1fr; }
