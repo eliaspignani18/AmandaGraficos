@@ -2793,10 +2793,11 @@ footer {
   align-items: center;
   padding: 18px 22px;
   cursor: pointer;
-  font-family: var(--font-display);
+  /* letra del texto (nítida); la de títulos se veía borrosa en chico */
+  font-family: var(--font-body);
   font-size: 1.05rem;
-  font-weight: 600;
-  letter-spacing: 0.02em;
+  font-weight: 700;
+  letter-spacing: 0;
   list-style: none;
   user-select: none;
   gap: 12px;
@@ -2997,4 +2998,37 @@ html[data-theme="dark"] body {
 @media (max-width: 640px) {
   .sticker-strip__item { flex-basis: 160px; height: 160px; }
   .sticker-strip__track { gap: 8px; }
+}
+
+/* ═════════ PANELES DE CIERRE CON ESTILO PACKS ═════════
+   "Hablemos" (inicio) y "¿Te gustó algún trabajo?" (trabajos): oscuro con brillo lila,
+   borde y sombra lila. Reemplaza el bloque amarillo. */
+[data-theme="dark"] .contact-box,
+.panel-lila {
+  background-color: #141418;
+  background-image: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(216, 140, 240, 0.22), transparent 70%);
+  border: 2px solid var(--lila, #d88cf0);
+  box-shadow: 5px 5px 0 var(--lila, #d88cf0);
+  color: var(--text);
+}
+[data-theme="dark"] .contact-box h2,
+.panel-lila h3 { color: var(--p-blazing-yellow); }
+[data-theme="dark"] .contact-box .section-kicker {
+  background: var(--lila, #d88cf0);
+  color: var(--p-black-beauty);
+}
+[data-theme="dark"] .contact-box .contact-list li {
+  border-color: rgba(244, 236, 216, 0.15);
+  color: var(--text);
+}
+.panel-lila p { color: var(--text); }
+
+/* Tarjeta de precio destacada: borde lila (antes rosa) */
+.price-card:nth-child(2) { border-color: var(--lila, #d88cf0); }
+
+/* Títulos chicos (tarjetas de productos, packs, precios): sin contorno, que en tamaño
+   chico se comía la letra y la hacía ver borrosa. Queda solo la sombra sello nítida. */
+h3, h4 {
+  -webkit-text-stroke: 0;
+  text-shadow: 2px 2px 0 #000;
 }
