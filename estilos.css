@@ -2132,8 +2132,8 @@ footer {
 .carousel-track::-webkit-scrollbar { display: none; }
 
 .photo-grid-item {
-  flex: 0 0 220px;
-  height: 220px;
+  flex: 0 0 176px;
+  height: 176px;
   scroll-snap-align: start;
   overflow: hidden;
   border-radius: var(--radius-sm);
@@ -2962,45 +2962,41 @@ html[data-theme="dark"] body {
 }
 .fv2-meta .script { color: var(--p-blazing-yellow); font-size: 1.15rem; }
 @media (max-width: 900px) { .fv2-grid { grid-template-columns: 1fr 1fr; } }
-@media (max-width: 560px) { .fv2-grid { grid-template-columns: 1fr; gap: 28px; } }/* ═════════ CARRUSEL DE STICKERS (inicio) ═════════
-   Tira continua de stickers recortados con borde blanco de troquel.
-   Se arma con build.js desde productos.json. */
-.sticker-strip { padding: var(--space-6, 56px) 0 var(--space-5, 40px); overflow: hidden; }
+@media (max-width: 560px) { .fv2-grid { grid-template-columns: 1fr; gap: 28px; } }
+/* ═════════ STICKERS LISTOS PARA PEGAR (inicio) ═════════
+   Carrusel con flechas (mismo script que Trabajos recientes), tarjetas como las del catálogo.
+   Se arma con build.js desde productos.json (22 stickers). */
+.sticker-strip { padding: var(--space-6, 56px) 0 var(--space-5, 40px); }
 .sticker-strip__head { text-align: center; margin-bottom: 8px; }
 .sticker-strip__head .hl {
   background: var(--p-blazing-yellow); color: var(--p-black-beauty);
   padding: 0 .18em; border: 2px solid #000; box-shadow: 4px 4px 0 #000; display: inline-block; transform: rotate(-2deg);
   -webkit-text-stroke: 0; text-shadow: none;
 }
-.sticker-strip__marquee {
-  overflow: hidden; padding: 28px 0;
-  -webkit-mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
-  mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
-}
 .sticker-strip__track {
-  display: flex; align-items: center; gap: 28px; width: max-content;
-  animation: marquee 70s linear infinite;
+  gap: 12px; margin-top: 0;
+  padding: 6px 6px 10px; /* aire para la sombra sello */
 }
-.sticker-strip__marquee:hover .sticker-strip__track { animation-play-state: paused; }
+/* Tarjeta igual a las del catálogo: borde, sombra sello y fondo pastel por categoría */
 .sticker-strip__item {
-  flex-shrink: 0; width: 160px; height: 160px; display: flex; align-items: center; justify-content: center;
-  transform: rotate(-4deg); transition: transform .25s cubic-bezier(.2,.8,.2,1);
+  flex: 0 0 176px; height: 176px; scroll-snap-align: start;
+  position: relative; display: flex; align-items: center; justify-content: center;
+  border: 2px solid var(--stamp); border-radius: var(--radius-sm); box-shadow: var(--shadow-stamp);
+  overflow: hidden; transition: transform .2s;
 }
-.sticker-strip__item:nth-child(even) { transform: rotate(5deg) translateY(10px); }
-.sticker-strip__item:nth-child(3n) { transform: rotate(-8deg) translateY(-6px); }
+.sticker-strip__item:hover, .sticker-strip__item:focus-visible { transform: translate(-2px, -2px); }
 .sticker-strip__item img {
-  max-width: 100%; max-height: 100%; width: auto; height: auto; object-fit: contain;
-  /* borde blanco de troquel + sombra sello (sin blur) */
+  max-width: 76%; max-height: 76%; width: auto; height: auto; object-fit: contain;
+  transform: rotate(-4deg); transition: transform .25s cubic-bezier(.2,.8,.2,1);
+  /* borde blanco de troquel + sombra suave */
   filter: drop-shadow(3px 0 0 #fff) drop-shadow(-3px 0 0 #fff) drop-shadow(0 3px 0 #fff) drop-shadow(0 -3px 0 #fff)
-          drop-shadow(4px 4px 0 rgba(0,0,0,.55));
+          drop-shadow(3px 4px 4px rgba(0,0,0,.3));
 }
-.sticker-strip__item:hover, .sticker-strip__item:focus-visible { transform: rotate(0) scale(1.12); z-index: 1; }
+.sticker-strip__item:nth-child(even) img { transform: rotate(5deg); }
+.sticker-strip__item:nth-child(3n) img { transform: rotate(-8deg); }
+.sticker-strip__item:hover img, .sticker-strip__item:focus-visible img { transform: rotate(0) scale(1.1); }
 .sticker-strip__cta { text-align: center; }
 @media (max-width: 640px) {
-  .sticker-strip__item { width: 112px; height: 112px; }
-  .sticker-strip__track { gap: 18px; animation-duration: 55s; }
-}
-@media (prefers-reduced-motion: reduce) {
-  .sticker-strip__track { animation: none; }
-  .sticker-strip__marquee { overflow-x: auto; }
+  .sticker-strip__item { flex-basis: 160px; height: 160px; }
+  .sticker-strip__track { gap: 8px; }
 }

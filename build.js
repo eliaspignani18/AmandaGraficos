@@ -188,16 +188,14 @@ function buildStickerStrip() {
     });
     if (!alguno) break;
   }
-  const item = (p, dup) => `<a class="sticker-strip__item" href="catalogo.html"${dup ? ' aria-hidden="true" tabindex="-1"' : ''}><img src="${encodeURI('images/' + p.file)}" alt="${dup ? '' : esc(p.title)}" loading="lazy" width="160" height="160"></a>`;
-  const html = elegidos.map(p => item(p, false)).join('\n') +
-    '\n<!-- duplicado para loop infinito -->\n' +
-    elegidos.map(p => item(p, true)).join('\n');
+  const item = (p) => `<a class="sticker-strip__item" href="catalogo.html" style="background:${catBg(p.category)}"><img src="${encodeURI('images/' + p.file)}" alt="${esc(p.title)}" loading="lazy" width="160" height="160"></a>`;
+  const html = elegidos.map(p => item(p)).join('\n');
 
   const A = '<!-- STICKERS:START -->', Z = '<!-- STICKERS:END -->';
   let idx = fs.readFileSync(path.join(ROOT, 'index.html'), 'utf8');
   const si = idx.indexOf(A), ei = idx.indexOf(Z);
   if (si === -1 || ei === -1) { console.warn('⚠️  index.html sin marcadores STICKERS'); return; }
-  idx = idx.slice(0, si) + A + '\n' + html + '\n' + Z + idx.slice(ei);
+  idx = idx.slice(0, si) + A + '\n' + html + '\n' + Z + idx.slice(ei + Z.length);
   fs.writeFileSync(path.join(ROOT, 'index.html'), idx, 'utf8');
   console.log(`✓ index.html     — ${elegidos.length} stickers en el carrusel`);
 }
