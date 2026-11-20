@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="es" data-theme="dark">
 <head>
+<script>/* modo claro/oscuro: aplica lo elegido antes de dibujar la página (sin parpadeo) */
+try{var t=localStorage.getItem('ag-tema');if(t==='light'||t==='dark')document.documentElement.setAttribute('data-theme',t);}catch(e){}</script>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-0NZM3CS0M6"></script>
 <script>
@@ -123,6 +125,10 @@
       <li><a href="trabajos.html">Trabajos</a></li>
       <li><a href="#contacto">Contacto</a></li>
     </ul>
+    <button class="theme-toggle" type="button" aria-label="Cambiar a modo claro" title="Modo claro / oscuro">
+      <svg class="icon-sol" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M4.9 19.1l1.8-1.8M17.3 6.7l1.8-1.8"/></svg>
+      <svg class="icon-luna" viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M20.5 14.6A8.5 8.5 0 0 1 9.4 3.5a8.5 8.5 0 1 0 11.1 11.1z"/></svg>
+    </button>
     <a class="cta" href="#pedido">Pedir ahora</a>
   </nav>
 </header>
@@ -1454,6 +1460,22 @@ document.querySelectorAll('[data-carousel]').forEach(function(carousel) {
         : '—';
     }
   } catch(e) {}
+})();
+</script>
+<script>
+/* Botón modo claro/oscuro: arranca en oscuro y recuerda lo que eligió cada visitante */
+(function(){
+  var root=document.documentElement, btn=document.querySelector('.theme-toggle');
+  if(!btn) return;
+  function pintar(){ var claro=root.getAttribute('data-theme')==='light';
+    btn.setAttribute('aria-label', claro ? 'Cambiar a modo oscuro' : 'Cambiar a modo claro'); }
+  pintar();
+  btn.addEventListener('click',function(){
+    var nuevo=root.getAttribute('data-theme')==='light'?'dark':'light';
+    root.setAttribute('data-theme',nuevo);
+    try{localStorage.setItem('ag-tema',nuevo);}catch(e){}
+    pintar();
+  });
 })();
 </script>
 </body>

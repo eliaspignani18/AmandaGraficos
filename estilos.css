@@ -3032,3 +3032,37 @@ h3, h4 {
   -webkit-text-stroke: 0;
   text-shadow: 2px 2px 0 #000;
 }
+
+/* Ícono del botón de tema: sol en oscuro (pasar a claro), luna en claro */
+.theme-toggle { color: var(--text); }
+.theme-toggle .icon-luna { display: none; }
+[data-theme="light"] .theme-toggle .icon-sol { display: none; }
+[data-theme="light"] .theme-toggle .icon-luna { display: block; }
+.theme-toggle:hover { color: var(--p-black-beauty); }
+
+/* ═════════ MODO CLARO: ajustes ═════════ */
+/* Títulos chicos: oscuros y limpios sobre las tarjetas claras */
+[data-theme="light"] h3,
+[data-theme="light"] h4,
+[data-theme="light"] .price-card h3,
+[data-theme="light"] .price-card:nth-child(2) h3 {
+  color: var(--p-black-beauty);
+  -webkit-text-stroke: 0;
+  text-shadow: none;
+}
+/* Packs sigue siendo franja oscura en los dos modos: textos y etiquetas legibles */
+#packs .section-sub { color: #f4ecd8; }
+#packs .eyebrow { background: var(--lila, #d88cf0); color: var(--p-black-beauty); border-color: var(--lila, #d88cf0); }
+[data-theme="light"] #packs .pack-card { border-color: var(--lila, #d88cf0); box-shadow: 5px 5px 0 var(--lila, #d88cf0); }
+/* Hablemos y ¿Te gustó algún trabajo?: tarjeta clara con borde y sombra lila */
+[data-theme="light"] .contact-box,
+[data-theme="light"] .panel-lila {
+  background-color: #fffdf7;
+  background-image: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(216, 140, 240, 0.18), transparent 70%);
+  border: 2px solid var(--lila, #d88cf0);
+  box-shadow: 5px 5px 0 var(--lila, #d88cf0);
+  color: var(--p-black-beauty);
+}
+[data-theme="light"] .contact-box .section-kicker { background: var(--lila, #d88cf0); color: var(--p-black-beauty); }
+[data-theme="light"] .contact-box h2 { color: var(--p-blazing-yellow); -webkit-text-stroke: 4px #1c1c20; text-shadow: 3px 3px 0 #1c1c20; }
+[data-theme="light"] .panel-lila p { color: var(--p-black-beauty); }
