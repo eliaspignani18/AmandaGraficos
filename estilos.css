@@ -1466,7 +1466,7 @@ section {
   font-size: 1.25rem;
   margin-bottom: 4px;
 }
-.cart-total strong { font-family: var(--font-display); font-weight: 400; font-synthesis: none; }
+.cart-total strong { font-weight: 800; }
 .cart-total span { font-size: 0.8rem; font-weight: 600; opacity: 0.75; }
 .cart-summary { font-weight: 600; }
 .cart-item-price {
@@ -1483,9 +1483,9 @@ section {
   background: var(--whatsapp);
   color: white;
   border: 2px solid var(--stamp);
-  font-family: var(--font-display);
-  font-size: 0.875rem;
-  font-weight: 600;
+  font-family: inherit;  /* letra común en negrita: la display chica se veía borrosa */
+  font-size: 1rem;
+  font-weight: 700;
   letter-spacing: 0.01em;
   cursor: pointer;
   box-shadow: var(--shadow-stamp);
