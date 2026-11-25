@@ -373,6 +373,13 @@
     // ═══════════════════════════════════════════
     let cart = [];
 
+    // Precio de una línea del carrito (mismo cálculo que el modal). null = a consultar
+    function itemPrice(item) {
+      if (item.size === "A consultar") return null;
+      const r = getTieredPrice(item.size, item.qty, item.material === 'dtf' ? DTF_PRICE_TABLE : PRICE_TABLE);
+      return r ? r.total : null;
+    }
+
     function updateCartUI() {
       const fab      = document.getElementById("cartFab");
       const count    = document.getElementById("cartCount");
@@ -399,6 +406,7 @@
           <div class="cart-item-info">
             <div class="cart-item-name">${item.title}</div>
             <div class="cart-item-detail">${item.size}${item.material === 'dtf' ? ' · DTF' : ''} · ${item.qty} unidades</div>
+            <div class="cart-item-price">${itemPrice(item) === null ? "A consultar" : formatPrice(itemPrice(item))}</div>
           </div>
           <button class="cart-item-remove" data-i="${i}" aria-label="Quitar">✕</button>
         </div>
@@ -412,7 +420,10 @@
       });
 
       const types = [...new Set(cart.map(i => i.title))].length;
-      summary.textContent = `${types} diseño${types > 1 ? "s" : ""} · ${total} unidades en total`;
+      const precios  = cart.map(itemPrice);
+      const plata    = precios.reduce((s, p) => s + (p || 0), 0);
+      const consulta = precios.some(p => p === null);
+      summary.innerHTML = `<div class="cart-total">Total: <strong>${formatPrice(plata)}</strong>${consulta ? ' <span>+ a consultar</span>' : ''}</div>${types} diseño${types > 1 ? "s" : ""} · ${total} unidades`;
     }
 
     // Toast global
@@ -478,10 +489,11 @@
 
       let msg = "¡Hola Amanda Gráficos! Quiero hacer un pedido 🎨%0A%0A";
       cart.forEach(item => {
-        msg += `▸ ${item.title} — ${item.size}${item.material === 'dtf' ? ' (DTF)' : ''} — ${item.qty} unidades%0A`;
+        msg += `▸ ${item.title} — ${item.size}${item.material === 'dtf' ? ' (DTF)' : ''} — ${item.qty} unidades — ${itemPrice(item) === null ? "a consultar" : formatPrice(itemPrice(item))}%0A`;
       });
       const total = cart.reduce((s, i) => s + i.qty, 0);
-      msg += `%0ATotal: ${total} unidades en ${cart.length} diseño${cart.length > 1 ? "s" : ""}.%0A%0AQuedo a la espera. ¡Gracias!`;
+      const plata = cart.reduce((s, i) => s + (itemPrice(i) || 0), 0);
+      msg += `%0ATotal: ${formatPrice(plata)}${cart.some(i => itemPrice(i) === null) ? " + lo que es a consultar" : ""} (${total} unidades en ${cart.length} diseño${cart.length > 1 ? "s" : ""}).%0A%0AQuedo a la espera. ¡Gracias!`;
       window.open("https://wa.me/5493417481079?text=" + msg, "_blank");
     });
 
