@@ -1207,8 +1207,9 @@ section {
 .modal-price-label { font-size: 0.8rem; font-weight: 700; }
 .modal-price-value {
   font-family: var(--font-display);
-  font-size: 1.5rem;
-  font-weight: 700;
+  font-size: 1.6rem;
+  font-weight: 400;  /* la tipografía display no tiene negrita: con 700 el navegador la engorda y se ve borrosa */
+  font-synthesis: none;
   letter-spacing: -0.02em;
 }
 .modal-price-unit { font-size: 0.78rem; color: var(--ink-500); }
@@ -1465,7 +1466,7 @@ section {
   font-size: 1.25rem;
   margin-bottom: 4px;
 }
-.cart-total strong { font-family: var(--font-display); }
+.cart-total strong { font-family: var(--font-display); font-weight: 400; font-synthesis: none; }
 .cart-total span { font-size: 0.8rem; font-weight: 600; opacity: 0.75; }
 .cart-summary { font-weight: 600; }
 .cart-item-price {
