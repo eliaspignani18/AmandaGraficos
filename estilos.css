@@ -3087,3 +3087,43 @@ h3, h4 {
 [data-theme="light"] .contact-box .section-kicker { background: var(--lila, #d88cf0); color: var(--p-black-beauty); }
 [data-theme="light"] .contact-box h2 { color: var(--p-blazing-yellow); -webkit-text-stroke: 4px #1c1c20; text-shadow: 3px 3px 0 #1c1c20; }
 [data-theme="light"] .panel-lila p { color: var(--p-black-beauty); }
+
+/* ═══════════════════════════════════════════
+   PLANILLAS COMPLETAS (catálogo, al final)
+   ═══════════════════════════════════════════ */
+.pl-section { padding: 56px 0 80px; border-top: 2px dashed var(--line); margin-top: 40px; }
+.pl-head { text-align: center; max-width: 680px; margin: 0 auto 28px; }
+.pl-head h2 { margin: 14px 0 10px; }
+.pl-head p { color: var(--muted); margin: 0; }
+.pl-steps { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin: 18px 0 30px; }
+.pl-step { background: var(--surface); border: 2px solid var(--stamp); border-radius: 999px; padding: 6px 14px; font-size: 14px; }
+.pl-step b { background: var(--accent); color: #1c1c20; border-radius: 50%; display: inline-grid; place-items: center; width: 22px; height: 22px; margin-right: 6px; font-size: 12px; }
+.pl-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); gap: 18px; }
+.pl-card { background: var(--surface); border: 2px solid var(--stamp); border-radius: var(--radius-md); box-shadow: var(--shadow-stamp); overflow: hidden; cursor: zoom-in; transition: transform .15s, box-shadow .15s; text-align: left; padding: 0; color: inherit; font: inherit; }
+.pl-card:hover { transform: translate(-2px,-2px); box-shadow: var(--shadow-stamp-hover); }
+.pl-card img { width: 100%; height: auto; aspect-ratio: 905/1280; object-fit: cover; display: block; border-bottom: 2px solid var(--stamp); background: #fff; }
+.pl-card div { padding: 10px 12px; }
+.pl-card strong { display: block; font-size: 15px; }
+.pl-card span { font-size: 13px; color: var(--muted); }
+.pl-order { margin-top: 36px; background: var(--surface); border: 2px solid var(--stamp); border-radius: var(--radius-lg); box-shadow: var(--shadow-stamp); padding: 22px; display: grid; grid-template-columns: minmax(200px,2fr) minmax(110px,.8fr) minmax(200px,1.3fr) minmax(120px,.8fr) auto; gap: 14px; align-items: end; }
+.pl-order label { display: block; font-size: 13px; font-weight: 700; margin-bottom: 6px; white-space: nowrap; }
+.pl-order input, .pl-order select, .pl-order .cta { height: 46px; margin: 0; }
+.pl-order .cta { white-space: nowrap; display: inline-flex; align-items: center; justify-content: center; }
+.pl-order input, .pl-order select { width: 100%; box-sizing: border-box; padding: 0 12px; border: 2px solid var(--stamp); border-radius: var(--radius-sm); background: var(--paper); color: var(--text); font: inherit; }
+.pl-count { grid-column: 1 / -1; font-size: 13px; color: var(--text); margin: -4px 0 -8px; }
+.pl-count:empty { display: none; }
+.pl-count.error { color: var(--p-red-bud); }
+.pl-hint { grid-column: 1 / -1; font-size: 13px; color: var(--muted); margin: -4px 0 0; }
+@media (max-width: 760px) {
+  .pl-order { grid-template-columns: 1fr 1fr; }
+  .pl-order .full, .pl-order .pl-size { grid-column: 1 / -1; }
+  .pl-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+}
+.pl-lb { position: fixed; inset: 0; background: rgba(10,10,10,.96); display: none; z-index: 2000; flex-direction: column; }
+.pl-lb.open { display: flex; }
+.pl-lb-bar { display: flex; align-items: center; gap: 10px; padding: 10px 14px; color: #fff; background: #111; }
+.pl-lb-bar strong { flex: 1; }
+.pl-lb-bar button { background: #fff; color: #111; border: 0; border-radius: 8px; padding: 8px 12px; font-size: 16px; cursor: pointer; }
+.pl-lb-scroll { flex: 1; min-height: 0; overflow: auto; display: flex; padding: 0 12px 12px; }
+.pl-lb-scroll img { display: block; margin: auto; max-width: 100%; max-height: 100%; width: auto; height: auto; object-fit: contain; background: #fff; border-radius: 6px; cursor: zoom-in; }
+.pl-lb-scroll.zoom img { width: 1800px; max-width: none; max-height: none; cursor: zoom-out; }

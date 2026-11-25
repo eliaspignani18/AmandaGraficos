@@ -521,6 +521,95 @@
     });
 
     // ═══════════════════════════════════════════
+    //  PLANILLAS COMPLETAS (stickers numerados)
+    // ═══════════════════════════════════════════
+    // Cada número elegido entra al carrito como un diseño más, así los precios,
+    // los mínimos y el mensaje de WhatsApp funcionan igual que con los stickers sueltos.
+    (function () {
+      const plCards = [...document.querySelectorAll(".pl-card")];
+      if (!plCards.length) return;
+      const PL = plCards.map(c => ({ file: c.dataset.file, title: c.dataset.title, from: +c.dataset.from, to: +c.dataset.to }));
+
+      // Visor
+      const lb = document.getElementById("plLb"), img = document.getElementById("plLbImg"), sc = document.getElementById("plScroll");
+      let cur = 0;
+      function openLb(i) {
+        cur = (i + PL.length) % PL.length;
+        img.src = `images/planillas/${PL[cur].file}.webp`;
+        img.alt = `Planilla ${PL[cur].title}`;
+        document.getElementById("plLbTitle").textContent = `${PL[cur].title} · ${PL[cur].from}–${PL[cur].to}`;
+        sc.classList.remove("zoom");
+        lb.classList.add("open");
+        document.body.style.overflow = "hidden";
+      }
+      function closeLb() { lb.classList.remove("open"); document.body.style.overflow = ""; }
+      function toggleZoom(e) {
+        const r = img.getBoundingClientRect();
+        const fx = e && e.clientX != null ? (e.clientX - r.left) / r.width : 0.5;
+        const fy = e && e.clientY != null ? (e.clientY - r.top) / r.height : 0.5;
+        sc.classList.toggle("zoom");
+        if (sc.classList.contains("zoom")) {
+          const r2 = img.getBoundingClientRect();
+          sc.scrollLeft = fx * r2.width - sc.clientWidth / 2;
+          sc.scrollTop = fy * r2.height - sc.clientHeight / 2;
+        }
+      }
+      plCards.forEach((c, i) => c.addEventListener("click", () => openLb(i)));
+      document.getElementById("plClose").addEventListener("click", closeLb);
+      document.getElementById("plPrev").addEventListener("click", () => openLb(cur - 1));
+      document.getElementById("plNext").addEventListener("click", () => openLb(cur + 1));
+      document.getElementById("plZoom").addEventListener("click", () => toggleZoom());
+      img.addEventListener("click", toggleZoom);
+      document.addEventListener("keydown", e => {
+        if (!lb.classList.contains("open")) return;
+        if (e.key === "Escape") closeLb();
+        if (e.key === "ArrowLeft") openLb(cur - 1);
+        if (e.key === "ArrowRight") openLb(cur + 1);
+      });
+
+      // Pedido por números
+      const nums = document.getElementById("plNums"), count = document.getElementById("plCount");
+      const mat = document.getElementById("plMat"), size = document.getElementById("plSize"), qty = document.getElementById("plQty");
+      function fillSizes() {
+        const sizes = mat.value === "dtf" ? DTF_SIZES : VINILO_SIZES;
+        const def = mat.value === "dtf" ? "Chico (5×5 cm)" : "Mediano (10×10 cm)";
+        size.innerHTML = sizes.map(s => `<option${s === def ? " selected" : ""}>${s}</option>`).join("");
+      }
+      fillSizes();
+      mat.addEventListener("change", fillSizes);
+      const sheetOf = n => PL.find(p => n >= p.from && n <= p.to);
+      function parse() {
+        const all = [...new Set((nums.value.match(/\d+/g) || []).map(Number))];
+        return { ok: all.filter(sheetOf), bad: all.filter(n => !sheetOf(n)) };
+      }
+      function showCount() {
+        const { ok, bad } = parse();
+        count.classList.toggle("error", bad.length > 0);
+        count.textContent = bad.length
+          ? `No existe${bad.length > 1 ? "n" : ""} el número ${bad.join(", ")} en las planillas.`
+          : ok.length ? `${ok.length} diseño${ok.length > 1 ? "s" : ""}: ${ok.join(", ")}` : "";
+      }
+      nums.addEventListener("input", showCount);
+      document.getElementById("plAdd").addEventListener("click", () => {
+        const { ok, bad } = parse();
+        if (bad.length) { showCount(); return; }
+        if (!ok.length) { showToast("Escribí al menos un número de las planillas"); nums.focus(); return; }
+        const q = Math.max(1, parseInt(qty.value) || 1);
+        ok.forEach(n => {
+          const p = sheetOf(n);
+          const item = { file: `planillas/${p.file}.webp`, title: `Planilla nº ${n} · ${p.title}`, planilla: n };
+          const existing = cart.find(i => i.planilla === n && i.size === size.value && i.material === mat.value);
+          if (existing) existing.qty += q;
+          else cart.push({ ...item, qty: q, size: size.value, material: mat.value });
+        });
+        updateCartUI();
+        showToast(`✓ ${ok.length} diseño${ok.length > 1 ? "s" : ""} de las planillas agregado${ok.length > 1 ? "s" : ""} al pedido`);
+        nums.value = "";
+        showCount();
+      });
+    })();
+
+    // ═══════════════════════════════════════════
     //  FORMULARIO DE PEDIDO (existente)
     // ═══════════════════════════════════════════
     function sendToWhatsApp(event) {
