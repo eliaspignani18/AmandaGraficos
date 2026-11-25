@@ -1316,7 +1316,7 @@ section {
   width: 60px; height: 60px;
   border-radius: 50%;
   background: var(--p-blazing-yellow);
-  color: var(--text);
+  color: var(--p-black-beauty);
   border: 2px solid var(--stamp);
   cursor: pointer;
   box-shadow: var(--shadow-stamp);
