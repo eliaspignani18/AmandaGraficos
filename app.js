@@ -147,15 +147,15 @@
 
     const MINS = {
       vinilo: {
-        "Mini (3×3 cm)":      20,
-        "Chico (5×5 cm)":    20,
+        "Mini (3×3 cm)":      50,   // mínimos acordados el 25/11: que cada pedido deje una ganancia que valga el trabajo
+        "Chico (5×5 cm)":     20,
         "Mediano (10×10 cm)": 10,
-        "Grande (15×15 cm)":  10,
+        "Grande (15×15 cm)":   5,
       },
       dtf: {
-        "Mini (3×3 cm)":      150,
-        "Chico (5×5 cm)":     50,
-        "Mediano (10×10 cm)": 10,
+        "Mini (3×3 cm)":      35,   // DTF: los mismos que publica la página de inicio
+        "Chico (5×5 cm)":     14,
+        "Mediano (10×10 cm)":  3,
       }
     };
 
@@ -366,7 +366,12 @@
       updateModalPrice();
     });
     modalQty.addEventListener("input", updateModalPrice);
-    modalSize.addEventListener("change", updateModalPrice);
+    modalSize.addEventListener("change", () => {
+      // si la cantidad quedó por debajo del mínimo de ese tamaño, la subimos al mínimo
+      const min = (MINS[currentMaterial] || {})[modalSize.value];
+      if (min && (+modalQty.value || 0) < min) modalQty.value = min;
+      updateModalPrice();
+    });
 
     // ═══════════════════════════════════════════
     //  CARRITO
@@ -378,6 +383,19 @@
       if (item.size === "A consultar") return null;
       const r = getTieredPrice(item.size, item.qty, item.material === 'dtf' ? DTF_PRICE_TABLE : PRICE_TABLE);
       return r ? r.total : null;
+    }
+
+    // Cargo de preparación del pedido: IGUAL que index.html y AmandaGestion (CARGO_PEDIDO_ESCALAS)
+    const CARGO_PEDIDO_ESCALAS = [
+      { hasta: 10000, cargo: 1950 },
+      { hasta: 30000, cargo: 950 },
+    ];
+    function cargoPedido(subtotal) {
+      let cargo = 0;
+      for (const e of CARGO_PEDIDO_ESCALAS) {
+        cargo = Math.max(cargo, subtotal <= e.hasta ? e.cargo : e.hasta + e.cargo - subtotal);
+      }
+      return Math.round(cargo);
     }
 
     function updateCartUI() {
@@ -421,9 +439,11 @@
 
       const types = [...new Set(cart.map(i => i.title))].length;
       const precios  = cart.map(itemPrice);
-      const plata    = precios.reduce((s, p) => s + (p || 0), 0);
+      const subtotal = precios.reduce((s, p) => s + (p || 0), 0);
       const consulta = precios.some(p => p === null);
-      summary.innerHTML = `<div class="cart-total">Total: <strong>${formatPrice(plata)}</strong>${consulta ? ' <span>+ a consultar</span>' : ''}</div>${types} diseño${types > 1 ? "s" : ""} · ${total} unidades`;
+      const cargo    = consulta ? 0 : cargoPedido(subtotal);
+      const plata    = subtotal + cargo;
+      summary.innerHTML = `${cargo > 0 ? `<div class="cart-cargo">Preparación del pedido: ${formatPrice(cargo)}</div>` : ""}<div class="cart-total">Total: <strong>${formatPrice(plata)}</strong>${consulta ? ' <span>+ a consultar</span>' : ''}</div>${types} diseño${types > 1 ? "s" : ""} · ${total} unidades`;
     }
 
     // Toast global
@@ -492,7 +512,10 @@
         msg += `▸ ${item.title} — ${item.size}${item.material === 'dtf' ? ' (DTF)' : ''} — ${item.qty} unidades — ${itemPrice(item) === null ? "a consultar" : formatPrice(itemPrice(item))}%0A`;
       });
       const total = cart.reduce((s, i) => s + i.qty, 0);
-      const plata = cart.reduce((s, i) => s + (itemPrice(i) || 0), 0);
+      const subtotal = cart.reduce((s, i) => s + (itemPrice(i) || 0), 0);
+      const cargo    = cart.some(i => itemPrice(i) === null) ? 0 : cargoPedido(subtotal);
+      const plata    = subtotal + cargo;
+      if (cargo > 0) msg += `▸ Preparación del pedido — ${formatPrice(cargo)}%0A`;
       msg += `%0ATotal: ${formatPrice(plata)}${cart.some(i => itemPrice(i) === null) ? " + lo que es a consultar" : ""} (${total} unidades en ${cart.length} diseño${cart.length > 1 ? "s" : ""}).%0A%0AQuedo a la espera. ¡Gracias!`;
       window.open("https://wa.me/5493417481079?text=" + msg, "_blank");
     });

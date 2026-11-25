@@ -1469,6 +1469,7 @@ section {
 .cart-total strong { font-weight: 800; }
 .cart-total span { font-size: 0.8rem; font-weight: 600; opacity: 0.75; }
 .cart-summary { font-weight: 600; }
+.cart-cargo { font-size: 0.8rem; font-weight: 600; opacity: 0.8; margin-bottom: 2px; }
 .cart-item-price {
   font-weight: 700;
   margin-top: 2px;
